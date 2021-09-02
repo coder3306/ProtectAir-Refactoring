@@ -13,6 +13,9 @@
 		1956637126E0E2CC0018E62E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1956637026E0E2CC0018E62E /* Assets.xcassets */; };
 		1956637426E0E2CC0018E62E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1956637226E0E2CC0018E62E /* LaunchScreen.storyboard */; };
 		1956637C26E0E7ED0018E62E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956637B26E0E7ED0018E62E /* MainViewController.swift */; };
+		19B869A726E0FD93004BFBC5 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A626E0FD93004BFBC5 /* ApiError.swift */; };
+		19B869A926E0FDA8004BFBC5 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A826E0FDA8004BFBC5 /* CurrentWeather.swift */; };
+		19B869AB26E0FDB4004BFBC5 /* RaspData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869AA26E0FDB4004BFBC5 /* RaspData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		1956637326E0E2CC0018E62E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1956637526E0E2CC0018E62E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1956637B26E0E7ED0018E62E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		19B869A626E0FD93004BFBC5 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		19B869A826E0FDA8004BFBC5 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		19B869AA26E0FDB4004BFBC5 /* RaspData.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = RaspData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,10 @@
 		1956636626E0E2CB0018E62E /* ProtectAir */ = {
 			isa = PBXGroup;
 			children = (
+				1956637E26E0F2E20018E62E /* Location */,
+				1956638026E0F2E80018E62E /* Api */,
+				1956637F26E0F2E30018E62E /* Data */,
+				1956637D26E0F2E00018E62E /* Model */,
 				1956636726E0E2CB0018E62E /* AppDelegate.swift */,
 				1956636926E0E2CB0018E62E /* SceneDelegate.swift */,
 				1956636D26E0E2CB0018E62E /* Main.storyboard */,
@@ -65,6 +75,38 @@
 				1956637526E0E2CC0018E62E /* Info.plist */,
 			);
 			path = ProtectAir;
+			sourceTree = "<group>";
+		};
+		1956637D26E0F2E00018E62E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				19B869A626E0FD93004BFBC5 /* ApiError.swift */,
+				19B869A826E0FDA8004BFBC5 /* CurrentWeather.swift */,
+				19B869AA26E0FDB4004BFBC5 /* RaspData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1956637E26E0F2E20018E62E /* Location */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		1956637F26E0F2E30018E62E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Data;
+			path = "New Group1/Data";
+			sourceTree = "<group>";
+		};
+		1956638026E0F2E80018E62E /* Api */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +180,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1956637C26E0E7ED0018E62E /* MainViewController.swift in Sources */,
+				19B869AB26E0FDB4004BFBC5 /* RaspData.swift in Sources */,
+				19B869A926E0FDA8004BFBC5 /* CurrentWeather.swift in Sources */,
+				19B869A726E0FD93004BFBC5 /* ApiError.swift in Sources */,
 				1956636826E0E2CB0018E62E /* AppDelegate.swift in Sources */,
 				1956636A26E0E2CB0018E62E /* SceneDelegate.swift in Sources */,
 			);
