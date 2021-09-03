@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1902BB6426E23AD000147F77 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1902BB6326E23AD000147F77 /* LocationManager.swift */; };
 		1956636826E0E2CB0018E62E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956636726E0E2CB0018E62E /* AppDelegate.swift */; };
 		1956636A26E0E2CB0018E62E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956636926E0E2CB0018E62E /* SceneDelegate.swift */; };
 		1956636F26E0E2CB0018E62E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1956636D26E0E2CB0018E62E /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1902BB6326E23AD000147F77 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1956636426E0E2CB0018E62E /* ProtectAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtectAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1956636726E0E2CB0018E62E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1956636926E0E2CB0018E62E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		1956637E26E0F2E20018E62E /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				1902BB6326E23AD000147F77 /* LocationManager.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				1956637C26E0E7ED0018E62E /* MainViewController.swift in Sources */,
 				19B869AB26E0FDB4004BFBC5 /* RaspData.swift in Sources */,
 				19B869A926E0FDA8004BFBC5 /* CurrentWeather.swift in Sources */,
+				1902BB6426E23AD000147F77 /* LocationManager.swift in Sources */,
 				19B869A726E0FD93004BFBC5 /* ApiError.swift in Sources */,
 				1956636826E0E2CB0018E62E /* AppDelegate.swift in Sources */,
 				1956636A26E0E2CB0018E62E /* SceneDelegate.swift in Sources */,
