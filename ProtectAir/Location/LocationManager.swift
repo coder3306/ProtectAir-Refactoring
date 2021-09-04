@@ -22,7 +22,7 @@ class LocationManager: NSObject{
     
     let manager: CLLocationManager
     
-    var currentLocationTitle: String{
+    var currentLocationTitle: String?{
         didSet{
             var userInfo = [AnyHashable: Any]()
             if let location = currentLocation {

@@ -11,6 +11,8 @@
 		192AA85826E396830087E27C /* CurrentWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AA85726E396830087E27C /* CurrentWeatherData.swift */; };
 		192AA85A26E3B0CA0087E27C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AA85926E3B0CA0087E27C /* Common.swift */; };
 		192AA85C26E3B2420087E27C /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AA85B26E3B2420087E27C /* WeatherViewController.swift */; };
+		192AA85F26E3B67D0087E27C /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AA85E26E3B67D0087E27C /* Date+Formatter.swift */; };
+		192AA86126E3B6E60087E27C /* Double+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AA86026E3B6E60087E27C /* Double+Formatter.swift */; };
 		1956636826E0E2CB0018E62E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956636726E0E2CB0018E62E /* AppDelegate.swift */; };
 		1956636A26E0E2CB0018E62E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956636926E0E2CB0018E62E /* SceneDelegate.swift */; };
 		1956636F26E0E2CB0018E62E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1956636D26E0E2CB0018E62E /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 		192AA85726E396830087E27C /* CurrentWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherData.swift; sourceTree = "<group>"; };
 		192AA85926E3B0CA0087E27C /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		192AA85B26E3B2420087E27C /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		192AA85E26E3B67D0087E27C /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
+		192AA86026E3B6E60087E27C /* Double+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formatter.swift"; sourceTree = "<group>"; };
 		1956636426E0E2CB0018E62E /* ProtectAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtectAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1956636726E0E2CB0018E62E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1956636926E0E2CB0018E62E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		192AA85D26E3B6670087E27C /* Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				192AA85E26E3B67D0087E27C /* Date+Formatter.swift */,
+				192AA86026E3B6E60087E27C /* Double+Formatter.swift */,
+			);
+			path = Formatter;
+			sourceTree = "<group>";
+		};
 		1956635B26E0E2CB0018E62E = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				1956637E26E0F2E20018E62E /* Location */,
+				192AA85D26E3B6670087E27C /* Formatter */,
 				1956638026E0F2E80018E62E /* Api */,
 				1956637F26E0F2E30018E62E /* Data */,
 				1956637D26E0F2E00018E62E /* Model */,
@@ -192,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				192AA85826E396830087E27C /* CurrentWeatherData.swift in Sources */,
+				192AA85F26E3B67D0087E27C /* Date+Formatter.swift in Sources */,
 				192AA85C26E3B2420087E27C /* WeatherViewController.swift in Sources */,
 				1956637C26E0E7ED0018E62E /* MainViewController.swift in Sources */,
 				19B869AB26E0FDB4004BFBC5 /* RaspData.swift in Sources */,
@@ -201,6 +216,7 @@
 				19B869A726E0FD93004BFBC5 /* ApiError.swift in Sources */,
 				1956636826E0E2CB0018E62E /* AppDelegate.swift in Sources */,
 				1956636A26E0E2CB0018E62E /* SceneDelegate.swift in Sources */,
+				192AA86126E3B6E60087E27C /* Double+Formatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
