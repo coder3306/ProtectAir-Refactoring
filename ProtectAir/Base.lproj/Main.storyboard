@@ -19,11 +19,17 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xDo-Xs-nIc">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5X-Yx-cvu">
+                                <rect key="frame" x="186" y="63" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ndF-xY-7bB">
                                 <rect key="frame" x="0.0" y="102" width="414" height="684"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="JMf-tZ-hnp">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="JMf-tZ-hnp" customClass="WeatherViewController" customModule="ProtectAir" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JMf-tZ-hnp" id="hTa-1B-vvZ">
@@ -80,15 +86,15 @@
                                             <constraint firstAttribute="bottom" secondItem="49f-KA-tNo" secondAttribute="bottom" constant="11" id="afw-e4-55C"/>
                                             <constraint firstItem="XKB-AD-Kov" firstAttribute="leading" secondItem="JMf-tZ-hnp" secondAttribute="leading" constant="11" id="yOq-qw-hO5"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="currentTemperatureLabel" destination="49f-KA-tNo" id="eGG-FR-vIy"/>
+                                            <outlet property="minMaxLabel" destination="lhc-Ys-fg0" id="R7x-34-uaD"/>
+                                            <outlet property="statusLabel" destination="rRu-3j-n72" id="KEQ-rD-yEG"/>
+                                            <outlet property="weatherImageView" destination="XKB-AD-Kov" id="mVW-Y4-BAi"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5X-Yx-cvu">
-                                <rect key="frame" x="186" y="63" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
