@@ -10,10 +10,8 @@ import CoreLocation
 
 class CurrentWeatherData{
     static let shared = CurrentWeatherData()
-    
     private init () {
-        NotificationCenter.default.addObserver(forName: LocationManager.currentLocationDidUpdate, object: nil, queue: .main){
-            (noti) in
+        NotificationCenter.default.addObserver(forName: LocationManager.currentLocationDidUpdate, object: nil, queue: .main){ (noti) in
             if let location = noti.userInfo?["location"] as? CLLocation{
                 self.fetch(location: location){
                     NotificationCenter.default.post(name: Self.weatherInfoDidUpdate, object: nil)
@@ -27,7 +25,7 @@ class CurrentWeatherData{
     var summary: CurrentWeather?
     let apiQueue = DispatchQueue(label: "ApiQueue", attributes: .concurrent)
     let group = DispatchGroup()
-    
+
     func fetch(location: CLLocation, completion: @escaping () -> ()) {
         group.enter()
         apiQueue.async {
@@ -86,15 +84,8 @@ extension CurrentWeatherData{
         task.resume()
     }
     
-    private func fetchCurrentWeather(cityName: String, completion: @escaping(Result<CurrentWeather,Error>) -> ()){
-        let urlStr = "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=\(apiKey)&units=metric&lang=kr"
-        
-        fetch(urlStr: urlStr, completion: completion)
-    }
-    
     private func fetchCurrentWeather(location: CLLocation, completion: @escaping(Result<CurrentWeather,Error>) -> ()){
-        let urlStr = "https://api.openweathermap.org/data/2.5/weather?q=\(location.coordinate.latitude)&appid=\(apiKey)&units=metric&lang=kr"
-        
+        let urlStr = "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=a3d53c4b7a0f558bcce4af29031a28e4&units=metric&lang=kr"
         fetch(urlStr: urlStr, completion: completion)
     }
 }

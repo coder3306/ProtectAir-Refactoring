@@ -15,6 +15,7 @@ class WeatherViewController: UITableViewCell {
     @IBOutlet weak var minMaxLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
