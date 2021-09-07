@@ -27,5 +27,22 @@ struct CurrentWeather: Codable {
     let main: Main
 }
 
-struct DustWeather: Codable{
+struct DustData: Codable{
+    struct List: Codable {
+        let dt: Int
+        
+        struct Main: Codable {
+            let aqi: Int
+        }
+        
+        let main: Main
+        
+        struct Components: Codable {
+            let pm2_5: Double
+            let pm10: Double
+        }
+        
+        let components: Components
+    }
+    let list: [List]
 }

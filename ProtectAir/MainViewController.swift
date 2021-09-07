@@ -51,6 +51,10 @@ class MainViewController: UIViewController {
                 self.weatherTableView.alpha = 1.0
             }
         }
+        
+        NotificationCenter.default.addObserver(forName: CurrentDustWeatherData.weatherInfoDidUpdate, object: nil, queue: .main){ noti in
+            self.weatherTableView.reloadData()
+        }
     }
 }
 
@@ -65,12 +69,12 @@ extension MainViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryTableViewCell", for: indexPath) as! WeatherViewController
-        if let weather = CurrentWeatherData.shared.summary?.weather.first, let main = CurrentWeatherData.shared.summary?.main{
+        if let weather = CurrentWeatherData.shared.summary?.weather.first, let main = CurrentWeatherData.shared.summary?.main, let dust = CurrentDustWeatherData.shared.dust?.list.first?.components {
             cell.weatherImageView.image = UIImage(named: weather.icon)
             cell.statusLabel.text = weather.description
             cell.minMaxLabel.text = "최고 \(main.temp_max.temperatureString), 최소 \(main.temp_min.temperatureString)"
             cell.currentTemperatureLabel.text = "\(main.temp.temperatureString)"
-            //cell.dustLabel.text = \()
+            cell.dustLabel.text = "PM2.5: \(dust.pm2_5) , PM10: \(dust.pm10)"
         }
         return cell
     }

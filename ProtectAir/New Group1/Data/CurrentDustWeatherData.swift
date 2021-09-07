@@ -1,15 +1,16 @@
 //
-//  CurrentWeatherData.swift
+//  CurrentDustWeatherData.swift
 //  ProtectAir
 //
-//  Created by 정성규 on 2021/09/04.
+//  Created by 정성규 on 2021/09/07.
 //
 
 import Foundation
 import CoreLocation
 
-class CurrentWeatherData{
-    static let shared = CurrentWeatherData()
+class CurrentDustWeatherData{
+    static let shared = CurrentDustWeatherData()
+    
     private init () {
         NotificationCenter.default.addObserver(forName: LocationManager.currentLocationDidUpdate, object: nil, queue: .main){ (noti) in
             if let location = noti.userInfo?["location"] as? CLLocation{
@@ -21,22 +22,22 @@ class CurrentWeatherData{
     }
     
     static let weatherInfoDidUpdate = Notification.Name(rawValue: "weatherInfoDidUpdate")
-    
-    var summary: CurrentWeather?
+    var dust: DustData?
     let apiQueue = DispatchQueue(label: "ApiQueue", attributes: .concurrent)
     let group = DispatchGroup()
-
-    func fetch(location: CLLocation, completion: @escaping () -> ()) {
+    
+    func fetch(location: CLLocation, completion: @escaping () -> ()){
         group.enter()
         apiQueue.async {
-            self.fetchCurrentWeather(location: location) {(result) in
+            self.fetchDustData(location: location){ (result) in
                 switch result {
                 case .success(let data):
-                    self.summary = data
+                    self.dust = data
+                    print(data)
                 default:
-                    self.summary = nil
+                    self.dust = nil
                 }
-            self.group.leave()
+                self.group.leave()
             }
         }
         group.notify(queue: .main){
@@ -45,7 +46,7 @@ class CurrentWeatherData{
     }
 }
 
-extension CurrentWeatherData{
+extension CurrentDustWeatherData{
     private func fetch<PasingType: Codable>(urlStr: String, completion: @escaping(Result<PasingType,Error>) -> ()){
         guard let url = URL(string: urlStr) else {
             completion(.failure(ApiError.invalidURL(urlStr)))
@@ -72,7 +73,6 @@ extension CurrentWeatherData{
                 completion(.failure(ApiError.emptyData))
                 return
             }
-            
             do{
                 let decoder = JSONDecoder()
                 let data = try decoder.decode(PasingType.self, from: data)
@@ -84,8 +84,8 @@ extension CurrentWeatherData{
         task.resume()
     }
     
-    private func fetchCurrentWeather(location: CLLocation, completion: @escaping(Result<CurrentWeather,Error>) -> ()){
-        let urlStr = "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=a3d53c4b7a0f558bcce4af29031a28e4&units=metric&lang=kr"
+    private func fetchDustData(location: CLLocation, completion: @escaping(Result<DustData,Error>) ->()){
+        let urlStr = "http://api.openweathermap.org/data/2.5/air_pollution?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=ebb2a9c22933e32d59f761c0c9fc6096"
         fetch(urlStr: urlStr, completion: completion)
     }
 }
