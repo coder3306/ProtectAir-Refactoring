@@ -37,8 +37,9 @@ class MainViewController: UIViewController {
         weatherTableView.backgroundColor = .clear
         weatherTableView.separatorStyle = .none
         weatherTableView.showsVerticalScrollIndicator = false
+        locationLabel.textColor = .white
+        weatherTableView.rowHeight = 230
         
-        weatherTableView.rowHeight = 150
         
         LocationManager.shared.updateLocation()
         
@@ -69,6 +70,7 @@ extension MainViewController: UITableViewDataSource{
             cell.statusLabel.text = weather.description
             cell.minMaxLabel.text = "최고 \(main.temp_max.temperatureString), 최소 \(main.temp_min.temperatureString)"
             cell.currentTemperatureLabel.text = "\(main.temp.temperatureString)"
+            //cell.dustLabel.text = \()
         }
         return cell
     }

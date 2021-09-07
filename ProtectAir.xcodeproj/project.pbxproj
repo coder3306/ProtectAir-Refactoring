@@ -98,7 +98,6 @@
 				1956637D26E0F2E00018E62E /* Model */,
 				1956636726E0E2CB0018E62E /* AppDelegate.swift */,
 				1956636926E0E2CB0018E62E /* SceneDelegate.swift */,
-				192AA85926E3B0CA0087E27C /* Common.swift */,
 				1956636D26E0E2CB0018E62E /* Main.storyboard */,
 				1956637B26E0E7ED0018E62E /* MainViewController.swift */,
 				1975341426E4F94300513BB1 /* DustMainViewController.swift */,
@@ -114,6 +113,7 @@
 		1956637D26E0F2E00018E62E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				192AA85926E3B0CA0087E27C /* Common.swift */,
 				19B869A626E0FD93004BFBC5 /* ApiError.swift */,
 				19B869A826E0FDA8004BFBC5 /* CurrentWeather.swift */,
 				19B869AA26E0FDB4004BFBC5 /* RaspData.swift */,

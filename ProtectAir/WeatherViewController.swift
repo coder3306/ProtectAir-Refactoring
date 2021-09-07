@@ -15,6 +15,7 @@ class WeatherViewController: UITableViewCell {
     @IBOutlet weak var minMaxLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet weak var dustLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +24,7 @@ class WeatherViewController: UITableViewCell {
         statusLabel.textColor = .white
         minMaxLabel.textColor = statusLabel.textColor
         currentTemperatureLabel.textColor = statusLabel.textColor
+        dustLabel.textColor = statusLabel.textColor
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

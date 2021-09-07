@@ -26,3 +26,6 @@ struct CurrentWeather: Codable {
     
     let main: Main
 }
+
+struct DustWeather: Codable{
+}

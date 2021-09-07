@@ -23,6 +23,7 @@ class CurrentWeatherData{
     static let weatherInfoDidUpdate = Notification.Name(rawValue: "weatherInfoDidUpdate")
     
     var summary: CurrentWeather?
+    var dustData: DustWeather?
     let apiQueue = DispatchQueue(label: "ApiQueue", attributes: .concurrent)
     let group = DispatchGroup()
 
