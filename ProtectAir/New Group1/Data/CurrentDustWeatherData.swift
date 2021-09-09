@@ -15,19 +15,20 @@ class CurrentDustWeatherData{
         NotificationCenter.default.addObserver(forName: LocationManager.currentLocationDidUpdate, object: nil, queue: .main){ (noti) in
             if let location = noti.userInfo?["location"] as? CLLocation{
                 self.fetch(location: location){
-                    NotificationCenter.default.post(name: Self.weatherInfoDidUpdate, object: nil)
+                    NotificationCenter.default.post(name: Self.dustInfoDidUpdate, object: nil)
                 }
             }
         }
     }
 
-    static let weatherInfoDidUpdate = Notification.Name(rawValue: "weatherInfoDidUpdate")
+    static let dustInfoDidUpdate = Notification.Name(rawValue: "DustInfoDidUpdate")
     var dust: DustData?
     let apiQueue = DispatchQueue(label: "ApiQueue", attributes: .concurrent)
     let group = DispatchGroup()
 
     func fetch(location: CLLocation, completion: @escaping () -> ()){
         group.enter()
+        print(location)
         apiQueue.async {
             self.fetchDustData(location: location){ (result) in
                 switch result {
@@ -36,6 +37,7 @@ class CurrentDustWeatherData{
                     print(data)
                 default:
                     self.dust = nil
+    
                 }
                 self.group.leave()
             }
@@ -85,7 +87,7 @@ extension CurrentDustWeatherData{
     }
     
     private func fetchDustData(location: CLLocation, completion: @escaping(Result<DustData,Error>) ->()){
-        let urlStr = "http://api.openweathermap.org/data/2.5/air_pollution?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=ebb2a9c22933e32d59f761c0c9fc6096"
+        let urlStr = "https://api.openweathermap.org/data/2.5/air_pollution?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=ebb2a9c22933e32d59f761c0c9fc6096"
         fetch(urlStr: urlStr, completion: completion)
     }
 }

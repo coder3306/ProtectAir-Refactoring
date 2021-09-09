@@ -15,7 +15,6 @@
 		192AA85F26E3B67D0087E27C /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AA85E26E3B67D0087E27C /* Date+Formatter.swift */; };
 		192AA86126E3B6E60087E27C /* Double+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AA86026E3B6E60087E27C /* Double+Formatter.swift */; };
 		19345C1C26E490030073E60D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19345C1B26E490030073E60D /* Assets.xcassets */; };
-		194ABE2B26E4C556009A7651 /* RaspDustData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194ABE2A26E4C556009A7651 /* RaspDustData.swift */; };
 		1956636826E0E2CB0018E62E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956636726E0E2CB0018E62E /* AppDelegate.swift */; };
 		1956636A26E0E2CB0018E62E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956636926E0E2CB0018E62E /* SceneDelegate.swift */; };
 		1956636F26E0E2CB0018E62E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1956636D26E0E2CB0018E62E /* Main.storyboard */; };
@@ -38,7 +37,6 @@
 		192AA86026E3B6E60087E27C /* Double+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Formatter.swift"; sourceTree = "<group>"; };
 		19345C1B26E490030073E60D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		194ABE2726E4A22C009A7651 /* test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = test.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		194ABE2A26E4C556009A7651 /* RaspDustData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspDustData.swift; sourceTree = "<group>"; };
 		1956636426E0E2CB0018E62E /* ProtectAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtectAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1956636726E0E2CB0018E62E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1956636926E0E2CB0018E62E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				192AA85726E396830087E27C /* CurrentWeatherData.swift */,
-				194ABE2A26E4C556009A7651 /* RaspDustData.swift */,
 				190840FB26E79F26006FB27D /* CurrentDustWeatherData.swift */,
 			);
 			name = Data;
@@ -240,7 +237,6 @@
 				1975341526E4F94300513BB1 /* DustMainViewController.swift in Sources */,
 				1975341326E4F91B00513BB1 /* DustTableViewController.swift in Sources */,
 				1902BB6426E23AD000147F77 /* LocationManager.swift in Sources */,
-				194ABE2B26E4C556009A7651 /* RaspDustData.swift in Sources */,
 				19B869A726E0FD93004BFBC5 /* ApiError.swift in Sources */,
 				1956636826E0E2CB0018E62E /* AppDelegate.swift in Sources */,
 				1956636A26E0E2CB0018E62E /* SceneDelegate.swift in Sources */,

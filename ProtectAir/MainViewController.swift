@@ -48,6 +48,9 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("\(indexPath.row)")
+    }
     
 }
 
@@ -58,13 +61,14 @@ extension MainViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryTableViewCell", for: indexPath) as! WeatherViewController
-        //let dust = CurrentWeatherData.shared.dust?.list.first
+        let dust = CurrentDustWeatherData.shared.dust?.list.first
         if let weather = CurrentWeatherData.shared.summary?.weather.first, let main = CurrentWeatherData.shared.summary?.main {
             cell.weatherImageView.image = UIImage(named: weather.icon)
             cell.statusLabel.text = weather.description
             cell.minMaxLabel.text = "최고 \(main.temp_max.temperatureString), 최소 \(main.temp_min.temperatureString)"
             cell.currentTemperatureLabel.text = "\(main.temp.temperatureString)"
-            //cell.dustLabel.text = "PM2.5: \(dust!.components.pm2_5) , PM10: \(dust!.components.pm10)"
+            cell.pm25Label.text = "PM2.5: \(String(describing: dust?.components.pm2_5))"
+            cell.pm100Label.text = "PM10: \(String(describing: dust?.components.pm10))"
         }
         return cell
     }
