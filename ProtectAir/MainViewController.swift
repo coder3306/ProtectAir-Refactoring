@@ -18,17 +18,10 @@ class MainViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-//        if topInset == 0.0 {
-//            let firstIndexPath = IndexPath(row: 0, section: 0)
-//            if let cell = weatherTableView.cellForRow(at: firstIndexPath){
-//                topInset = weatherTableView.frame.height - cell.frame.height
-//
-//                var inset = weatherTableView.contentInset
-//                inset.top = topInset
-//
-//                weatherTableView.contentInset = inset
-//            }
-//        }
+        topInset = 50.0
+        var inset = weatherTableView.contentInset
+        inset.top = topInset
+        weatherTableView.contentInset = inset
     }
     override func viewDidLoad() {
         super.viewDidLoad()

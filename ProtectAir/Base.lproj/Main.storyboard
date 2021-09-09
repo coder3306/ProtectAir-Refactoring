@@ -58,8 +58,8 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRu-3j-n72">
-                                                    <rect key="frame" x="265" y="50.5" width="41.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="277" y="49" width="48" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -75,7 +75,7 @@
                                                         <constraint firstAttribute="height" constant="84" id="Phl-Du-0YW"/>
                                                         <constraint firstAttribute="width" constant="300" id="v5b-QW-TaA"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="80"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -121,7 +121,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="lhc-Ys-fg0" secondAttribute="trailing" constant="11" id="Qha-xR-lpd"/>
                                                 <constraint firstItem="XKB-AD-Kov" firstAttribute="centerX" secondItem="hTa-1B-vvZ" secondAttribute="centerX" id="R4d-JO-Tpo"/>
                                                 <constraint firstItem="CBs-FQ-ekp" firstAttribute="top" secondItem="b13-BA-r5f" secondAttribute="bottom" constant="8" symbolic="YES" id="SvP-5K-gSi"/>
-                                                <constraint firstItem="rRu-3j-n72" firstAttribute="leading" secondItem="XKB-AD-Kov" secondAttribute="trailing" constant="8" symbolic="YES" id="T71-u7-0vo"/>
+                                                <constraint firstItem="rRu-3j-n72" firstAttribute="leading" secondItem="XKB-AD-Kov" secondAttribute="trailing" constant="20" id="T71-u7-0vo"/>
                                                 <constraint firstItem="Dqe-ne-1e6" firstAttribute="centerX" secondItem="rf8-67-ea4" secondAttribute="centerX" id="TVV-QT-5Rf"/>
                                                 <constraint firstItem="49f-KA-tNo" firstAttribute="top" secondItem="XKB-AD-Kov" secondAttribute="bottom" constant="30" id="XrK-2Z-p1v"/>
                                                 <constraint firstItem="rf8-67-ea4" firstAttribute="top" secondItem="lhc-Ys-fg0" secondAttribute="bottom" constant="28" id="YL6-FV-Ywy"/>

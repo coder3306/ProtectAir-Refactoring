@@ -2,22 +2,13 @@ import UIKit
 import CoreLocation
 
 
-struct DustData: Codable{
-    struct List: Codable {
-        let dt: Int
-        struct Main: Codable {
-            let aqi: Int
-        }
-        let main: Main
-        
-        struct Components: Codable {
-            let pm2_5: Double
-            let pm10: Double
-        }
-        
-        let components: Components
-    }
-    let list: [List]
+struct raspData: Codable{
+    let id: String
+    let time: String
+    let pm25: Int
+    let pm100: Int
+     
+     let microDust: [raspData]
 }
 
 
@@ -59,19 +50,26 @@ private func fetch<PasingType: Codable>(urlStr: String, completion: @escaping(Re
     task.resume()
 }
 
-let location = CLLocation(latitude: 37.498206, longitude: 127.02761)
 
-private func fetchCurrentWeather(location: CLLocation, completion: @escaping(Result<DustData,Error>) -> ()){
-    let urlStr = "http://api.openweathermap.org/data/2.5/air_pollution?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=ebb2a9c22933e32d59f761c0c9fc6096"
+private func fetchCurrentDust(completion: @escaping(Result<DustData,Error>) -> ()){
+    let urlStr = "http://192.168.0.1/insert4.php"
     
     fetch(urlStr: urlStr, completion: completion)
 }
 
-fetchCurrentWeather(location: location) { (result) in
-    switch result {
+fetchCurrentDust() {(result) in
+    switch result{
     case .success(let dust):
         dump(dust)
     case .failure(let error):
-        error
+        print(error)
     }
 }
+//fetchCurrentWeather(location: location) { (result) in
+//    switch result {
+//    case .success(let dust):
+//        dump(dust)
+//    case .failure(let error):
+//        error
+//    }
+//}
