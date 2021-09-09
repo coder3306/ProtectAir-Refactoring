@@ -19,10 +19,11 @@ class CurrentWeatherData{
             }
         }
     }
-    
+
     static let weatherInfoDidUpdate = Notification.Name(rawValue: "weatherInfoDidUpdate")
     
     var summary: CurrentWeather?
+    //var dust: DustData?
     let apiQueue = DispatchQueue(label: "ApiQueue", attributes: .concurrent)
     let group = DispatchGroup()
 
@@ -33,16 +34,39 @@ class CurrentWeatherData{
                 switch result {
                 case .success(let data):
                     self.summary = data
+                    print(data)
                 default:
                     self.summary = nil
                 }
             self.group.leave()
             }
         }
+        
         group.notify(queue: .main){
             completion()
         }
     }
+//    let tlocation = CLLocation(latitude: 37.498206, longitude: 127.02761)
+//    func fetch(location: tlocation, completion: @escaping () -> ()) {
+//        group.enter()
+//        apiQueue.async {
+//            self.fetchDustData(location: self.tlocation){ (result) in
+//                switch result {
+//                case .success(let dust):
+//                    self.dust = dust
+//                    print("미세먼지 데이터 파싱 위치-->\(dust)")
+//                default:
+//                    self.dust = nil
+//                    print("않됢")
+//                }
+//                self.group.leave()
+//            }
+//        }
+//
+//        group.notify(queue: .main){
+//            completion()
+//        }
+//    }
 }
 
 extension CurrentWeatherData{
@@ -88,4 +112,9 @@ extension CurrentWeatherData{
         let urlStr = "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=a3d53c4b7a0f558bcce4af29031a28e4&units=metric&lang=kr"
         fetch(urlStr: urlStr, completion: completion)
     }
+    
+//    private func fetchDustData(location: CLLocation, completion: @escaping(Result<DustData,Error>) ->()){
+//        let urlStr = "http://api.openweathermap.org/data/2.5/air_pollution?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=ebb2a9c22933e32d59f761c0c9fc6096"
+//        fetch(urlStr: urlStr, completion: completion)
+//    }
 }

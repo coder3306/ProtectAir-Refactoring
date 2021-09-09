@@ -10,7 +10,7 @@ import CoreLocation
 
 class CurrentDustWeatherData{
     static let shared = CurrentDustWeatherData()
-    
+
     private init () {
         NotificationCenter.default.addObserver(forName: LocationManager.currentLocationDidUpdate, object: nil, queue: .main){ (noti) in
             if let location = noti.userInfo?["location"] as? CLLocation{
@@ -20,12 +20,12 @@ class CurrentDustWeatherData{
             }
         }
     }
-    
+
     static let weatherInfoDidUpdate = Notification.Name(rawValue: "weatherInfoDidUpdate")
     var dust: DustData?
     let apiQueue = DispatchQueue(label: "ApiQueue", attributes: .concurrent)
     let group = DispatchGroup()
-    
+
     func fetch(location: CLLocation, completion: @escaping () -> ()){
         group.enter()
         apiQueue.async {
@@ -52,23 +52,23 @@ extension CurrentDustWeatherData{
             completion(.failure(ApiError.invalidURL(urlStr)))
             return
         }
-        
+
         let task = URLSession.shared.dataTask(with: url){(data, response, error) in
             if let error = error {
                 completion(.failure(error))
                 return
             }
-            
+
             guard let httpResponse = response as? HTTPURLResponse else {
                 completion(.failure(ApiError.invalidResponse))
                 return
             }
-            
+
             guard httpResponse.statusCode == 200 else {
                 completion(.failure(ApiError.failed(httpResponse.statusCode)))
                 return
             }
-            
+
             guard let data = data else {
                 completion(.failure(ApiError.emptyData))
                 return

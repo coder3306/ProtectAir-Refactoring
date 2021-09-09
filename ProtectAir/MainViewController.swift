@@ -18,17 +18,17 @@ class MainViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if topInset == 0.0 {
-            let firstIndexPath = IndexPath(row: 0, section: 0)
-            if let cell = weatherTableView.cellForRow(at: firstIndexPath){
-                topInset = weatherTableView.frame.height - cell.frame.height
-
-                var inset = weatherTableView.contentInset
-                inset.top = topInset
-
-                weatherTableView.contentInset = inset
-            }
-        }
+//        if topInset == 0.0 {
+//            let firstIndexPath = IndexPath(row: 0, section: 0)
+//            if let cell = weatherTableView.cellForRow(at: firstIndexPath){
+//                topInset = weatherTableView.frame.height - cell.frame.height
+//
+//                var inset = weatherTableView.contentInset
+//                inset.top = topInset
+//
+//                weatherTableView.contentInset = inset
+//            }
+//        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class MainViewController: UIViewController {
         weatherTableView.separatorStyle = .none
         weatherTableView.showsVerticalScrollIndicator = false
         locationLabel.textColor = .white
-        weatherTableView.rowHeight = 230
+        weatherTableView.rowHeight = 800
         
         
         LocationManager.shared.updateLocation()
@@ -50,10 +50,6 @@ class MainViewController: UIViewController {
             UIView.animate(withDuration: 0.3){
                 self.weatherTableView.alpha = 1.0
             }
-        }
-        
-        NotificationCenter.default.addObserver(forName: CurrentDustWeatherData.weatherInfoDidUpdate, object: nil, queue: .main){ noti in
-            self.weatherTableView.reloadData()
         }
     }
 }
@@ -69,12 +65,13 @@ extension MainViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryTableViewCell", for: indexPath) as! WeatherViewController
-        if let weather = CurrentWeatherData.shared.summary?.weather.first, let main = CurrentWeatherData.shared.summary?.main, let dust = CurrentDustWeatherData.shared.dust?.list.first?.components {
+        //let dust = CurrentWeatherData.shared.dust?.list.first
+        if let weather = CurrentWeatherData.shared.summary?.weather.first, let main = CurrentWeatherData.shared.summary?.main {
             cell.weatherImageView.image = UIImage(named: weather.icon)
             cell.statusLabel.text = weather.description
             cell.minMaxLabel.text = "최고 \(main.temp_max.temperatureString), 최소 \(main.temp_min.temperatureString)"
             cell.currentTemperatureLabel.text = "\(main.temp.temperatureString)"
-            cell.dustLabel.text = "PM2.5: \(dust.pm2_5) , PM10: \(dust.pm10)"
+            //cell.dustLabel.text = "PM2.5: \(dust!.components.pm2_5) , PM10: \(dust!.components.pm10)"
         }
         return cell
     }
