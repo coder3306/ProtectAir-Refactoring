@@ -34,7 +34,6 @@ class CurrentWeatherData{
                 switch result {
                 case .success(let data):
                     self.summary = data
-                    print(data)
                 default:
                     self.summary = nil
                 }

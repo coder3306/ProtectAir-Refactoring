@@ -40,6 +40,9 @@ struct DustData: Codable{
         struct Components: Codable {
             let pm2_5: Double
             let pm10: Double
+            let no2: Double
+            let so2: Double
+            let o3: Double
         }
         
         let components: Components

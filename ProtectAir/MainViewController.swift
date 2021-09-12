@@ -33,7 +33,7 @@ class MainViewController: UIViewController {
         weatherTableView.separatorStyle = .none
         weatherTableView.showsVerticalScrollIndicator = false
         locationLabel.textColor = .white
-        weatherTableView.rowHeight = 800
+        weatherTableView.rowHeight = 400
         
         
         LocationManager.shared.updateLocation()
@@ -59,11 +59,18 @@ extension MainViewController: UITableViewDelegate{
 
 extension MainViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch section{
+        case 0:
+            return 1
+        case 1:
+            return 1
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryTableViewCell", for: indexPath) as! WeatherViewController
+
         //옵셔널 바인딩 안하면 옵셔널값으로 튀어나오므로, if let 으로 옵셔널 바인딩 후 reloadData를 쓴다.
 //        if let dust = CurrentDustWeatherData.shared.dust?.list.first{
 //            cell.pm25Label.text = "미세먼지 : \(Int(dust.components.pm2_5))"
@@ -74,13 +81,29 @@ extension MainViewController: UITableViewDataSource{
 //                cell.pm25ImageView.image = UIImage(named: "5522.jpg")
 //            }
 //        }
-        if let weather = CurrentWeatherData.shared.summary?.weather.first, let main = CurrentWeatherData.shared.summary?.main {
-            cell.weatherImageView.image = UIImage(named: weather.icon)
-            cell.statusLabel.text = weather.description
-            cell.minMaxLabel.text = "최고기온 : \(main.temp_max.temperatureString) 최저기온 :  \(main.temp_min.temperatureString)"
-            cell.currentTemperatureLabel.text = "\(main.temp.temperatureString)"
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryTableViewCell", for: indexPath) as! WeatherViewController
+            if let weather = CurrentWeatherData.shared.summary?.weather.first, let main = CurrentWeatherData.shared.summary?.main {
+                cell.weatherImageView.image = UIImage(named: weather.icon)
+                cell.statusLabel.text = weather.description
+                cell.minMaxLabel.text = "최고기온 : \(main.temp_max.temperatureString)     최저기온 :  \(main.temp_min.temperatureString)"
+                cell.currentTemperatureLabel.text = "\(main.temp.temperatureString)"
+            }
+            return cell
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DustTableViewCell", for: indexPath) as! DustTableViewCell
+        if let dust = CurrentDustWeatherData.shared.dust?.list.first{
+            cell.pm25DataLabel.text = "\(Int(dust.components.pm2_5)) pm/m3"
+            cell.pm100DataLabel.text = "\(Int(dust.components.pm10))"
+            cell.no2DataLabel.text = "\(Int(dust.components.no2))"
+            cell.so2DataLabel.text = "\(Int(dust.components.so2))"
+            cell.o3DataLabel.text = "\(Int(dust.components.o3))"
         }
         return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
 }
 
