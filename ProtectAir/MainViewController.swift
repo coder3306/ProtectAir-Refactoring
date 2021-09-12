@@ -49,15 +49,11 @@ class MainViewController: UIViewController {
         
         NotificationCenter.default.addObserver(forName: CurrentDustWeatherData.dustInfoDidUpdate, object: nil, queue: .main){ noti in
             self.weatherTableView.reloadData()
-            print("리로드데이터")
         }
     }
 }
 
 extension MainViewController: UITableViewDelegate{
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(indexPath.row)")
-    }
     
 }
 
@@ -69,16 +65,20 @@ extension MainViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryTableViewCell", for: indexPath) as! WeatherViewController
         //옵셔널 바인딩 안하면 옵셔널값으로 튀어나오므로, if let 으로 옵셔널 바인딩 후 reloadData를 쓴다.
-        if let dust = CurrentDustWeatherData.shared.dust?.list.first{
-            cell.pm25Label.text = "\(dust.components.pm2_5)"
-            cell.pm100Label.text = "124124124"
-        }
+//        if let dust = CurrentDustWeatherData.shared.dust?.list.first{
+//            cell.pm25Label.text = "미세먼지 : \(Int(dust.components.pm2_5))"
+//            cell.pm100Label.text = "초 미세먼지 : \(Int(dust.components.pm10))"
+//            if Int(dust.components.pm2_5) > 17 {
+//                cell.pm25ImageView.image = UIImage(named: "12414.jpg")
+//            } else {
+//                cell.pm25ImageView.image = UIImage(named: "5522.jpg")
+//            }
+//        }
         if let weather = CurrentWeatherData.shared.summary?.weather.first, let main = CurrentWeatherData.shared.summary?.main {
             cell.weatherImageView.image = UIImage(named: weather.icon)
             cell.statusLabel.text = weather.description
-            cell.minMaxLabel.text = "최고 \(main.temp_max.temperatureString), 최소 \(main.temp_min.temperatureString)"
+            cell.minMaxLabel.text = "최고기온 : \(main.temp_max.temperatureString) 최저기온 :  \(main.temp_min.temperatureString)"
             cell.currentTemperatureLabel.text = "\(main.temp.temperatureString)"
-
         }
         return cell
     }

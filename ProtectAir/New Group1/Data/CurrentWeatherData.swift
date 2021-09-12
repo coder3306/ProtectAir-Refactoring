@@ -89,7 +89,7 @@ extension CurrentWeatherData{
     }
     
     private func fetchCurrentWeather(location: CLLocation, completion: @escaping(Result<CurrentWeather,Error>) -> ()){
-        let urlStr = "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=a3d53c4b7a0f558bcce4af29031a28e4&units=metric&lang=kr"
+        let urlStr = "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=a3d53c4b7a0f558bcce4af29031a28e4&units=metric&lang=en"
         fetch(urlStr: urlStr, completion: completion)
     }
 }

@@ -25,7 +25,6 @@ class DustTableViewController: UITableViewCell {
         pm25Label.textColor = timeLabel.textColor
         pm100Label.textColor = timeLabel.textColor
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
