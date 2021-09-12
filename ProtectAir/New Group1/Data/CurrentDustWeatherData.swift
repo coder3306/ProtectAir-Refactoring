@@ -28,13 +28,12 @@ class CurrentDustWeatherData{
 
     func fetch(location: CLLocation, completion: @escaping () -> ()){
         group.enter()
-        print(location)
         apiQueue.async {
             self.fetchDustData(location: location){ (result) in
                 switch result {
                 case .success(let data):
                     self.dust = data
-                    print(data)
+                    print("---> 파싱된 데이터 \(data)")
                 default:
                     self.dust = nil
     

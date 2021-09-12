@@ -23,8 +23,10 @@ class MainViewController: UIViewController {
         inset.top = topInset
         weatherTableView.contentInset = inset
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initRefresh()
         
         weatherTableView.alpha = 0.0
         weatherTableView.backgroundColor = .clear
@@ -44,6 +46,11 @@ class MainViewController: UIViewController {
                 self.weatherTableView.alpha = 1.0
             }
         }
+        
+        NotificationCenter.default.addObserver(forName: CurrentDustWeatherData.dustInfoDidUpdate, object: nil, queue: .main){ noti in
+            self.weatherTableView.reloadData()
+            print("리로드데이터")
+        }
     }
 }
 
@@ -61,15 +68,37 @@ extension MainViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryTableViewCell", for: indexPath) as! WeatherViewController
-        let dust = CurrentDustWeatherData.shared.dust?.list.first
+        //옵셔널 바인딩 안하면 옵셔널값으로 튀어나오므로, if let 으로 옵셔널 바인딩 후 reloadData를 쓴다.
+        if let dust = CurrentDustWeatherData.shared.dust?.list.first{
+            cell.pm25Label.text = "\(dust.components.pm2_5)"
+            cell.pm100Label.text = "124124124"
+        }
         if let weather = CurrentWeatherData.shared.summary?.weather.first, let main = CurrentWeatherData.shared.summary?.main {
             cell.weatherImageView.image = UIImage(named: weather.icon)
             cell.statusLabel.text = weather.description
             cell.minMaxLabel.text = "최고 \(main.temp_max.temperatureString), 최소 \(main.temp_min.temperatureString)"
             cell.currentTemperatureLabel.text = "\(main.temp.temperatureString)"
-            cell.pm25Label.text = "PM2.5: \(String(describing: dust?.components.pm2_5))"
-            cell.pm100Label.text = "PM10: \(String(describing: dust?.components.pm10))"
+
         }
         return cell
+    }
+}
+
+extension MainViewController {
+    func initRefresh() {
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(updateUI(refresh:)), for: .valueChanged)
+        refresh.attributedTitle = NSAttributedString(string: "새로고침")
+        
+        if #available(iOS 10.0, *){
+            weatherTableView.refreshControl = refresh
+        } else {
+            weatherTableView.addSubview(refresh)
+        }
+    }
+    
+    @objc func updateUI(refresh: UIRefreshControl){
+        refresh.endRefreshing()
+        weatherTableView.reloadData()
     }
 }
