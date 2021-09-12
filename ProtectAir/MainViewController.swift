@@ -33,7 +33,7 @@ class MainViewController: UIViewController {
         weatherTableView.separatorStyle = .none
         weatherTableView.showsVerticalScrollIndicator = false
         locationLabel.textColor = .white
-        weatherTableView.rowHeight = 400
+        weatherTableView.rowHeight = 350
         
         
         LocationManager.shared.updateLocation()
@@ -93,11 +93,88 @@ extension MainViewController: UITableViewDataSource{
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "DustTableViewCell", for: indexPath) as! DustTableViewCell
         if let dust = CurrentDustWeatherData.shared.dust?.list.first{
-            cell.pm25DataLabel.text = "\(Int(dust.components.pm2_5)) pm/m3"
+            
+            let no2Data: Double = dust.components.no2 / 10000
+            let so2Data: Double = dust.components.so2 / 10000
+            let o3Data:Double = dust.components.o3 / 1000
+            
+            cell.pm25DataLabel.text = "\(Int(dust.components.pm2_5))"
             cell.pm100DataLabel.text = "\(Int(dust.components.pm10))"
-            cell.no2DataLabel.text = "\(Int(dust.components.no2))"
-            cell.so2DataLabel.text = "\(Int(dust.components.so2))"
-            cell.o3DataLabel.text = "\(Int(dust.components.o3))"
+            cell.no2DataLabel.text = "\(String(format: "%.4f", no2Data))"
+            cell.so2DataLabel.text = "\(String(format: "%.4f", so2Data))"
+            cell.o3DataLabel.text = "\(String(format: "%.4f", o3Data))"
+            
+            if Int(dust.components.pm2_5) < 30 {
+                cell.pm25ImageView.image = UIImage(named: "good.png")
+                cell.pm25StateLabel.text = "좋음"
+            } else if Int(dust.components.pm2_5) < 81 {
+                cell.pm25ImageView.image = UIImage(named: "normally.png")
+                cell.pm25StateLabel.text = "보통"
+            } else if Int(dust.components.pm2_5) < 151 {
+                cell.pm25ImageView.image = UIImage(named: "bad.png")
+                cell.pm25StateLabel.text = "나쁨"
+            } else {
+                cell.pm25ImageView.image = UIImage(named: "verybad.png")
+                cell.pm25StateLabel.text = "최악"
+            }
+            
+            if Int(dust.components.pm10) < 15 {
+                cell.pm100ImageView.image = UIImage(named: "good.png")
+                cell.pm100StateLabel.text = "좋음"
+            } else if Int(dust.components.pm10) < 36 {
+                cell.pm100ImageView.image = UIImage(named: "normally.png")
+                cell.pm100StateLabel.text = "보통"
+            } else if Int(dust.components.pm10) < 76 {
+                cell.pm100ImageView.image = UIImage(named: "bad.png")
+                cell.pm100StateLabel.text = "나쁨"
+            } else {
+                cell.pm100ImageView.image = UIImage(named: "verybad.png")
+                cell.pm100StateLabel.text = "최악"
+            }
+            
+            //값 수정작업 후 작업해야함.
+            if no2Data < 0.02 {
+                cell.no2ImageView.image = UIImage(named: "good.png")
+                cell.no2StateLabel.text = "좋음"
+            } else if no2Data < 0.051 {
+                cell.no2ImageView.image = UIImage(named: "normally.png")
+                cell.no2StateLabel.text = "보통"
+            } else if no2Data < 0.151 {
+                cell.no2ImageView.image = UIImage(named: "bad.png")
+                cell.no2StateLabel.text = "나쁨"
+            } else {
+                cell.no2ImageView.image = UIImage(named: "verybad.png")
+                cell.no2StateLabel.text = "최악"
+            }
+            
+            if so2Data < 0.03 {
+                cell.so2ImageView.image = UIImage(named: "good.png")
+                cell.so2StateLabel.text = "좋음"
+            } else if so2Data < 0.061 {
+                cell.so2ImageView.image = UIImage(named: "normally.png")
+                cell.so2StateLabel.text = "보통"
+            } else if so2Data < 0.21 {
+                cell.so2ImageView.image = UIImage(named: "bad.png")
+                cell.so2StateLabel.text = "나쁨"
+            } else {
+                cell.so2ImageView.image = UIImage(named: "verybad.png")
+                cell.so2StateLabel.text = "최악"
+            }
+            
+            if o3Data < 0.03 {
+                cell.o3ImageView.image = UIImage(named: "good.png")
+                cell.o3StateLabel.text = "좋음"
+            } else if o3Data < 0.091 {
+                cell.o3ImageView.image = UIImage(named: "normally.png")
+                cell.o3StateLabel.text = "보통"
+            } else if o3Data < 0.151 {
+                cell.o3ImageView.image = UIImage(named: "bad.png")
+                cell.o3StateLabel.text = "나쁨"
+            } else {
+                cell.o3ImageView.image = UIImage(named: "verybad.png")
+                cell.o3StateLabel.text = "최악"
+            }
+            
         }
         return cell
     }

@@ -30,8 +30,8 @@ extension DustMainViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DustTableViewController
         cell.nameLabel.text = "1호실"
-        cell.pm25Label.text = "pm25의 농도 : 123"
-        cell.pm100Label.text = "pm100의 농도 : 123"
+        cell.pm25Label.text = "pm25 : 12345"
+        cell.pm100Label.text = "pm100 : 12345"
         return cell
     }
 
