@@ -18,7 +18,20 @@ class DustMainViewController: UIViewController {
         dustTableView.backgroundColor = .clear
         dustTableView.separatorStyle = .none
         dustTableView.rowHeight = 200
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        NotificationCenter.default.addObserver(forName: RaspiDataPasing.fetchData, object: nil, queue: .main) {(noti) in
+            self.dustTableView.reloadData()
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+    
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -28,19 +41,18 @@ extension DustMainViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DustTableViewController
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RaspiDustCell
         
         if let raspiData = RaspiDataPasing.shared.raspi?.result.first{
             cell.nameLabel.text = "1호실"
             cell.pm25Label.text = "pm25 : \(raspiData.value1)"
             cell.pm100Label.text = "pm100 : \(raspiData.value2)"
         }
-
+        cell.pm25Label.text = "pm25 : 500"
+        cell.pm100Label.text = "pm100 : 5000"
         return cell
     }
-
 }
 
 extension DustMainViewController: UITableViewDelegate{
-    
 }

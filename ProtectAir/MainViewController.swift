@@ -51,6 +51,11 @@ class MainViewController: UIViewController {
             self.weatherTableView.reloadData()
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        removeNotification()
+    }
 }
 
 extension MainViewController: UITableViewDelegate{
@@ -72,15 +77,6 @@ extension MainViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         //옵셔널 바인딩 안하면 옵셔널값으로 튀어나오므로, if let 으로 옵셔널 바인딩 후 reloadData를 쓴다.
-//        if let dust = CurrentDustWeatherData.shared.dust?.list.first{
-//            cell.pm25Label.text = "미세먼지 : \(Int(dust.components.pm2_5))"
-//            cell.pm100Label.text = "초 미세먼지 : \(Int(dust.components.pm10))"
-//            if Int(dust.components.pm2_5) > 17 {
-//                cell.pm25ImageView.image = UIImage(named: "12414.jpg")
-//            } else {
-//                cell.pm25ImageView.image = UIImage(named: "5522.jpg")
-//            }
-//        }
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryTableViewCell", for: indexPath) as! WeatherViewController
             if let weather = CurrentWeatherData.shared.summary?.weather.first, let main = CurrentWeatherData.shared.summary?.main {
@@ -200,5 +196,9 @@ extension MainViewController {
     @objc func updateUI(refresh: UIRefreshControl){
         refresh.endRefreshing()
         weatherTableView.reloadData()
+    }
+    
+    func removeNotification() {
+        NotificationCenter.default.removeObserver(self, name: LocationManager.currentLocationDidUpdate, object: nil)
     }
 }

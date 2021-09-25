@@ -82,7 +82,6 @@ extension LocationManager: CLLocationManagerDelegate{
                     self?.currentLocationTitle = placemark.name ?? "unknown"
                 }
             }
-            print(self?.currentLocationTitle)
         }
     }
     @available(iOS 14.0, *)

@@ -10,11 +10,16 @@ import UIKit
 
 class RaspiDataPasing{
     static let shared = RaspiDataPasing()
+    static let fetchData = Notification.Name(rawValue: "fetchData")
     
     var raspi: RaspData?
-    
     let apiQueue = DispatchQueue(label: "ApiQueue", attributes: .concurrent)
     let group = DispatchGroup()
+    
+    private init() {
+        NotificationCenter.default.post(name: Self.fetchData, object: nil)
+    }
+    
     
     func fetch(completion: @escaping () -> ()) {
         group.enter()

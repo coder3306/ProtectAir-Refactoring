@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DustTableViewController: UITableViewCell {
+class RaspiDustCell: UITableViewCell {
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -28,5 +28,14 @@ class DustTableViewController: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+}
 
+class updateList{
+    static let shared = updateList()
+    
+    var updateData: [RaspData] = []
+    
+    func uploadInfo(at index: Int) -> RaspData{
+        return updateData[index]
+    }
 }
