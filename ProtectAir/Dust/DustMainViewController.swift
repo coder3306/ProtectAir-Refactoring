@@ -29,9 +29,13 @@ extension DustMainViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DustTableViewController
-        cell.nameLabel.text = "1호실"
-        cell.pm25Label.text = "pm25 : 12345"
-        cell.pm100Label.text = "pm100 : 12345"
+        
+        if let raspiData = RaspiDataPasing.shared.raspi?.result.first{
+            cell.nameLabel.text = "1호실"
+            cell.pm25Label.text = "pm25 : \(raspiData.value1)"
+            cell.pm100Label.text = "pm100 : \(raspiData.value2)"
+        }
+
         return cell
     }
 

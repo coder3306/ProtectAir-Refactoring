@@ -1,16 +1,16 @@
 import UIKit
-import CoreLocation
 
 
 struct raspData: Codable{
-    let id: String
-    let time: String
-    let pm25: Int
-    let pm100: Int
-     
-     let microDust: [raspData]
+    struct Result: Codable {
+        let sensor: String
+        let collect_time: String
+        let value1: String
+        let value2: String
+    }
+    
+    let result: [Result]
 }
-
 
 private func fetch<PasingType: Codable>(urlStr: String, completion: @escaping(Result<PasingType,Error>) -> ()){
     guard let url = URL(string: urlStr) else {
@@ -50,8 +50,8 @@ private func fetch<PasingType: Codable>(urlStr: String, completion: @escaping(Re
     task.resume()
 }
 
-private func fetchCurrentDust(completion: @escaping(Result<DustData,Error>) -> ()){
-    let urlStr = "http://192.168.0.1/insert4.php"
+private func fetchCurrentDust(completion: @escaping(Result<raspData,Error>) -> ()){
+    let urlStr = "http://192.168.0.15/insert4.php"
     
     fetch(urlStr: urlStr, completion: completion)
 }

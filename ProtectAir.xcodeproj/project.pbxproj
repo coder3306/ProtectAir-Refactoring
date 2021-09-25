@@ -21,6 +21,7 @@
 		1956637426E0E2CC0018E62E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1956637226E0E2CC0018E62E /* LaunchScreen.storyboard */; };
 		1956637C26E0E7ED0018E62E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956637B26E0E7ED0018E62E /* MainViewController.swift */; };
 		1965377B26EE16BB0018BA7D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965377A26EE16BB0018BA7D /* TabBarController.swift */; };
+		197087CC26EEE11F00AFC458 /* RaspiDataPasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197087CB26EEE11F00AFC458 /* RaspiDataPasing.swift */; };
 		1975341326E4F91B00513BB1 /* DustTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975341226E4F91B00513BB1 /* DustTableViewController.swift */; };
 		1975341526E4F94300513BB1 /* DustMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975341426E4F94300513BB1 /* DustMainViewController.swift */; };
 		19839C6826EDF073005A131A /* DustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19839C6726EDF073005A131A /* DustTableViewCell.swift */; };
@@ -47,6 +48,7 @@
 		1956637526E0E2CC0018E62E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1956637B26E0E7ED0018E62E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1965377A26EE16BB0018BA7D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		197087CB26EEE11F00AFC458 /* RaspiDataPasing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspiDataPasing.swift; sourceTree = "<group>"; };
 		1975341126E4F7E300513BB1 /* RaspberryPiTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RaspberryPiTest.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1975341226E4F91B00513BB1 /* DustTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustTableViewController.swift; sourceTree = "<group>"; };
 		1975341426E4F94300513BB1 /* DustMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustMainViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				192AA85726E396830087E27C /* CurrentWeatherData.swift */,
 				190840FB26E79F26006FB27D /* CurrentDustWeatherData.swift */,
+				197087CB26EEE11F00AFC458 /* RaspiDataPasing.swift */,
 			);
 			name = Data;
 			path = "New Group1/Data";
@@ -247,6 +250,7 @@
 				1975341526E4F94300513BB1 /* DustMainViewController.swift in Sources */,
 				1975341326E4F91B00513BB1 /* DustTableViewController.swift in Sources */,
 				1902BB6426E23AD000147F77 /* LocationManager.swift in Sources */,
+				197087CC26EEE11F00AFC458 /* RaspiDataPasing.swift in Sources */,
 				19B869A726E0FD93004BFBC5 /* ApiError.swift in Sources */,
 				1956636826E0E2CB0018E62E /* AppDelegate.swift in Sources */,
 				1956636A26E0E2CB0018E62E /* SceneDelegate.swift in Sources */,
@@ -404,7 +408,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = sunggyu.ProtectAir;
+				PRODUCT_BUNDLE_IDENTIFIER = sunggyu.protectair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -423,7 +427,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = sunggyu.ProtectAir;
+				PRODUCT_BUNDLE_IDENTIFIER = sunggyu.protectair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

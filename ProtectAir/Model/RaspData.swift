@@ -1,11 +1,14 @@
 import Foundation
 import UIKit
 
-struct raspData: Codable{
-    let id: String
-    let time: String
-    let pm25: Int
-    let pm100: Int
-     
-     let microDust: [raspData]
+struct RaspData: Codable{
+    struct Result: Codable {
+        let sensor: String
+        let collect_time: String
+        let value1: String
+        let value2: String
+    }
+    
+    let result: [Result]
 }
+

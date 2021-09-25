@@ -98,19 +98,19 @@ extension MainViewController: UITableViewDataSource{
             let so2Data: Double = dust.components.so2 / 10000
             let o3Data:Double = dust.components.o3 / 1000
             
-            cell.pm25DataLabel.text = "\(Int(dust.components.pm2_5))"
-            cell.pm100DataLabel.text = "\(Int(dust.components.pm10))"
+            cell.pm25DataLabel.text = "\(dust.components.pm2_5)"
+            cell.pm100DataLabel.text = "\(dust.components.pm10)"
             cell.no2DataLabel.text = "\(String(format: "%.4f", no2Data))"
             cell.so2DataLabel.text = "\(String(format: "%.4f", so2Data))"
             cell.o3DataLabel.text = "\(String(format: "%.4f", o3Data))"
             
-            if Int(dust.components.pm2_5) < 30 {
+            if dust.components.pm2_5 < 30.0 {
                 cell.pm25ImageView.image = UIImage(named: "good.png")
                 cell.pm25StateLabel.text = "좋음"
-            } else if Int(dust.components.pm2_5) < 81 {
+            } else if dust.components.pm2_5 < 81.0 {
                 cell.pm25ImageView.image = UIImage(named: "normally.png")
                 cell.pm25StateLabel.text = "보통"
-            } else if Int(dust.components.pm2_5) < 151 {
+            } else if dust.components.pm2_5 < 151.0 {
                 cell.pm25ImageView.image = UIImage(named: "bad.png")
                 cell.pm25StateLabel.text = "나쁨"
             } else {
@@ -118,13 +118,13 @@ extension MainViewController: UITableViewDataSource{
                 cell.pm25StateLabel.text = "최악"
             }
             
-            if Int(dust.components.pm10) < 15 {
+            if dust.components.pm10 < 15.0 {
                 cell.pm100ImageView.image = UIImage(named: "good.png")
                 cell.pm100StateLabel.text = "좋음"
-            } else if Int(dust.components.pm10) < 36 {
+            } else if dust.components.pm10 < 36.0 {
                 cell.pm100ImageView.image = UIImage(named: "normally.png")
                 cell.pm100StateLabel.text = "보통"
-            } else if Int(dust.components.pm10) < 76 {
+            } else if dust.components.pm10 < 76.0 {
                 cell.pm100ImageView.image = UIImage(named: "bad.png")
                 cell.pm100StateLabel.text = "나쁨"
             } else {
