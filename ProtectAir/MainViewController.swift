@@ -54,10 +54,6 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: UITableViewDelegate{
-    
-}
-
 extension MainViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section{
@@ -78,8 +74,8 @@ extension MainViewController: UITableViewDataSource{
             if let weather = FetchData.shared.summary?.weather.first, let main = FetchData.shared.summary?.main {
                 cell.weatherImageView.image = UIImage(named: weather.icon)
                 cell.statusLabel.text = weather.description
-                //cell.minMaxLabel.text = "최고기온 : \(main.temp_max.temperatureString)     최저기온 :  \(main.temp_min.temperatureString)"
-                //cell.currentTemperatureLabel.text = "\(main.temp.temperatureString)"
+                cell.tempMiniMaxiLabel.text = "최고기온 : \(main.temp_max.temperatureString)     최저기온 :  \(main.temp_min.temperatureString)"
+                cell.tempLabel.text = "\(main.temp.temperatureString)"
             }
             return cell
         }

@@ -17,6 +17,7 @@
 		1956636F26E0E2CB0018E62E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1956636D26E0E2CB0018E62E /* Main.storyboard */; };
 		1956637426E0E2CC0018E62E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1956637226E0E2CC0018E62E /* LaunchScreen.storyboard */; };
 		1956637C26E0E7ED0018E62E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956637B26E0E7ED0018E62E /* MainViewController.swift */; };
+		1961A1282702B2F3009D4557 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1961A1272702B2F3009D4557 /* Formatter.swift */; };
 		1965377B26EE16BB0018BA7D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965377A26EE16BB0018BA7D /* TabBarController.swift */; };
 		197087CC26EEE11F00AFC458 /* RaspiDataPasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197087CB26EEE11F00AFC458 /* RaspiDataPasing.swift */; };
 		1975341326E4F91B00513BB1 /* RaspiDustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975341226E4F91B00513BB1 /* RaspiDustCell.swift */; };
@@ -41,6 +42,7 @@
 		1956637326E0E2CC0018E62E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1956637526E0E2CC0018E62E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1956637B26E0E7ED0018E62E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		1961A1272702B2F3009D4557 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		1965377A26EE16BB0018BA7D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		197087CB26EEE11F00AFC458 /* RaspiDataPasing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspiDataPasing.swift; sourceTree = "<group>"; };
 		1975341126E4F7E300513BB1 /* RaspberryPiTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RaspberryPiTest.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -92,6 +94,7 @@
 		1956636626E0E2CB0018E62E /* ProtectAir */ = {
 			isa = PBXGroup;
 			children = (
+				1961A1262702B2CE009D4557 /* Format */,
 				1956637E26E0F2E20018E62E /* Location */,
 				1956638026E0F2E80018E62E /* Api */,
 				1956637F26E0F2E30018E62E /* Data */,
@@ -146,6 +149,14 @@
 				1975341126E4F7E300513BB1 /* RaspberryPiTest.playground */,
 			);
 			path = Api;
+			sourceTree = "<group>";
+		};
+		1961A1262702B2CE009D4557 /* Format */ = {
+			isa = PBXGroup;
+			children = (
+				1961A1272702B2F3009D4557 /* Formatter.swift */,
+			);
+			path = Format;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +243,7 @@
 				197087CC26EEE11F00AFC458 /* RaspiDataPasing.swift in Sources */,
 				19B869A726E0FD93004BFBC5 /* ApiError.swift in Sources */,
 				1956636826E0E2CB0018E62E /* AppDelegate.swift in Sources */,
+				1961A1282702B2F3009D4557 /* Formatter.swift in Sources */,
 				1956636A26E0E2CB0018E62E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
