@@ -9,9 +9,12 @@ import Foundation
 import UIKit
 import CoreLocation
 
-class LocationManager: NSObject{
+class Location: NSObject{
     //싱클톤 패턴
-    static let shared = LocationManager()
+    let manager: CLLocationManager
+    var currentLocation: CLLocation?
+    static let LocationUpdate = Notification.Name(rawValue: "LocationUpdate")
+    static let shared = Location()
     
     private override init(){
         manager = CLLocationManager()
@@ -19,21 +22,17 @@ class LocationManager: NSObject{
         super.init()
         manager.delegate = self
     }
-    
-    let manager: CLLocationManager
-    
-    var currentLocationTitle: String?{
+
+    var locationTitle: String?{
         didSet{
             var userInfo = [AnyHashable: Any]()
             if let location = currentLocation {
                 userInfo["location"] = location
             }
             
-            NotificationCenter.default.post(name: Self.currentLocationDidUpdate, object: nil, userInfo: userInfo)
+            NotificationCenter.default.post(name: Self.LocationUpdate, object: nil, userInfo: userInfo)
         }
     }
-    var currentLocation: CLLocation?
-    static let currentLocationDidUpdate = Notification.Name(rawValue: "currentLocationDidUpdate")
     
     func updateLocation()  {
         let status: CLAuthorizationStatus
@@ -57,7 +56,7 @@ class LocationManager: NSObject{
     }
 }
 
-extension LocationManager: CLLocationManagerDelegate{
+extension Location: CLLocationManagerDelegate{
     private func requestAuthorization() {
         manager.requestWhenInUseAuthorization()
     }
@@ -71,15 +70,15 @@ extension LocationManager: CLLocationManagerDelegate{
         geocoder.reverseGeocodeLocation(location){[weak self] (placemarks, error) in
             if let error = error {
                 print(error)
-                self?.currentLocationTitle = "unknown"
+                self?.locationTitle = "unknown"
                 return
             }
             
             if let placemark = placemarks?.first{
                 if let gu = placemark.locality, let dong = placemark.subLocality{
-                    self?.currentLocationTitle = "\(gu) \(dong)"
+                    self?.locationTitle = "\(gu) \(dong)"
                 } else {
-                    self?.currentLocationTitle = placemark.name ?? "unknown"
+                    self?.locationTitle = placemark.name ?? "unknown"
                 }
             }
         }

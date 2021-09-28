@@ -7,12 +7,13 @@
 
 import UIKit
 
-class WeatherViewController: UITableViewCell {
+class WeatherCell: UITableViewCell {
     
     static let identifier = "SummaryTableViewCell"
+
     
-    @IBOutlet weak var currentTemperatureLabel: UILabel!
-    @IBOutlet weak var minMaxLabel: UILabel!
+    @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var tempMiniMaxiLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
     
@@ -21,8 +22,8 @@ class WeatherViewController: UITableViewCell {
         
         backgroundColor = .clear
         statusLabel.textColor = .white
-        minMaxLabel.textColor = statusLabel.textColor
-        currentTemperatureLabel.textColor = statusLabel.textColor
+        tempMiniMaxiLabel.textColor = statusLabel.textColor
+        tempLabel.textColor = statusLabel.textColor
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

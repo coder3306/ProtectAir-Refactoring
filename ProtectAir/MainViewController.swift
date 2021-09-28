@@ -36,19 +36,15 @@ class MainViewController: UIViewController {
         weatherTableView.rowHeight = 350
         
         
-        LocationManager.shared.updateLocation()
+        Location.shared.updateLocation()
         
-        NotificationCenter.default.addObserver(forName: CurrentWeatherData.weatherInfoDidUpdate, object: nil, queue: .main){ noti in
+        NotificationCenter.default.addObserver(forName: FetchData.weatherUpdate, object: nil, queue: .main){ noti in
             self.weatherTableView.reloadData()
-            self.locationLabel.text = LocationManager.shared.currentLocationTitle
+            self.locationLabel.text = Location.shared.locationTitle
             
             UIView.animate(withDuration: 0.3){
                 self.weatherTableView.alpha = 1.0
             }
-        }
-        
-        NotificationCenter.default.addObserver(forName: CurrentDustWeatherData.dustInfoDidUpdate, object: nil, queue: .main){ noti in
-            self.weatherTableView.reloadData()
         }
     }
     
@@ -78,17 +74,17 @@ extension MainViewController: UITableViewDataSource{
 
         //옵셔널 바인딩 안하면 옵셔널값으로 튀어나오므로, if let 으로 옵셔널 바인딩 후 reloadData를 쓴다.
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryTableViewCell", for: indexPath) as! WeatherViewController
-            if let weather = CurrentWeatherData.shared.summary?.weather.first, let main = CurrentWeatherData.shared.summary?.main {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
+            if let weather = FetchData.shared.summary?.weather.first, let main = FetchData.shared.summary?.main {
                 cell.weatherImageView.image = UIImage(named: weather.icon)
                 cell.statusLabel.text = weather.description
-                cell.minMaxLabel.text = "최고기온 : \(main.temp_max.temperatureString)     최저기온 :  \(main.temp_min.temperatureString)"
-                cell.currentTemperatureLabel.text = "\(main.temp.temperatureString)"
+                //cell.minMaxLabel.text = "최고기온 : \(main.temp_max.temperatureString)     최저기온 :  \(main.temp_min.temperatureString)"
+                //cell.currentTemperatureLabel.text = "\(main.temp.temperatureString)"
             }
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "DustTableViewCell", for: indexPath) as! DustTableViewCell
-        if let dust = CurrentDustWeatherData.shared.dust?.list.first{
+        if let dust = FetchData.shared.dust?.list.first{
             
             let no2Data: Double = dust.components.no2 / 10000
             let so2Data: Double = dust.components.so2 / 10000
@@ -199,6 +195,6 @@ extension MainViewController {
     }
     
     func removeNotification() {
-        NotificationCenter.default.removeObserver(self, name: LocationManager.currentLocationDidUpdate, object: nil)
+        NotificationCenter.default.removeObserver(self, name: Location.LocationUpdate, object: nil)
     }
 }

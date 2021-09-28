@@ -43,7 +43,7 @@
                                 <rect key="frame" x="0.0" y="102" width="414" height="711"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SummaryTableViewCell" rowHeight="300" id="JMf-tZ-hnp" customClass="WeatherViewController" customModule="ProtectAir" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherCell" rowHeight="300" id="JMf-tZ-hnp" customClass="WeatherCell" customModule="ProtectAir" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JMf-tZ-hnp" id="hTa-1B-vvZ">
@@ -98,10 +98,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="currentTemperatureLabel" destination="49f-KA-tNo" id="eGG-FR-vIy"/>
-                                            <outlet property="minMaxLabel" destination="lhc-Ys-fg0" id="R7x-34-uaD"/>
-                                            <outlet property="statusLabel" destination="rRu-3j-n72" id="KEQ-rD-yEG"/>
-                                            <outlet property="weatherImageView" destination="XKB-AD-Kov" id="mVW-Y4-BAi"/>
+                                            <outlet property="statusLabel" destination="rRu-3j-n72" id="Ih9-4h-bJ6"/>
+                                            <outlet property="tempLabel" destination="49f-KA-tNo" id="IWl-f7-Qz4"/>
+                                            <outlet property="tempMiniMaxiLabel" destination="lhc-Ys-fg0" id="4Ka-6O-S2g"/>
+                                            <outlet property="weatherImageView" destination="XKB-AD-Kov" id="YfP-CY-Fpy"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DustTableViewCell" rowHeight="250" id="9gO-nM-yPb" customClass="DustTableViewCell" customModule="ProtectAir" customModuleProvider="target">
