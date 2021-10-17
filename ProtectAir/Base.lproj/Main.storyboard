@@ -520,15 +520,17 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="8JV-qW-vD7">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEy-BJ-gTd">
-                                <rect key="frame" x="186" y="588" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEy-BJ-gTd">
+                                <rect key="frame" x="57" y="562" width="300" height="27.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="4u1-l1-5i2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nuw-Ts-jp4">
-                                <rect key="frame" x="77" y="295" width="261" height="267"/>
+                                <rect key="frame" x="76.5" y="295" width="261" height="267"/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="03n" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-NG-INS">
@@ -538,20 +540,33 @@
                                     <constraint firstAttribute="width" constant="261" id="t6C-GJ-A0K"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StatusLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cd5-ux-lRD">
+                                <rect key="frame" x="57" y="44" width="300" height="26.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="IDf-Jh-ajL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Xqv-4x-dpK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Cd5-ux-lRD" firstAttribute="top" secondItem="Xqv-4x-dpK" secondAttribute="top" id="6iq-Fk-WxX"/>
                             <constraint firstItem="Xqv-4x-dpK" firstAttribute="trailing" secondItem="8JV-qW-vD7" secondAttribute="trailing" id="7CD-DK-H9Y"/>
                             <constraint firstItem="8JV-qW-vD7" firstAttribute="top" secondItem="itd-Pl-7xu" secondAttribute="top" id="AVr-Oy-cV2"/>
+                            <constraint firstItem="SEy-BJ-gTd" firstAttribute="top" secondItem="WEo-NG-INS" secondAttribute="bottom" id="BQw-il-lPB"/>
                             <constraint firstItem="WEo-NG-INS" firstAttribute="centerY" secondItem="Xqv-4x-dpK" secondAttribute="centerY" id="E2H-Ah-63D"/>
                             <constraint firstItem="Xqv-4x-dpK" firstAttribute="bottom" secondItem="8JV-qW-vD7" secondAttribute="bottom" id="GNv-yz-dDd"/>
                             <constraint firstItem="nuw-Ts-jp4" firstAttribute="width" secondItem="WEo-NG-INS" secondAttribute="width" id="L6x-TU-oxJ"/>
+                            <constraint firstItem="SEy-BJ-gTd" firstAttribute="centerX" secondItem="Xqv-4x-dpK" secondAttribute="centerX" id="ajX-1K-28X"/>
                             <constraint firstItem="nuw-Ts-jp4" firstAttribute="height" secondItem="WEo-NG-INS" secondAttribute="height" id="eGW-Pv-lUj"/>
                             <constraint firstItem="nuw-Ts-jp4" firstAttribute="centerX" secondItem="WEo-NG-INS" secondAttribute="centerX" id="n8w-sJ-Mfd"/>
                             <constraint firstItem="WEo-NG-INS" firstAttribute="centerX" secondItem="Xqv-4x-dpK" secondAttribute="centerX" id="p5C-Sj-4mv"/>
                             <constraint firstItem="nuw-Ts-jp4" firstAttribute="centerY" secondItem="WEo-NG-INS" secondAttribute="centerY" id="rSh-AN-ABO"/>
                             <constraint firstItem="8JV-qW-vD7" firstAttribute="leading" secondItem="Xqv-4x-dpK" secondAttribute="leading" id="sJo-Os-aWv"/>
+                            <constraint firstItem="Cd5-ux-lRD" firstAttribute="centerX" secondItem="Xqv-4x-dpK" secondAttribute="centerX" id="wf8-Yk-qqE"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Control" image="internaldrive" catalog="system" id="DbT-dM-rOn"/>
