@@ -509,6 +509,58 @@
             </objects>
             <point key="canvasLocation" x="676.81159420289862" y="613.39285714285711"/>
         </scene>
+        <!--Control-->
+        <scene sceneID="jci-DN-Zlj">
+            <objects>
+                <viewController id="rcQ-Fe-ib0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="itd-Pl-7xu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="8JV-qW-vD7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEy-BJ-gTd">
+                                <rect key="frame" x="186" y="588" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nuw-Ts-jp4">
+                                <rect key="frame" x="77" y="295" width="261" height="267"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="03n" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-NG-INS">
+                                <rect key="frame" x="76.5" y="295" width="261" height="267"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="267" id="qAH-pG-kqT"/>
+                                    <constraint firstAttribute="width" constant="261" id="t6C-GJ-A0K"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xqv-4x-dpK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Xqv-4x-dpK" firstAttribute="trailing" secondItem="8JV-qW-vD7" secondAttribute="trailing" id="7CD-DK-H9Y"/>
+                            <constraint firstItem="8JV-qW-vD7" firstAttribute="top" secondItem="itd-Pl-7xu" secondAttribute="top" id="AVr-Oy-cV2"/>
+                            <constraint firstItem="WEo-NG-INS" firstAttribute="centerY" secondItem="Xqv-4x-dpK" secondAttribute="centerY" id="E2H-Ah-63D"/>
+                            <constraint firstItem="Xqv-4x-dpK" firstAttribute="bottom" secondItem="8JV-qW-vD7" secondAttribute="bottom" id="GNv-yz-dDd"/>
+                            <constraint firstItem="nuw-Ts-jp4" firstAttribute="width" secondItem="WEo-NG-INS" secondAttribute="width" id="L6x-TU-oxJ"/>
+                            <constraint firstItem="nuw-Ts-jp4" firstAttribute="height" secondItem="WEo-NG-INS" secondAttribute="height" id="eGW-Pv-lUj"/>
+                            <constraint firstItem="nuw-Ts-jp4" firstAttribute="centerX" secondItem="WEo-NG-INS" secondAttribute="centerX" id="n8w-sJ-Mfd"/>
+                            <constraint firstItem="WEo-NG-INS" firstAttribute="centerX" secondItem="Xqv-4x-dpK" secondAttribute="centerX" id="p5C-Sj-4mv"/>
+                            <constraint firstItem="nuw-Ts-jp4" firstAttribute="centerY" secondItem="WEo-NG-INS" secondAttribute="centerY" id="rSh-AN-ABO"/>
+                            <constraint firstItem="8JV-qW-vD7" firstAttribute="leading" secondItem="Xqv-4x-dpK" secondAttribute="leading" id="sJo-Os-aWv"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Control" image="internaldrive" catalog="system" id="DbT-dM-rOn"/>
+                    <navigationItem key="navigationItem" id="vP1-mJ-hL0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ygl-y4-r4z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="676.81159420289862" y="1436.3839285714284"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="G9c-Le-CgZ">
             <objects>
@@ -521,6 +573,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="1Zv-eT-hb9"/>
                         <segue destination="1P5-zH-loH" kind="relationship" relationship="viewControllers" id="ovQ-Qf-dSS"/>
+                        <segue destination="rcQ-Fe-ib0" kind="relationship" relationship="viewControllers" id="thk-nQ-RT3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ie-SO-qdQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -529,9 +582,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="03n" width="64" height="64"/>
         <image name="background" width="185" height="329"/>
         <image name="cloud.fill" catalog="system" width="128" height="84"/>
         <image name="icons8-전기-센서-30" width="30" height="30"/>
+        <image name="internaldrive" catalog="system" width="128" height="88"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

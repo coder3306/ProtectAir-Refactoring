@@ -24,7 +24,7 @@ class RaspiDataPasing{
     func fetch(completion: @escaping () -> ()) {
         group.enter()
         apiQueue.async {
-            self.fetchRaspiData() {(result) in
+            self.fetchRaspiDataFirst() {(result) in
                 switch result {
                 case .success(let data):
                     self.raspi = data
@@ -32,6 +32,18 @@ class RaspiDataPasing{
                 default:
                     self.raspi = nil
                     print("파싱 실패")
+                }
+                self.group.leave()
+            }
+        }
+        apiQueue.async {
+            self.fetchRaspiDataSecond() {(result) in
+                switch result{
+                case .success(let data):
+                    self.raspi = data
+                default:
+                    self.raspi = nil
+                    
                 }
                 self.group.leave()
             }
@@ -82,9 +94,15 @@ extension RaspiDataPasing{
         task.resume()
     }
     
-    private func fetchRaspiData(completion: @escaping(Result<RaspData,Error>) -> ()){
+    private func fetchRaspiDataFirst(completion: @escaping(Result<RaspData,Error>) -> ()){
         let urlStr = "http://192.168.0.15/insert4.php"
     
+        fetch(urlStr: urlStr, completion: completion)
+    }
+    
+    private func fetchRaspiDataSecond(completion: @escaping(Result<RaspData,Error>)-> ()){
+        let urlStr = "http://192.168.0.15/insert5.php"
+        
         fetch(urlStr: urlStr, completion: completion)
     }
 }

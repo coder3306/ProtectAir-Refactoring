@@ -42,7 +42,7 @@ class MainViewController: UIViewController {
             self.weatherTableView.reloadData()
             self.locationLabel.text = Location.shared.locationTitle
             
-            UIView.animate(withDuration: 0.3){
+            UIView.animate(withDuration: 0.2){
                 self.weatherTableView.alpha = 1.0
             }
         }

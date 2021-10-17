@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,9 +26,12 @@
 		19B869A726E0FD93004BFBC5 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A626E0FD93004BFBC5 /* ApiError.swift */; };
 		19B869A926E0FDA8004BFBC5 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A826E0FDA8004BFBC5 /* CurrentWeather.swift */; };
 		19B869AB26E0FDB4004BFBC5 /* RaspData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869AA26E0FDB4004BFBC5 /* RaspData.swift */; };
+		19D57C22271C55D800B8CF86 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D57C21271C55D800B8CF86 /* ControlViewController.swift */; };
+		93384125082CC623D0886E2F /* Pods_ProtectAir.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 008EEC67911769374B7B880A /* Pods_ProtectAir.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		008EEC67911769374B7B880A /* Pods_ProtectAir.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProtectAir.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1902BB6326E23AD000147F77 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		192AA85726E396830087E27C /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
 		192AA85926E3B0CA0087E27C /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -52,6 +55,9 @@
 		19B869A626E0FD93004BFBC5 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		19B869A826E0FDA8004BFBC5 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		19B869AA26E0FDB4004BFBC5 /* RaspData.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = RaspData.swift; sourceTree = "<group>"; };
+		19D57C21271C55D800B8CF86 /* ControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
+		6CEED6AA31D7234FCB426322 /* Pods-ProtectAir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtectAir.release.xcconfig"; path = "Target Support Files/Pods-ProtectAir/Pods-ProtectAir.release.xcconfig"; sourceTree = "<group>"; };
+		9DDCF01D318F6E4F260F7682 /* Pods-ProtectAir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtectAir.debug.xcconfig"; path = "Target Support Files/Pods-ProtectAir/Pods-ProtectAir.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93384125082CC623D0886E2F /* Pods_ProtectAir.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +87,8 @@
 			children = (
 				1956636626E0E2CB0018E62E /* ProtectAir */,
 				1956636526E0E2CB0018E62E /* Products */,
+				B45F1B43894C115406B34D49 /* Pods */,
+				4BFD91479B6D0AC717427418 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +112,7 @@
 				1956636926E0E2CB0018E62E /* SceneDelegate.swift */,
 				190840FD26E7A944006FB27D /* Dust */,
 				1956636D26E0E2CB0018E62E /* Main.storyboard */,
+				19D57C21271C55D800B8CF86 /* ControlViewController.swift */,
 				1956637B26E0E7ED0018E62E /* MainViewController.swift */,
 				1965377A26EE16BB0018BA7D /* TabBarController.swift */,
 				19345C1B26E490030073E60D /* Assets.xcassets */,
@@ -159,6 +169,23 @@
 			path = Format;
 			sourceTree = "<group>";
 		};
+		4BFD91479B6D0AC717427418 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				008EEC67911769374B7B880A /* Pods_ProtectAir.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B45F1B43894C115406B34D49 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DDCF01D318F6E4F260F7682 /* Pods-ProtectAir.debug.xcconfig */,
+				6CEED6AA31D7234FCB426322 /* Pods-ProtectAir.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,9 +193,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1956637826E0E2CC0018E62E /* Build configuration list for PBXNativeTarget "ProtectAir" */;
 			buildPhases = (
+				F02E8A2019A22CE2ACC3C4AE /* [CP] Check Pods Manifest.lock */,
 				1956636026E0E2CB0018E62E /* Sources */,
 				1956636126E0E2CB0018E62E /* Frameworks */,
 				1956636226E0E2CB0018E62E /* Resources */,
+				9406E804F874E844C5CC7B87 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -224,6 +253,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9406E804F874E844C5CC7B87 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProtectAir/Pods-ProtectAir-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProtectAir/Pods-ProtectAir-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProtectAir/Pods-ProtectAir-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F02E8A2019A22CE2ACC3C4AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ProtectAir-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1956636026E0E2CB0018E62E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -238,6 +309,7 @@
 				19B869A926E0FDA8004BFBC5 /* CurrentWeather.swift in Sources */,
 				192AA85A26E3B0CA0087E27C /* Common.swift in Sources */,
 				1975341526E4F94300513BB1 /* DustMainViewController.swift in Sources */,
+				19D57C22271C55D800B8CF86 /* ControlViewController.swift in Sources */,
 				1975341326E4F91B00513BB1 /* RaspiDustCell.swift in Sources */,
 				1902BB6426E23AD000147F77 /* Location.swift in Sources */,
 				197087CC26EEE11F00AFC458 /* RaspiDataPasing.swift in Sources */,
@@ -388,6 +460,7 @@
 		};
 		1956637926E0E2CC0018E62E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DDCF01D318F6E4F260F7682 /* Pods-ProtectAir.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -407,6 +480,7 @@
 		};
 		1956637A26E0E2CC0018E62E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CEED6AA31D7234FCB426322 /* Pods-ProtectAir.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
