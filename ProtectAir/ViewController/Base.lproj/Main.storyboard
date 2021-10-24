@@ -392,7 +392,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="180" id="4ft-aM-xdh" customClass="RaspiDustCell" customModule="ProtectAir" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FirstCell" rowHeight="180" id="4ft-aM-xdh" customClass="RaspiDustCell" customModule="ProtectAir" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4ft-aM-xdh" id="xTG-Sh-Kzr">
@@ -470,7 +470,7 @@
                                             <outlet property="timeLabel" destination="23M-SW-nxf" id="VLt-C3-I3Y"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="180" id="iq3-pw-gAo">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SecondCell" rowHeight="180" id="iq3-pw-gAo" customClass="SecondRaspiCell" customModule="ProtectAir" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="204.5" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iq3-pw-gAo" id="WEz-Os-btc">
@@ -537,6 +537,14 @@
                                                 <constraint firstItem="AYp-50-w5X" firstAttribute="leading" secondItem="WEz-Os-btc" secondAttribute="leading" constant="13" id="wKw-B9-vOl"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="sNameLabel" destination="sl7-uk-cof" id="8Hb-cY-XGD"/>
+                                            <outlet property="sPm100Image" destination="Vp9-13-ilA" id="0y6-gh-DFq"/>
+                                            <outlet property="sPm100Label" destination="eW8-kK-lMf" id="8Ql-2K-G4z"/>
+                                            <outlet property="sPm25Image" destination="9Nz-26-eWN" id="RGY-Lb-0bi"/>
+                                            <outlet property="sPm25Label" destination="lhC-Xq-PoC" id="agL-rl-uOJ"/>
+                                            <outlet property="sTimeLabel" destination="AYp-50-w5X" id="pve-9E-u2g"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

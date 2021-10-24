@@ -15,8 +15,16 @@ class SecondRaspiCell: UITableViewCell {
     @IBOutlet weak var sPm25Label: UILabel!
     @IBOutlet weak var sPm100Image: UIImageView!
     @IBOutlet weak var sPm100Label: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        backgroundColor = .clear
+        sTimeLabel.textColor = .white
+        sPm25Label.textColor = .white
+        sPm100Label.textColor = .white
+        sNameLabel.textColor = .white
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

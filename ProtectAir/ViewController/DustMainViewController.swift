@@ -8,9 +8,10 @@
 import UIKit
 
 class DustMainViewController: UIViewController {
+    var raspiF: RaspData?
     
     @IBOutlet weak var dustTableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,14 +19,30 @@ class DustMainViewController: UIViewController {
         dustTableView.backgroundColor = .clear
         dustTableView.separatorStyle = .none
         dustTableView.rowHeight = 200
+        
+        DispatchQueue.global().async {
+            while true{
+                print("viewdidload")
+                RaspiDataPasing.shared.fetchRaspiDataFirst(){ (result) in
+                    switch result {
+                    case .success(let data):
+                        self.raspiF = data
+                    default:
+                        self.raspiF = nil
+                        print("pasing failed")
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.dustTableView.reloadData()
+                }
+                sleep(2)
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        NotificationCenter.default.addObserver(forName: RaspiDataPasing.fetchData, object: nil, queue: .main) {(noti) in
-            self.dustTableView.reloadData()
-        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -41,18 +58,23 @@ extension DustMainViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RaspiDustCell
+
         
         if indexPath.section == 0 {
-            if let raspiData = RaspiDataPasing.shared.raspiF?.result.first{
-                cell.nameLabel.text = "1호실"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FirstCell", for: indexPath) as! RaspiDustCell
+            
+            if let raspiData = raspiF?.result.first{
                 cell.pm25Label.text = "pm25 : \(raspiData.value1)"
                 cell.pm100Label.text = "pm100 : \(raspiData.value2)"
             }
-            cell.pm25Label.text = "pm25 : 500"
-            cell.pm100Label.text = "pm100 : 5000"
+            cell.nameLabel.text = "1호실"
             return cell
         }
+        let secondCell = tableView.dequeueReusableCell(withIdentifier: "SecondCell", for:indexPath) as! SecondRaspiCell
+        
+        secondCell.sNameLabel.text = "2호실"
+        return secondCell
+        
     }
 }
 

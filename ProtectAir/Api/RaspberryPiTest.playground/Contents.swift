@@ -60,6 +60,7 @@ fetchCurrentDust() {(result) in
     switch result{
     case .success(let dust):
         dump(dust)
+        print(dust)
     case .failure(let error):
         print(error)
     }
