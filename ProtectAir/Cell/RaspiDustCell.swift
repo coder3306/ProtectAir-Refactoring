@@ -29,13 +29,3 @@ class RaspiDustCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 }
-
-class updateList{
-    static let shared = updateList()
-    
-    var updateData: [RaspData] = []
-    
-    func uploadInfo(at index: Int) -> RaspData{
-        return updateData[index]
-    }
-}

@@ -12,7 +12,8 @@ class RaspiDataPasing{
     static let shared = RaspiDataPasing()
     static let fetchData = Notification.Name(rawValue: "fetchData")
     
-    var raspi: RaspData?
+    var raspiF: RaspData?
+    var raspiS: SecondRaspData?
     let apiQueue = DispatchQueue(label: "ApiQueue", attributes: .concurrent)
     let group = DispatchGroup()
     
@@ -27,10 +28,10 @@ class RaspiDataPasing{
             self.fetchRaspiDataFirst() {(result) in
                 switch result {
                 case .success(let data):
-                    self.raspi = data
+                    self.raspiF = data
                     print("====> 라즈베리파이에서 넘어온 값 \(data)")
                 default:
-                    self.raspi = nil
+                    self.raspiF = nil
                     print("파싱 실패")
                 }
                 self.group.leave()
@@ -39,11 +40,10 @@ class RaspiDataPasing{
         apiQueue.async {
             self.fetchRaspiDataSecond() {(result) in
                 switch result{
-                case .success(let data):
-                    self.raspi = data
+                case .success(let value):
+                    self.raspiS = value
                 default:
-                    self.raspi = nil
-                    
+                    self.raspiS = nil
                 }
                 self.group.leave()
             }
