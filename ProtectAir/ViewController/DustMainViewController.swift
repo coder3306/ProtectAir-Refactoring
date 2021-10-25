@@ -105,10 +105,35 @@ extension DustMainViewController: UITableViewDataSource{
         }
         let secondCell = tableView.dequeueReusableCell(withIdentifier: "SecondCell", for:indexPath) as! SecondRaspiCell
         
+        if let secondRaspiData = raspiS?.result.first{
+            secondCell.sTimeLabel.text = secondRaspiData.collect_time
+            secondCell.sPm25Label.text = "pm25 : \(secondRaspiData.value1)"
+            secondCell.sPm100Label.text = "pm100 : \(secondRaspiData.value2)"
+            
+            let secondPm25Int = Int(secondRaspiData.value1) ?? -20
+            let secondPm100Int = Int(secondRaspiData.value2) ?? -20
+            
+            if secondPm25Int < 31 {
+                secondCell.sPm25Image.image = UIImage(named: "good.png")
+            } else if secondPm25Int < 81 {
+                secondCell.sPm25Image.image = UIImage(named: "normally.png")
+            } else if secondPm25Int < 151{
+                secondCell.sPm25Image.image = UIImage(named: "bad.png")
+            } else {
+                secondCell.sPm25Image.image = UIImage(named: "verybad.png")
+            }
+            
+            if secondPm100Int < 16 {
+                secondCell.sPm100Image.image = UIImage(named: "good.png")
+            } else if secondPm100Int < 36 {
+                secondCell.sPm100Image.image = UIImage(named: "normally.png")
+            } else if secondPm100Int < 76 {
+                secondCell.sPm100Image.image = UIImage(named: "bad.png")
+            } else {
+                secondCell.sPm100Image.image = UIImage(named: "verybad.png")
+            }
+        }
         secondCell.sNameLabel.text = "2호실"
-        secondCell.sTimeLabel.text = "123"
-        secondCell.sPm25Label.text = "업데이트"
-        secondCell.sPm100Label.text = "업데이트"
         return secondCell
     }
     
