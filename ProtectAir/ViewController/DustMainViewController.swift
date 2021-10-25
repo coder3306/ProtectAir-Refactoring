@@ -9,6 +9,7 @@ import UIKit
 
 class DustMainViewController: UIViewController {
     var raspiF: RaspData?
+    var raspiS: SecondRaspData?
     
     @IBOutlet weak var dustTableView: UITableView!
 
@@ -19,17 +20,30 @@ class DustMainViewController: UIViewController {
         dustTableView.backgroundColor = .clear
         dustTableView.separatorStyle = .none
         dustTableView.rowHeight = 200
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         DispatchQueue.global().async {
             while true{
                 print("viewdidload")
-                RaspiDataPasing.shared.fetchRaspiDataFirst(){ (result) in
+                RaspiDataPasing.shared.fetchRaspiDataFirst(){ [weak self] (result) in
                     switch result {
                     case .success(let data):
-                        self.raspiF = data
+                        self?.raspiF = data
                     default:
-                        self.raspiF = nil
+                        self?.raspiF = nil
                         print("pasing failed")
+                    }
+                }
+                RaspiDataPasing.shared.fetchRaspiDataSecond(){ [weak self] (result) in
+                    switch result {
+                    case .success(let data):
+                        self?.raspiS = data
+                    default:
+                        self?.raspiS = nil
+                        print("second raspi data pasing failed")
                     }
                 }
                 DispatchQueue.main.async {
@@ -38,17 +52,12 @@ class DustMainViewController: UIViewController {
                 sleep(2)
             }
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
         
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
-    
-        NotificationCenter.default.removeObserver(self)
+        
     }
 }
 

@@ -12,10 +12,6 @@ import RxSwift
 
 class RaspiDataPasing{
     static let shared = RaspiDataPasing()
-//    static let fetchFirstData = Notification.Name(rawValue: "fetchFirstData")
-
-
-    var raspiS: SecondRaspData?
 
     private func fetch<PasingType: Codable>(urlStr: String, completion: @escaping(Result<PasingType,Error>) -> ()){
         guard let url = URL(string: urlStr) else {
@@ -61,7 +57,7 @@ class RaspiDataPasing{
         fetch(urlStr: urlStr, completion: completion)
     }
 
-    private func fetchRaspiDataSecond(completion: @escaping(Result<SecondRaspData,Error>)-> ()){
+    func fetchRaspiDataSecond(completion: @escaping(Result<SecondRaspData,Error>)-> ()){
         let urlStr = "http://192.168.0.15/insert5.php"
 
         fetch(urlStr: urlStr, completion: completion)
