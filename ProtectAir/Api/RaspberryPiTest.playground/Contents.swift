@@ -1,15 +1,11 @@
 import UIKit
 
 
-struct raspData: Codable{
-    struct Result: Codable {
-        let sensor: String
-        let collect_time: String
-        let value1: String
-        let value2: String
-    }
-    
-    let result: [Result]
+struct MotorForce: Codable{
+     struct Result: Codable{
+          var no1motor: String
+     }
+     var result: [Result]
 }
 
 private func fetch<PasingType: Codable>(urlStr: String, completion: @escaping(Result<PasingType,Error>) -> ()){
@@ -50,8 +46,8 @@ private func fetch<PasingType: Codable>(urlStr: String, completion: @escaping(Re
     task.resume()
 }
 
-private func fetchCurrentDust(completion: @escaping(Result<raspData,Error>) -> ()){
-    let urlStr = "http://192.168.0.15/insert4.php"
+private func fetchCurrentDust(completion: @escaping(Result<MotorForce,Error>) -> ()){
+    let urlStr = "http://192.168.0.15/motor.php"
     
     fetch(urlStr: urlStr, completion: completion)
 }

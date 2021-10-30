@@ -13,6 +13,7 @@
 		192AA85C26E3B2420087E27C /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AA85B26E3B2420087E27C /* WeatherCell.swift */; };
 		19345C1C26E490030073E60D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19345C1B26E490030073E60D /* Assets.xcassets */; };
 		193AD93E272D739100EEB8FB /* MotorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193AD93D272D739100EEB8FB /* MotorViewController.swift */; };
+		193AD940272D961A00EEB8FB /* MotorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193AD93F272D961A00EEB8FB /* MotorTableViewCell.swift */; };
 		1956636826E0E2CB0018E62E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956636726E0E2CB0018E62E /* AppDelegate.swift */; };
 		1956636A26E0E2CB0018E62E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956636926E0E2CB0018E62E /* SceneDelegate.swift */; };
 		1956636F26E0E2CB0018E62E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1956636D26E0E2CB0018E62E /* Main.storyboard */; };
@@ -28,7 +29,6 @@
 		19B869A726E0FD93004BFBC5 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A626E0FD93004BFBC5 /* ApiError.swift */; };
 		19B869A926E0FDA8004BFBC5 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A826E0FDA8004BFBC5 /* CurrentWeather.swift */; };
 		19B869AB26E0FDB4004BFBC5 /* RaspData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869AA26E0FDB4004BFBC5 /* RaspData.swift */; };
-		19D57C22271C55D800B8CF86 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D57C21271C55D800B8CF86 /* ControlViewController.swift */; };
 		93384125082CC623D0886E2F /* Pods_ProtectAir.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 008EEC67911769374B7B880A /* Pods_ProtectAir.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +40,7 @@
 		192AA85B26E3B2420087E27C /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		19345C1B26E490030073E60D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		193AD93D272D739100EEB8FB /* MotorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorViewController.swift; sourceTree = "<group>"; };
+		193AD93F272D961A00EEB8FB /* MotorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorTableViewCell.swift; sourceTree = "<group>"; };
 		194ABE2726E4A22C009A7651 /* test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = test.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1956636426E0E2CB0018E62E /* ProtectAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtectAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1956636726E0E2CB0018E62E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		19B869A626E0FD93004BFBC5 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		19B869A826E0FDA8004BFBC5 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		19B869AA26E0FDB4004BFBC5 /* RaspData.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = RaspData.swift; sourceTree = "<group>"; };
-		19D57C21271C55D800B8CF86 /* ControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
 		6CEED6AA31D7234FCB426322 /* Pods-ProtectAir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtectAir.release.xcconfig"; path = "Target Support Files/Pods-ProtectAir/Pods-ProtectAir.release.xcconfig"; sourceTree = "<group>"; };
 		9DDCF01D318F6E4F260F7682 /* Pods-ProtectAir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtectAir.debug.xcconfig"; path = "Target Support Files/Pods-ProtectAir/Pods-ProtectAir.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +174,7 @@
 				1975341226E4F91B00513BB1 /* RaspiDustCell.swift */,
 				19839C6726EDF073005A131A /* DustTableViewCell.swift */,
 				196D5E2327257534009D4074 /* SecondRaspiCell.swift */,
+				193AD93F272D961A00EEB8FB /* MotorTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -182,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				1956637B26E0E7ED0018E62E /* MainViewController.swift */,
-				19D57C21271C55D800B8CF86 /* ControlViewController.swift */,
 				1975341426E4F94300513BB1 /* DustMainViewController.swift */,
 				1965377A26EE16BB0018BA7D /* TabBarController.swift */,
 				193AD93D272D739100EEB8FB /* MotorViewController.swift */,
@@ -341,12 +341,12 @@
 				192AA85A26E3B0CA0087E27C /* Common.swift in Sources */,
 				193AD93E272D739100EEB8FB /* MotorViewController.swift in Sources */,
 				1975341526E4F94300513BB1 /* DustMainViewController.swift in Sources */,
-				19D57C22271C55D800B8CF86 /* ControlViewController.swift in Sources */,
 				1975341326E4F91B00513BB1 /* RaspiDustCell.swift in Sources */,
 				1902BB6426E23AD000147F77 /* Location.swift in Sources */,
 				197087CC26EEE11F00AFC458 /* RaspiDataPasing.swift in Sources */,
 				19B869A726E0FD93004BFBC5 /* ApiError.swift in Sources */,
 				1956636826E0E2CB0018E62E /* AppDelegate.swift in Sources */,
+				193AD940272D961A00EEB8FB /* MotorTableViewCell.swift in Sources */,
 				1961A1282702B2F3009D4557 /* Formatter.swift in Sources */,
 				1956636A26E0E2CB0018E62E /* SceneDelegate.swift in Sources */,
 			);

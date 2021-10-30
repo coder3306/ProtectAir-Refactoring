@@ -24,7 +24,7 @@ struct SecondRaspData: Codable{
 
 struct MotorForce: Codable{
      struct Result: Codable{
-          let motorForceInput: String
+          var no1motor: String
      }
-     let result: [Result]
+     var result: [Result]
 }

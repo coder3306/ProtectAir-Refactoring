@@ -588,33 +588,13 @@
         <!--Control-->
         <scene sceneID="jci-DN-Zlj">
             <objects>
-                <viewController id="rcQ-Fe-ib0" sceneMemberID="viewController">
+                <viewController id="rcQ-Fe-ib0" customClass="MotorViewController" customModule="ProtectAir" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="itd-Pl-7xu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="8JV-qW-vD7">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEy-BJ-gTd">
-                                <rect key="frame" x="57" y="562" width="300" height="27.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="4u1-l1-5i2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nuw-Ts-jp4">
-                                <rect key="frame" x="76.5" y="295" width="261" height="267"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="03n" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-NG-INS">
-                                <rect key="frame" x="76.5" y="295" width="261" height="267"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="267" id="qAH-pG-kqT"/>
-                                    <constraint firstAttribute="width" constant="261" id="t6C-GJ-A0K"/>
-                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MotorStatusLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cd5-ux-lRD">
                                 <rect key="frame" x="57" y="44" width="300" height="26.5"/>
@@ -625,6 +605,52 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aB5-6w-kke">
+                                <rect key="frame" x="0.0" y="78" width="414" height="735"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MotorCell" rowHeight="700" id="MC5-lk-2mr" customClass="MotorTableViewCell" customModule="ProtectAir" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="700"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MC5-lk-2mr" id="I7F-Yp-GII">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="700"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="03n" translatesAutoresizingMaskIntoConstraints="NO" id="WEo-NG-INS">
+                                                    <rect key="frame" x="76.5" y="216.5" width="261" height="267"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="267" id="Mlm-8v-BQK"/>
+                                                        <constraint firstAttribute="width" constant="261" id="o7H-eR-oJp"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEy-BJ-gTd">
+                                                    <rect key="frame" x="57" y="529" width="300" height="27.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="300" id="4u1-l1-5i2"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="SEy-BJ-gTd" firstAttribute="centerX" secondItem="WEo-NG-INS" secondAttribute="centerX" id="BkC-Ix-3uB"/>
+                                                <constraint firstItem="SEy-BJ-gTd" firstAttribute="top" secondItem="WEo-NG-INS" secondAttribute="bottom" constant="45.5" id="noH-Lo-IUw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <constraints>
+                                            <constraint firstItem="WEo-NG-INS" firstAttribute="centerX" secondItem="MC5-lk-2mr" secondAttribute="centerX" id="Yq1-aG-R7w"/>
+                                            <constraint firstItem="WEo-NG-INS" firstAttribute="centerY" secondItem="MC5-lk-2mr" secondAttribute="centerY" id="nCy-Iy-eAv"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="motorImageView" destination="WEo-NG-INS" id="c7j-Xq-VT2"/>
+                                            <outlet property="motorTextLabel" destination="SEy-BJ-gTd" id="AC6-3v-vYF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Xqv-4x-dpK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -632,21 +658,20 @@
                             <constraint firstItem="Cd5-ux-lRD" firstAttribute="top" secondItem="Xqv-4x-dpK" secondAttribute="top" id="6iq-Fk-WxX"/>
                             <constraint firstItem="Xqv-4x-dpK" firstAttribute="trailing" secondItem="8JV-qW-vD7" secondAttribute="trailing" id="7CD-DK-H9Y"/>
                             <constraint firstItem="8JV-qW-vD7" firstAttribute="top" secondItem="itd-Pl-7xu" secondAttribute="top" id="AVr-Oy-cV2"/>
-                            <constraint firstItem="SEy-BJ-gTd" firstAttribute="top" secondItem="WEo-NG-INS" secondAttribute="bottom" id="BQw-il-lPB"/>
-                            <constraint firstItem="WEo-NG-INS" firstAttribute="centerY" secondItem="Xqv-4x-dpK" secondAttribute="centerY" id="E2H-Ah-63D"/>
+                            <constraint firstItem="aB5-6w-kke" firstAttribute="top" secondItem="Cd5-ux-lRD" secondAttribute="bottom" constant="7.5" id="DfA-XU-GNf"/>
                             <constraint firstItem="Xqv-4x-dpK" firstAttribute="bottom" secondItem="8JV-qW-vD7" secondAttribute="bottom" id="GNv-yz-dDd"/>
-                            <constraint firstItem="nuw-Ts-jp4" firstAttribute="width" secondItem="WEo-NG-INS" secondAttribute="width" id="L6x-TU-oxJ"/>
-                            <constraint firstItem="SEy-BJ-gTd" firstAttribute="centerX" secondItem="Xqv-4x-dpK" secondAttribute="centerX" id="ajX-1K-28X"/>
-                            <constraint firstItem="nuw-Ts-jp4" firstAttribute="height" secondItem="WEo-NG-INS" secondAttribute="height" id="eGW-Pv-lUj"/>
-                            <constraint firstItem="nuw-Ts-jp4" firstAttribute="centerX" secondItem="WEo-NG-INS" secondAttribute="centerX" id="n8w-sJ-Mfd"/>
-                            <constraint firstItem="WEo-NG-INS" firstAttribute="centerX" secondItem="Xqv-4x-dpK" secondAttribute="centerX" id="p5C-Sj-4mv"/>
-                            <constraint firstItem="nuw-Ts-jp4" firstAttribute="centerY" secondItem="WEo-NG-INS" secondAttribute="centerY" id="rSh-AN-ABO"/>
+                            <constraint firstItem="aB5-6w-kke" firstAttribute="trailing" secondItem="Xqv-4x-dpK" secondAttribute="trailing" id="JZo-KK-qtD"/>
+                            <constraint firstItem="aB5-6w-kke" firstAttribute="bottom" secondItem="Xqv-4x-dpK" secondAttribute="bottom" id="ecW-GV-8sH"/>
+                            <constraint firstItem="aB5-6w-kke" firstAttribute="leading" secondItem="Xqv-4x-dpK" secondAttribute="leading" id="iUa-Ue-Ni2"/>
                             <constraint firstItem="8JV-qW-vD7" firstAttribute="leading" secondItem="Xqv-4x-dpK" secondAttribute="leading" id="sJo-Os-aWv"/>
                             <constraint firstItem="Cd5-ux-lRD" firstAttribute="centerX" secondItem="Xqv-4x-dpK" secondAttribute="centerX" id="wf8-Yk-qqE"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Control" image="internaldrive" catalog="system" id="DbT-dM-rOn"/>
                     <navigationItem key="navigationItem" id="vP1-mJ-hL0"/>
+                    <connections>
+                        <outlet property="motorTableView" destination="aB5-6w-kke" id="KHe-ah-TBA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ygl-y4-r4z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
