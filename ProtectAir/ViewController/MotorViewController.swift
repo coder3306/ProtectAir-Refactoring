@@ -14,6 +14,7 @@ class MotorViewController: UIViewController {
     var isMotorTrigger: Bool = true
     
     override func viewDidLoad() {
+        motorTableView.rowHeight = 700
         super.viewDidLoad()
         DispatchQueue.global().async {
             while self.isMotorTrigger == true{
@@ -25,7 +26,9 @@ class MotorViewController: UIViewController {
                         print("motor pasing failed")
                     }
                 }
-                self.motorTableView.reloadData()
+                DispatchQueue.main.async {
+                    self.motorTableView.reloadData()
+                }
                 sleep(2)
             }
         }
