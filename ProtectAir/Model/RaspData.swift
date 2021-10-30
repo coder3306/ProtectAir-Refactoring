@@ -21,3 +21,10 @@ struct SecondRaspData: Codable{
     }
     let result: [Result]
 }
+
+struct MotorForce: Codable{
+     struct Result: Codable{
+          let motorForceInput: String
+     }
+     let result: [Result]
+}

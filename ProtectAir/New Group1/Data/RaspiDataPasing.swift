@@ -62,6 +62,11 @@ class RaspiDataPasing{
 
         fetch(urlStr: urlStr, completion: completion)
     }
+    
+    func fetchMotorForce(completion: @escaping(Result<MotorForce,Error>) ->()){
+        let urlStr = "http://192.168.0.15/motor.php"
+        fetch(urlStr: urlStr, completion: completion)
+    }
 
 //    private init() {
 //        DispatchQueue.global().async {

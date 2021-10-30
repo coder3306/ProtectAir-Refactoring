@@ -10,7 +10,7 @@ import UIKit
 class DustMainViewController: UIViewController {
     var raspiF: RaspData?
     var raspiS: SecondRaspData?
-    
+    var isSensorTrigger: Bool = true
     @IBOutlet weak var dustTableView: UITableView!
 
     override func viewDidLoad() {
@@ -20,13 +20,9 @@ class DustMainViewController: UIViewController {
         dustTableView.backgroundColor = .clear
         dustTableView.separatorStyle = .none
         dustTableView.rowHeight = 200
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
         
         DispatchQueue.global().async {
-            while true{
+            while self.isSensorTrigger == true{
                 print("viewdidload")
                 RaspiDataPasing.shared.fetchRaspiDataFirst(){ [weak self] (result) in
                     switch result {
@@ -52,12 +48,18 @@ class DustMainViewController: UIViewController {
                 sleep(2)
             }
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.isSensorTrigger = true
+        print("trigger on")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
-        
+        self.isSensorTrigger = false
+        print("Trigger off")
     }
 }
 
@@ -68,7 +70,6 @@ extension DustMainViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FirstCell", for: indexPath) as! RaspiDustCell
             
