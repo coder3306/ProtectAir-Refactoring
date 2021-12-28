@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-class DustTableViewCell : UITableViewCell{
-    static let identifier = "DustTableViewCell"
+class ApiDustTableViewCell : UITableViewCell{
+    static let identifier = "ApiDustTableViewCell"
     
     @IBOutlet weak var pm25: UILabel!
     @IBOutlet weak var pm100: UILabel!

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RaspiDustCell: UITableViewCell {
+class FirstDustTableViewCell: UITableViewCell {
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!

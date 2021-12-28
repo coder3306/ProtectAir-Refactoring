@@ -21,9 +21,9 @@
 		1956637C26E0E7ED0018E62E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956637B26E0E7ED0018E62E /* MainViewController.swift */; };
 		1961A1282702B2F3009D4557 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1961A1272702B2F3009D4557 /* Formatter.swift */; };
 		1965377B26EE16BB0018BA7D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965377A26EE16BB0018BA7D /* TabBarController.swift */; };
-		196D5E2427257534009D4074 /* SecondRaspiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D5E2327257534009D4074 /* SecondRaspiCell.swift */; };
+		196D5E2427257534009D4074 /* SecondDustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D5E2327257534009D4074 /* SecondDustTableViewCell.swift */; };
 		197087CC26EEE11F00AFC458 /* RaspiDataPasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197087CB26EEE11F00AFC458 /* RaspiDataPasing.swift */; };
-		1975341326E4F91B00513BB1 /* RaspiDustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975341226E4F91B00513BB1 /* RaspiDustCell.swift */; };
+		1975341326E4F91B00513BB1 /* RaspiDustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975341226E4F91B00513BB1 /* RaspiDustTableViewCell.swift */; };
 		1975341526E4F94300513BB1 /* DustMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975341426E4F94300513BB1 /* DustMainViewController.swift */; };
 		19839C6826EDF073005A131A /* DustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19839C6726EDF073005A131A /* DustTableViewCell.swift */; };
 		19A4B38D277AAF0B0050258A /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A4B38C277AAF0B0050258A /* Protocol.swift */; };
@@ -52,9 +52,9 @@
 		1956637B26E0E7ED0018E62E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1961A1272702B2F3009D4557 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		1965377A26EE16BB0018BA7D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		196D5E2327257534009D4074 /* SecondRaspiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondRaspiCell.swift; sourceTree = "<group>"; };
+		196D5E2327257534009D4074 /* SecondDustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondDustTableViewCell.swift; sourceTree = "<group>"; };
 		197087CB26EEE11F00AFC458 /* RaspiDataPasing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspiDataPasing.swift; sourceTree = "<group>"; };
-		1975341226E4F91B00513BB1 /* RaspiDustCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspiDustCell.swift; sourceTree = "<group>"; };
+		1975341226E4F91B00513BB1 /* RaspiDustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspiDustTableViewCell.swift; sourceTree = "<group>"; };
 		1975341426E4F94300513BB1 /* DustMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustMainViewController.swift; sourceTree = "<group>"; };
 		19839C6726EDF073005A131A /* DustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustTableViewCell.swift; sourceTree = "<group>"; };
 		19A4B38B277AA1810050258A /* Location.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Location.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -174,9 +174,9 @@
 			isa = PBXGroup;
 			children = (
 				192AA85B26E3B2420087E27C /* WeatherTableViewCell.swift */,
-				1975341226E4F91B00513BB1 /* RaspiDustCell.swift */,
+				1975341226E4F91B00513BB1 /* RaspiDustTableViewCell.swift */,
+				196D5E2327257534009D4074 /* SecondDustTableViewCell.swift */,
 				19839C6726EDF073005A131A /* DustTableViewCell.swift */,
-				196D5E2327257534009D4074 /* SecondRaspiCell.swift */,
 				193AD93F272D961A00EEB8FB /* MotorTableViewCell.swift */,
 			);
 			path = Cell;
@@ -336,7 +336,7 @@
 				192AA85826E396830087E27C /* FetchData.swift in Sources */,
 				192AA85C26E3B2420087E27C /* WeatherTableViewCell.swift in Sources */,
 				1956637C26E0E7ED0018E62E /* MainViewController.swift in Sources */,
-				196D5E2427257534009D4074 /* SecondRaspiCell.swift in Sources */,
+				196D5E2427257534009D4074 /* SecondDustTableViewCell.swift in Sources */,
 				19839C6826EDF073005A131A /* DustTableViewCell.swift in Sources */,
 				1965377B26EE16BB0018BA7D /* TabBarController.swift in Sources */,
 				19B869AB26E0FDB4004BFBC5 /* RaspData.swift in Sources */,
@@ -344,7 +344,7 @@
 				192AA85A26E3B0CA0087E27C /* Common.swift in Sources */,
 				193AD93E272D739100EEB8FB /* MotorViewController.swift in Sources */,
 				1975341526E4F94300513BB1 /* DustMainViewController.swift in Sources */,
-				1975341326E4F91B00513BB1 /* RaspiDustCell.swift in Sources */,
+				1975341326E4F91B00513BB1 /* RaspiDustTableViewCell.swift in Sources */,
 				1902BB6426E23AD000147F77 /* Location.swift in Sources */,
 				197087CC26EEE11F00AFC458 /* RaspiDataPasing.swift in Sources */,
 				19B869A726E0FD93004BFBC5 /* ApiError.swift in Sources */,

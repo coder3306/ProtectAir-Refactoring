@@ -71,7 +71,7 @@ extension DustMainViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FirstCell", for: indexPath) as! RaspiDustCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FirstCell", for: indexPath) as! FirstDustTableViewCell
             
             if let raspiData = raspiF?.result.first{
                 cell.pm25Label.text = "pm25 : \(raspiData.value1)"
@@ -104,7 +104,7 @@ extension DustMainViewController: UITableViewDataSource{
             cell.nameLabel.text = "1호실"
             return cell
         }
-        let secondCell = tableView.dequeueReusableCell(withIdentifier: "SecondCell", for:indexPath) as! SecondRaspiCell
+        let secondCell = tableView.dequeueReusableCell(withIdentifier: "SecondCell", for:indexPath) as! SecondDustTableViewCell
         
         if let secondRaspiData = raspiS?.result.first{
             secondCell.sTimeLabel.text = secondRaspiData.collect_time

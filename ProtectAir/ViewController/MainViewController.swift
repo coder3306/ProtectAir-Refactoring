@@ -54,7 +54,6 @@ class MainViewController: UIViewController, UITableViewDelegate{
             .drive(onNext:{ [weak self] _ in
                 self?.weatherTableView.reloadData()
                 self?.weatherTableView.alpha = 1.0
-                
             }).disposed(by: bag)
     }
     
@@ -88,7 +87,7 @@ extension MainViewController: UITableViewDataSource{
             }
             return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DustTableViewCell", for: indexPath) as! DustTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ApiDustTableViewCell", for: indexPath) as! ApiDustTableViewCell
         if let dust = FetchData.shared.dust?.list.first{
 
             let no2Data: Double = dust.components.no2 / 10000
@@ -202,10 +201,5 @@ extension MainViewController{
     
     private func removeNotification() {
         NotificationCenter.default.removeObserver(self, name: .fetchWeather, object: nil)
-    }
-    
-    @objc private func getValue(_ notification: Notification){
-        let getValue = notification.object as! String
-        self.locationLabel.text = getValue
     }
 }
