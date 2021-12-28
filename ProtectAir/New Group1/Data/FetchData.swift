@@ -32,6 +32,7 @@ class FetchData{
 
 extension FetchData{
     private func downloadJSON(_ url: String) -> Observable<CWeather?>{
+        //1. 비동기로 생기는 데이터를 Observable로 감싸서 리턴하는 방법
         return Observable.create(){ observer in
             let url = URL(string: url)!
             let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
@@ -111,6 +112,7 @@ extension FetchData{
     
     private func fetchWeather(location: CLLocation){
         let urlStr = "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=a3d53c4b7a0f558bcce4af29031a28e4&units=metric&lang=en"
+        //2. Observable로 오는 데이터를 받아서 처리하는 방법
         downloadJSON(urlStr)
             //.debug()
             .subscribe{ [weak self] event in

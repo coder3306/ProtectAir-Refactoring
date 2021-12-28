@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import RxCoreLocation
 
 class Location: NSObject{
     //싱클톤 패턴
@@ -20,6 +21,7 @@ class Location: NSObject{
         manager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         super.init()
         manager.delegate = self
+        
     }
 
     var locationTitle: String?{
