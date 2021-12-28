@@ -28,39 +28,6 @@ class FetchData{
                 }
             }.disposed(by: bag)
     }
-
-//    func fetchPasingData(location: CLLocation, completion: @escaping () -> ()) {
-//        group.enter()
-//        api.async {
-//            self.fetchWeather(location: location) {(result) in
-//                switch result {
-//                case .success(let data):
-//                    print(data)
-//                    self.summary = data
-//                default:
-//                    self.summary = nil
-//                }
-//            self.group.leave()
-//            }
-//        }
-//        group.enter()
-//        api.async {
-//            self.fetchDust(location: location){(result) in
-//                switch result{
-//                case .success(let data):
-//                    self.dust = data
-//                default:
-//                    self.dust = nil
-//                }
-//                self.group.leave()
-//            }
-//        }
-//
-//        group.notify(queue: .main){
-//            completion()
-//        }
-//    }
-
 }
 
 extension FetchData{
@@ -150,7 +117,7 @@ extension FetchData{
                 switch event{
                 case let .next(json):
                     if let data = json{
-                        self.summary = data
+                        self?.summary = data
                     }
                 case .completed:
                     break
@@ -168,7 +135,7 @@ extension FetchData{
                 case let .next(json):
                     if let data = json{
                         print(data)
-                        self.dust = data
+                        self?.dust = data
                         NotificationCenter.default.post(name: .fetchWeather, object: nil)
                     }
                 case .completed:
