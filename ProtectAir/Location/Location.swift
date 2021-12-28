@@ -8,13 +8,13 @@
 import Foundation
 import CoreLocation
 import RxCoreLocation
+import RxSwift
 
 class Location: NSObject{
-    //싱클톤 패턴
     let manager: CLLocationManager
-    var currentLocation: CLLocation?
-    static let LocationUpdate = Notification.Name(rawValue: "LocationUpdate")
+    //싱클톤 패턴
     static let shared = Location()
+    private let bag = DisposeBag()
     
     private override init(){
         manager = CLLocationManager()
@@ -22,17 +22,15 @@ class Location: NSObject{
         super.init()
         manager.delegate = self
         
-    }
-
-    var locationTitle: String?{
-        didSet{
-            var userInfo = [AnyHashable: Any]()
-            if let location = currentLocation {
+        var userInfo = [AnyHashable: Any]()
+        manager.rx
+            .location
+            .subscribe(onNext: { location in
+                guard let location = location else { return }
                 userInfo["location"] = location
-            }
-            NotificationCenter.default.post(name: .location, object: nil, userInfo: userInfo)
-//            NotificationCenter.default.post(name: Self.LocationUpdate, object: nil, userInfo: userInfo)
-        }
+                NotificationCenter.default.post(name: .location, object: nil, userInfo: userInfo)
+                print(userInfo)
+            }).disposed(by: bag)
     }
     
     func updateLocation()  {
@@ -65,25 +63,7 @@ extension Location: CLLocationManagerDelegate{
     private func requestCurrentLocation(){
         manager.requestLocation()
     }
-    //지오코딩은 고유명칭을 가지고 위도와 경도의 좌표값를 얻는 것을 말한다. 이처럼 고유명칭이나 개별이름등을 가지고 검색하는것과는 달리 반대로 위도와 경도값으로부터 고유명칭을 얻는것은 리버스 지오코딩이된다.
-    private func updateAddress(from location: CLLocation){
-        let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location){[weak self] (placemarks, error) in
-            if let error = error {
-                print(error)
-                self?.locationTitle = "unknown"
-                return
-            }
-            
-            if let placemark = placemarks?.first{
-                if let gu = placemark.locality, let dong = placemark.subLocality{
-                    self?.locationTitle = "\(gu) \(dong)"
-                } else {
-                    self?.locationTitle = placemark.name ?? "unknown"
-                }
-            }
-        }
-    }
+    
     @available(iOS 14.0, *)
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus{
@@ -106,14 +86,7 @@ extension Location: CLLocationManagerDelegate{
             print("unknown")
         }
     }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last{
-            currentLocation = location
-            updateAddress(from: location)
-        }
-    }
-    
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error : Error) {
         print(error)
     }

@@ -12,4 +12,5 @@ extension NSNotification.Name{
     static let location = NSNotification.Name("location")
     static let fetchWeather = NSNotification.Name("fetchWeather")
     static let fetchDustWeather = NSNotification.Name("fetchDustWeather")
+    static let locationName = NSNotification.Name("locationName")
 }

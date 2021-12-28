@@ -7,10 +7,10 @@
 
 import UIKit
 import CoreLocation
+import RxCoreLocation
 import RxSwift
 
-class MainViewController: UIViewController {
-    
+class MainViewController: UIViewController, UITableViewDelegate{
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var weatherTableView: UITableView!
     
@@ -30,6 +30,9 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         initRefresh()
         
+        weatherTableView.delegate = self
+        weatherTableView.dataSource = self
+        
         weatherTableView.alpha = 0.0
         weatherTableView.backgroundColor = .clear
         weatherTableView.separatorStyle = .none
@@ -38,15 +41,23 @@ class MainViewController: UIViewController {
         weatherTableView.rowHeight = 350
         
         Location.shared.updateLocation()
-    
+        
+        Location.shared.manager.rx
+            .placemark
+            .subscribe(onNext: { placemark in
+                guard let name = placemark.name else { return }
+                self.locationLabel.text = name
+            }).disposed(by: bag)
+        
         NotificationCenter.default.rx.notification(.fetchWeather)
             .asDriver(onErrorRecover: {_ in .never()})
             .drive(onNext:{ [weak self] _ in
-                self?.locationLabel.text = Location.shared.locationTitle
                 self?.weatherTableView.reloadData()
                 self?.weatherTableView.alpha = 1.0
+                
             }).disposed(by: bag)
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         removeNotification()
@@ -68,7 +79,7 @@ extension MainViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //옵셔널 바인딩 안하면 옵셔널값으로 튀어나오므로, if let 으로 옵셔널 바인딩 후 reloadData를 쓴다.
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTableViewCell", for: indexPath) as! WeatherTableViewCell
             if let weather = FetchData.shared.summary?.weather.first, let main = FetchData.shared.summary?.main {
                 cell.weatherImageView.image = UIImage(named: weather.icon)
                 cell.statusLabel.text = weather.description
@@ -191,5 +202,10 @@ extension MainViewController{
     
     private func removeNotification() {
         NotificationCenter.default.removeObserver(self, name: .fetchWeather, object: nil)
+    }
+    
+    @objc private func getValue(_ notification: Notification){
+        let getValue = notification.object as! String
+        self.locationLabel.text = getValue
     }
 }
