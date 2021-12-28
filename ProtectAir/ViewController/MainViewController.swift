@@ -7,12 +7,14 @@
 
 import UIKit
 import CoreLocation
+import RxSwift
 
 class MainViewController: UIViewController {
     
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var weatherTableView: UITableView!
     
+    private let bag = DisposeBag()
     var topInset = CGFloat(0.0)
     
     override func viewDidLayoutSubviews() {
@@ -35,19 +37,34 @@ class MainViewController: UIViewController {
         locationLabel.textColor = .white
         weatherTableView.rowHeight = 350
         
-        
         Location.shared.updateLocation()
         
-        NotificationCenter.default.addObserver(forName: FetchData.weatherUpdate, object: nil, queue: .main){ noti in
-            self.weatherTableView.reloadData()
-            self.locationLabel.text = Location.shared.locationTitle
-            
-            UIView.animate(withDuration: 0.2){
-                self.weatherTableView.alpha = 1.0
-            }
-        }
-    }
+//        NotificationCenter.default.addObserver(forName: .fetchWeather, object: nil, queue: .main){ _ in
+//            self.locationLabel.text = Location.shared.locationTitle
+//            self.weatherTableView.reloadData()
+//            self.weatherTableView.alpha = 1.0
+//            print("restart")
+//            }
+//        }
     
+        NotificationCenter.default.rx.notification(.fetchWeather)
+            .asDriver(onErrorRecover: {_ in .never()})
+            .drive(onNext:{ [weak self] _ in
+                self?.locationLabel.text = Location.shared.locationTitle
+                self?.weatherTableView.reloadData()
+                self?.weatherTableView.alpha = 1.0
+            }).disposed(by: bag)
+
+//        NotificationCenter.default.addObserver(forName: FetchData.weatherUpdate, object: nil, queue: .main){ noti in
+//            self.weatherTableView.reloadData()
+//            self.locationLabel.text = Location.shared.locationTitle
+//
+//            UIView.animate(withDuration: 0.2){
+//                self.weatherTableView.alpha = 1.0
+//
+//            }
+//        }
+    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         removeNotification()
@@ -81,17 +98,17 @@ extension MainViewController: UITableViewDataSource{
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "DustTableViewCell", for: indexPath) as! DustTableViewCell
         if let dust = FetchData.shared.dust?.list.first{
-            
+
             let no2Data: Double = dust.components.no2 / 10000
             let so2Data: Double = dust.components.so2 / 10000
             let o3Data:Double = dust.components.o3 / 1000
-            
+
             cell.pm25DataLabel.text = "\(dust.components.pm2_5)"
             cell.pm100DataLabel.text = "\(dust.components.pm10)"
             cell.no2DataLabel.text = "\(String(format: "%.4f", no2Data))"
             cell.so2DataLabel.text = "\(String(format: "%.4f", so2Data))"
             cell.o3DataLabel.text = "\(String(format: "%.4f", o3Data))"
-            
+
             if dust.components.pm2_5 < 30.0 {
                 cell.pm25ImageView.image = UIImage(named: "good.png")
                 cell.pm25StateLabel.text = "좋음"
@@ -105,7 +122,7 @@ extension MainViewController: UITableViewDataSource{
                 cell.pm25ImageView.image = UIImage(named: "verybad.png")
                 cell.pm25StateLabel.text = "최악"
             }
-            
+
             if dust.components.pm10 < 15.0 {
                 cell.pm100ImageView.image = UIImage(named: "good.png")
                 cell.pm100StateLabel.text = "좋음"
@@ -119,7 +136,7 @@ extension MainViewController: UITableViewDataSource{
                 cell.pm100ImageView.image = UIImage(named: "verybad.png")
                 cell.pm100StateLabel.text = "최악"
             }
-            
+
             //값 수정작업 후 작업해야함.
             if no2Data < 0.02 {
                 cell.no2ImageView.image = UIImage(named: "good.png")
@@ -134,7 +151,7 @@ extension MainViewController: UITableViewDataSource{
                 cell.no2ImageView.image = UIImage(named: "verybad.png")
                 cell.no2StateLabel.text = "최악"
             }
-            
+
             if so2Data < 0.03 {
                 cell.so2ImageView.image = UIImage(named: "good.png")
                 cell.so2StateLabel.text = "좋음"
@@ -148,7 +165,7 @@ extension MainViewController: UITableViewDataSource{
                 cell.so2ImageView.image = UIImage(named: "verybad.png")
                 cell.so2StateLabel.text = "최악"
             }
-            
+
             if o3Data < 0.03 {
                 cell.o3ImageView.image = UIImage(named: "good.png")
                 cell.o3StateLabel.text = "좋음"
@@ -162,7 +179,7 @@ extension MainViewController: UITableViewDataSource{
                 cell.o3ImageView.image = UIImage(named: "verybad.png")
                 cell.o3StateLabel.text = "최악"
             }
-            
+
         }
         return cell
     }
@@ -172,7 +189,8 @@ extension MainViewController: UITableViewDataSource{
     }
 }
 
-extension MainViewController {
+extension MainViewController{
+    
     func initRefresh() {
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(updateUI(refresh:)), for: .valueChanged)

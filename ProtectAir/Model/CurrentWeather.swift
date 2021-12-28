@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 struct CWeather: Codable {
     let dt: Int
@@ -26,6 +27,22 @@ struct CWeather: Codable {
     
     let main: Main
 }
+
+//struct refindData{
+//    let refindDesc: String
+//    let refindIcon: String
+//    let refindTemp: Double
+//    let refindTemp_min: Double
+//    let refindTemp_max: Double
+//    
+//    init(refindDesc: String, refindIcon: String, refindTemp: Double, refindTemp_min: Double, refindTemp_max: Double){
+//        self.refindDesc = refindDesc
+//        self.refindIcon = refindIcon
+//        self.refindTemp = refindTemp
+//        self.refindTemp_min = refindTemp_min
+//        self.refindTemp_max = refindTemp_max
+//    }
+//}
 
 struct DustData: Codable{
     struct List: Codable {

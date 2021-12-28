@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 import CoreLocation
 
 class Location: NSObject{
@@ -29,8 +28,8 @@ class Location: NSObject{
             if let location = currentLocation {
                 userInfo["location"] = location
             }
-            
-            NotificationCenter.default.post(name: Self.LocationUpdate, object: nil, userInfo: userInfo)
+            NotificationCenter.default.post(name: .location, object: nil, userInfo: userInfo)
+//            NotificationCenter.default.post(name: Self.LocationUpdate, object: nil, userInfo: userInfo)
         }
     }
     

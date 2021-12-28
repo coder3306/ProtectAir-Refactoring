@@ -53,13 +53,12 @@ extension MotorViewController: UITableViewDataSource{
         if let motorForceData = raspiMotorData?.result.first{
             if motorForceData.no1motor == "0"{
                 motorCell.motorTextLabel.text = "모터가 꺼져 있습니다."
-            } else if motorForceData.no1motor == "60"{
+                motorCell.motorImageView.image = UIImage(named: "img1.png")
+            } else{
                 motorCell.motorTextLabel.text = "모터의 힘이 \(motorForceData.no1motor)%로 작동하고 있습니다."
+                motorCell.motorImageView.image = UIImage(named: "img2.png")
             }
-            
         }
         return motorCell
     }
-    
-    
 }

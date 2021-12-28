@@ -7,110 +7,176 @@
 
 import Foundation
 import CoreLocation
-
-import Foundation
-import CoreLocation
+import RxSwift
+import RxCocoa
 
 class FetchData{
-    let api = DispatchQueue(label: "ApiQueue", attributes: .concurrent)
-    let group = DispatchGroup()
-    var summary: CWeather?
-    var dust: DustData?
     static let shared = FetchData()
     static let weatherUpdate = Notification.Name(rawValue: "weatherUpdate")
 
+    var summary: CWeather?
+    var dust: DustData?
+    
+    private let bag = DisposeBag()
+
     private init () {
-        NotificationCenter.default.addObserver(forName: Location.LocationUpdate, object: nil, queue: .main){ (noti) in
-            if let location = noti.userInfo?["location"] as? CLLocation{
-                self.fetchPasingData(location: location){
-                    NotificationCenter.default.post(name: Self.weatherUpdate, object: nil)
+        NotificationCenter.default.rx.notification(.location)
+            .subscribe{ noti in
+                if let location = noti.element?.userInfo?["location"] as? CLLocation{
+                    self.fetchWeather(location: location)
+                    self.fetchDust(location: location)
                 }
-            }
-        }
+            }.disposed(by: bag)
     }
 
-    func fetchPasingData(location: CLLocation, completion: @escaping () -> ()) {
-        group.enter()
-        api.async {
-            self.fetchWeather(location: location) {(result) in
-                switch result {
-                case .success(let data):
-                    self.summary = data
-                default:
-                    self.summary = nil
-                }
-            self.group.leave()
-            }
-        }
-        group.enter()
-        api.async {
-            self.fetchDust(location: location){(result) in
-                switch result{
-                case .success(let data):
-                    self.dust = data
-                default:
-                    self.dust = nil
-                }
-                self.group.leave()
-            }
-        }
-        
-        group.notify(queue: .main){
-            completion()
-        }
-    }
+//    func fetchPasingData(location: CLLocation, completion: @escaping () -> ()) {
+//        group.enter()
+//        api.async {
+//            self.fetchWeather(location: location) {(result) in
+//                switch result {
+//                case .success(let data):
+//                    print(data)
+//                    self.summary = data
+//                default:
+//                    self.summary = nil
+//                }
+//            self.group.leave()
+//            }
+//        }
+//        group.enter()
+//        api.async {
+//            self.fetchDust(location: location){(result) in
+//                switch result{
+//                case .success(let data):
+//                    self.dust = data
+//                default:
+//                    self.dust = nil
+//                }
+//                self.group.leave()
+//            }
+//        }
+//
+//        group.notify(queue: .main){
+//            completion()
+//        }
+//    }
 
 }
 
 extension FetchData{
-    private func fetch<PasingType: Codable>(urlStr: String, completion: @escaping(Result<PasingType,Error>) -> ()) {
-        guard let requesturl = URL(string: urlStr) else {
-            completion(.failure(ApiError.invalidURL(urlStr)))
-            return
+    private func downloadJSON(_ url: String) -> Observable<CWeather?>{
+        return Observable.create(){ observer in
+            let url = URL(string: url)!
+            let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
+                if (response as? HTTPURLResponse) != nil{
+                    guard error == nil else { return }
+                    guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
+                    let successRange = 200..<300
+                    guard (response as? HTTPURLResponse) != nil else {
+                        observer.onError(error!)
+                        return
+                    }
+                    guard successRange.contains(statusCode) else {
+                        observer.onError(error!)
+                        return
+                    }
+                    guard data != nil else {
+                        observer.onError(error!)
+                        return
+                    }
+                    
+                    do{
+                        let decoder = JSONDecoder()
+                        let response = try decoder.decode(CWeather.self, from: data!)
+                        observer.onNext(response)
+                    }catch{
+                        observer.onError(error)
+                    }
+                    observer.onCompleted()
+                }
+            }
+            task.resume()
+            
+            return Disposables.create(){
+                task.cancel()
+            }
         }
-        
-        let dataTask = URLSession.shared.dataTask(with: requesturl) { (data, response, error) in
-            guard error == nil else { return }
-            
-            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
-            
-            let successRange = 200..<300
-            
-            guard let httpResponse = response as? HTTPURLResponse else {
-                completion(.failure(ApiError.invalidResponse))
-                return
-            }
-            
-            guard successRange.contains(statusCode) else {
-                completion(.failure(ApiError.failed(httpResponse.statusCode)))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(ApiError.emptyData))
-                return
-            }
-            
-            do{
-                let decoder = JSONDecoder()
-                let response = try decoder.decode(PasingType.self, from: data)
-                
-                completion(.success(response))
-
-            }catch{
-                completion(.failure(error))
-            }
-        }
-        dataTask.resume()
     }
     
-    private func fetchWeather(location: CLLocation, completion: @escaping(Result<CWeather,Error>) -> ()){
+    private func downloadDustJSON(_ url: String) -> Observable<DustData?>{
+        return Observable.create(){ observer in
+            let url = URL(string: url)!
+            let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
+                if (response as? HTTPURLResponse) != nil{
+                    guard error == nil else { return }
+                    guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
+                    let successRange = 200..<300
+                    guard (response as? HTTPURLResponse) != nil else {
+                        observer.onError(error!)
+                        return
+                    }
+                    guard successRange.contains(statusCode) else {
+                        observer.onError(error!)
+                        return
+                    }
+                    guard data != nil else {
+                        observer.onError(error!)
+                        return
+                    }
+                    
+                    do{
+                        let decoder = JSONDecoder()
+                        let response = try decoder.decode(DustData.self, from: data!)
+                        observer.onNext(response)
+                    }catch{
+                        observer.onError(error)
+                    }
+                    observer.onCompleted()
+                }
+            }
+            task.resume()
+            
+            return Disposables.create(){
+                task.cancel()
+            }
+        }
+    }
+    
+    private func fetchWeather(location: CLLocation){
         let urlStr = "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=a3d53c4b7a0f558bcce4af29031a28e4&units=metric&lang=en"
-        fetch(urlStr: urlStr, completion: completion)
+        downloadJSON(urlStr)
+            //.debug()
+            .subscribe{ [weak self] event in
+                switch event{
+                case let .next(json):
+                    if let data = json{
+                        self.summary = data
+                    }
+                case .completed:
+                    break
+                case .error:
+                    break
+            }
+        }.disposed(by: bag)
     }
-    
-    private func fetchDust(location: CLLocation, completion: @escaping(Result<DustData,Error>) ->()){
+    private func fetchDust(location: CLLocation){
         let urlStr = "https://api.openweathermap.org/data/2.5/air_pollution?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=ebb2a9c22933e32d59f761c0c9fc6096"
-        fetch(urlStr: urlStr, completion: completion)
+        downloadDustJSON(urlStr)
+            //.debug()
+            .subscribe{ [weak self] event in
+                switch event{
+                case let .next(json):
+                    if let data = json{
+                        print(data)
+                        self.dust = data
+                        NotificationCenter.default.post(name: .fetchWeather, object: nil)
+                    }
+                case .completed:
+                    break
+                case .error:
+                    break
+            }
+        }.disposed(by: bag)
+        
     }
 }

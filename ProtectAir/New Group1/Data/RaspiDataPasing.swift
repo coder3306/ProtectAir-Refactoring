@@ -7,8 +7,6 @@
 
 import Foundation
 import UIKit
-import RxSwift
-
 
 class RaspiDataPasing{
     static let shared = RaspiDataPasing()
@@ -52,19 +50,19 @@ class RaspiDataPasing{
     }
 
     func fetchRaspiDataFirst(completion: @escaping(Result<RaspData,Error>) -> ()){
-        let urlStr = "http://192.168.0.15/insert4.php"
+        let urlStr = "http://10.2.100.3/insert4.php"
 
         fetch(urlStr: urlStr, completion: completion)
     }
 
     func fetchRaspiDataSecond(completion: @escaping(Result<SecondRaspData,Error>)-> ()){
-        let urlStr = "http://192.168.0.15/insert5.php"
+        let urlStr = "http://10.2.100.3/insert5.php"
 
         fetch(urlStr: urlStr, completion: completion)
     }
     
     func fetchMotorForce(completion: @escaping(Result<MotorForce,Error>) ->()){
-        let urlStr = "http://192.168.0.15/motor.php"
+        let urlStr = "http://10.2.100.3/motor.php"
         fetch(urlStr: urlStr, completion: completion)
     }
 
