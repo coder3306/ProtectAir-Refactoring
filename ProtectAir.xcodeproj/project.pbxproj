@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,7 @@
 		1965377B26EE16BB0018BA7D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965377A26EE16BB0018BA7D /* TabBarController.swift */; };
 		196D5E2427257534009D4074 /* SecondDustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D5E2327257534009D4074 /* SecondDustTableViewCell.swift */; };
 		197087CC26EEE11F00AFC458 /* RaspiDataPasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197087CB26EEE11F00AFC458 /* RaspiDataPasing.swift */; };
+		197161E1277B3A8A00AB0EE6 /* Pods_ProtectAir.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 197161E0277B3A8A00AB0EE6 /* Pods_ProtectAir.framework */; };
 		1975341326E4F91B00513BB1 /* RaspiDustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975341226E4F91B00513BB1 /* RaspiDustTableViewCell.swift */; };
 		1975341526E4F94300513BB1 /* DustMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975341426E4F94300513BB1 /* DustMainViewController.swift */; };
 		19839C6826EDF073005A131A /* DustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19839C6726EDF073005A131A /* DustTableViewCell.swift */; };
@@ -30,7 +31,6 @@
 		19B869A726E0FD93004BFBC5 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A626E0FD93004BFBC5 /* ApiError.swift */; };
 		19B869A926E0FDA8004BFBC5 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A826E0FDA8004BFBC5 /* CurrentWeather.swift */; };
 		19B869AB26E0FDB4004BFBC5 /* RaspData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869AA26E0FDB4004BFBC5 /* RaspData.swift */; };
-		93384125082CC623D0886E2F /* Pods_ProtectAir.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 008EEC67911769374B7B880A /* Pods_ProtectAir.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +54,7 @@
 		1965377A26EE16BB0018BA7D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		196D5E2327257534009D4074 /* SecondDustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondDustTableViewCell.swift; sourceTree = "<group>"; };
 		197087CB26EEE11F00AFC458 /* RaspiDataPasing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspiDataPasing.swift; sourceTree = "<group>"; };
+		197161E0277B3A8A00AB0EE6 /* Pods_ProtectAir.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ProtectAir.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1975341226E4F91B00513BB1 /* RaspiDustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspiDustTableViewCell.swift; sourceTree = "<group>"; };
 		1975341426E4F94300513BB1 /* DustMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustMainViewController.swift; sourceTree = "<group>"; };
 		19839C6726EDF073005A131A /* DustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustTableViewCell.swift; sourceTree = "<group>"; };
@@ -71,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93384125082CC623D0886E2F /* Pods_ProtectAir.framework in Frameworks */,
+				197161E1277B3A8A00AB0EE6 /* Pods_ProtectAir.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +206,7 @@
 		4BFD91479B6D0AC717427418 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				197161E0277B3A8A00AB0EE6 /* Pods_ProtectAir.framework */,
 				008EEC67911769374B7B880A /* Pods_ProtectAir.framework */,
 			);
 			name = Frameworks;
@@ -230,7 +232,7 @@
 				1956636026E0E2CB0018E62E /* Sources */,
 				1956636126E0E2CB0018E62E /* Frameworks */,
 				1956636226E0E2CB0018E62E /* Resources */,
-				9406E804F874E844C5CC7B87 /* [CP] Embed Pods Frameworks */,
+				92897B269AB5A04D926275E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -287,7 +289,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9406E804F874E844C5CC7B87 /* [CP] Embed Pods Frameworks */ = {
+		92897B269AB5A04D926275E1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
