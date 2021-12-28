@@ -38,14 +38,6 @@ class MainViewController: UIViewController {
         weatherTableView.rowHeight = 350
         
         Location.shared.updateLocation()
-        
-//        NotificationCenter.default.addObserver(forName: .fetchWeather, object: nil, queue: .main){ _ in
-//            self.locationLabel.text = Location.shared.locationTitle
-//            self.weatherTableView.reloadData()
-//            self.weatherTableView.alpha = 1.0
-//            print("restart")
-//            }
-//        }
     
         NotificationCenter.default.rx.notification(.fetchWeather)
             .asDriver(onErrorRecover: {_ in .never()})
@@ -54,16 +46,6 @@ class MainViewController: UIViewController {
                 self?.weatherTableView.reloadData()
                 self?.weatherTableView.alpha = 1.0
             }).disposed(by: bag)
-
-//        NotificationCenter.default.addObserver(forName: FetchData.weatherUpdate, object: nil, queue: .main){ noti in
-//            self.weatherTableView.reloadData()
-//            self.locationLabel.text = Location.shared.locationTitle
-//
-//            UIView.animate(withDuration: 0.2){
-//                self.weatherTableView.alpha = 1.0
-//
-//            }
-//        }
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
@@ -84,7 +66,6 @@ extension MainViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         //옵셔널 바인딩 안하면 옵셔널값으로 튀어나오므로, if let 으로 옵셔널 바인딩 후 reloadData를 쓴다.
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
@@ -191,7 +172,7 @@ extension MainViewController: UITableViewDataSource{
 
 extension MainViewController{
     
-    func initRefresh() {
+    private func initRefresh() {
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(updateUI(refresh:)), for: .valueChanged)
         refresh.attributedTitle = NSAttributedString(string: "새로고침")
@@ -203,12 +184,12 @@ extension MainViewController{
         }
     }
     
-    @objc func updateUI(refresh: UIRefreshControl){
+    @objc private func updateUI(refresh: UIRefreshControl){
         refresh.endRefreshing()
         weatherTableView.reloadData()
     }
     
-    func removeNotification() {
-        NotificationCenter.default.removeObserver(self, name: Location.LocationUpdate, object: nil)
+    private func removeNotification() {
+        NotificationCenter.default.removeObserver(self, name: .fetchWeather, object: nil)
     }
 }
