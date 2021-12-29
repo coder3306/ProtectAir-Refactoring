@@ -109,7 +109,6 @@ extension FetchData{
             }
         }
     }
-    
     private func fetchWeather(location: CLLocation){
         let urlStr = "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=\(apiWeatherKey)&units=metric&lang=en"
         //2. Observable로 오는 데이터를 받아서 처리하는 방법

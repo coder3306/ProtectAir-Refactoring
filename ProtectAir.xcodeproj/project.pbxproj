@@ -22,6 +22,7 @@
 		1965377B26EE16BB0018BA7D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965377A26EE16BB0018BA7D /* TabBarController.swift */; };
 		196D5E2427257534009D4074 /* SecondDustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D5E2327257534009D4074 /* SecondDustTableViewCell.swift */; };
 		197161E1277B3A8A00AB0EE6 /* Pods_ProtectAir.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 197161E0277B3A8A00AB0EE6 /* Pods_ProtectAir.framework */; };
+		1971CD7D277C6F6E003BF48A /* SensorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971CD7C277C6F6E003BF48A /* SensorViewModel.swift */; };
 		1975341326E4F91B00513BB1 /* FirstDustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975341226E4F91B00513BB1 /* FirstDustTableViewCell.swift */; };
 		1975341526E4F94300513BB1 /* DustMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975341426E4F94300513BB1 /* DustMainViewController.swift */; };
 		19839C6826EDF073005A131A /* ApiDustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19839C6726EDF073005A131A /* ApiDustTableViewCell.swift */; };
@@ -30,7 +31,7 @@
 		19B869A926E0FDA8004BFBC5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A826E0FDA8004BFBC5 /* Weather.swift */; };
 		19B869AB26E0FDB4004BFBC5 /* RaspData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869AA26E0FDB4004BFBC5 /* RaspData.swift */; };
 		19D83A48277BFE63007790D9 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D83A46277BFE63007790D9 /* FetchData.swift */; };
-		19D83A49277BFE63007790D9 /* RaspiDataPasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D83A47277BFE63007790D9 /* RaspiDataPasing.swift */; };
+		19D83A49277BFE63007790D9 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D83A47277BFE63007790D9 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		1965377A26EE16BB0018BA7D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		196D5E2327257534009D4074 /* SecondDustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondDustTableViewCell.swift; sourceTree = "<group>"; };
 		197161E0277B3A8A00AB0EE6 /* Pods_ProtectAir.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ProtectAir.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1971CD7C277C6F6E003BF48A /* SensorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorViewModel.swift; sourceTree = "<group>"; };
 		1975341226E4F91B00513BB1 /* FirstDustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstDustTableViewCell.swift; sourceTree = "<group>"; };
 		1975341426E4F94300513BB1 /* DustMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustMainViewController.swift; sourceTree = "<group>"; };
 		19839C6726EDF073005A131A /* ApiDustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiDustTableViewCell.swift; sourceTree = "<group>"; };
@@ -62,7 +64,7 @@
 		19B869A826E0FDA8004BFBC5 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		19B869AA26E0FDB4004BFBC5 /* RaspData.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = RaspData.swift; sourceTree = "<group>"; };
 		19D83A46277BFE63007790D9 /* FetchData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
-		19D83A47277BFE63007790D9 /* RaspiDataPasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaspiDataPasing.swift; sourceTree = "<group>"; };
+		19D83A47277BFE63007790D9 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		6CEED6AA31D7234FCB426322 /* Pods-ProtectAir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtectAir.release.xcconfig"; path = "Target Support Files/Pods-ProtectAir/Pods-ProtectAir.release.xcconfig"; sourceTree = "<group>"; };
 		9DDCF01D318F6E4F260F7682 /* Pods-ProtectAir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtectAir.debug.xcconfig"; path = "Target Support Files/Pods-ProtectAir/Pods-ProtectAir.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,7 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				19D83A46277BFE63007790D9 /* FetchData.swift */,
-				19D83A47277BFE63007790D9 /* RaspiDataPasing.swift */,
+				19D83A47277BFE63007790D9 /* Network.swift */,
+				1971CD7C277C6F6E003BF48A /* SensorViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			files = (
 				192AA85C26E3B2420087E27C /* WeatherTableViewCell.swift in Sources */,
 				1956637C26E0E7ED0018E62E /* MainViewController.swift in Sources */,
+				1971CD7D277C6F6E003BF48A /* SensorViewModel.swift in Sources */,
 				196D5E2427257534009D4074 /* SecondDustTableViewCell.swift in Sources */,
 				19839C6826EDF073005A131A /* ApiDustTableViewCell.swift in Sources */,
 				1965377B26EE16BB0018BA7D /* TabBarController.swift in Sources */,
@@ -353,7 +357,7 @@
 				1956636A26E0E2CB0018E62E /* SceneDelegate.swift in Sources */,
 				19D83A48277BFE63007790D9 /* FetchData.swift in Sources */,
 				19A4B38D277AAF0B0050258A /* NotificationName.swift in Sources */,
-				19D83A49277BFE63007790D9 /* RaspiDataPasing.swift in Sources */,
+				19D83A49277BFE63007790D9 /* Network.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,6 +25,7 @@ class Location: NSObject{
         var userInfo = [AnyHashable: Any]()
         manager.rx
             .location
+            .retry()
             .subscribe(onNext: { location in
                 guard let location = location else { return }
                 userInfo["location"] = location

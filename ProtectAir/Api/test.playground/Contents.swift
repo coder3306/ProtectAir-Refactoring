@@ -135,7 +135,6 @@ private func downloadJSON(_ url: String) -> Observable<CWeather?>{
                     observer.onError(error!)
                     return
                 }
-                
                 do{
                     let decoder = JSONDecoder()
                     let response = try decoder.decode(CWeather.self, from: data!)
@@ -153,16 +152,59 @@ private func downloadJSON(_ url: String) -> Observable<CWeather?>{
         }
     }
 }
+private func downloadDustJSON(_ url: String) -> Observable<CWeather?>{
+    return Observable.create(){ observer in
+        let url = URL(string: url)!
+        let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
+            if (response as? HTTPURLResponse) != nil{
+                guard error == nil else { return }
+                guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
+                let successRange = 200..<300
+                guard (response as? HTTPURLResponse) != nil else {
+                    observer.onError(error!)
+                    return
+                }
+                guard successRange.contains(statusCode) else {
+                    observer.onError(error!)
+                    return
+                }
+                guard data != nil else {
+                    observer.onError(error!)
+                    return
+                }
+                do{
+                    let decoder = JSONDecoder()
+                    let response = try decoder.decode(CWeather.self, from: data!)
+                    observer.onNext(response)
+                }catch{
+                    observer.onError(error)
+                }
+                observer.onCompleted()
+            }
+        }
+        task.resume()
+        
+        return Disposables.create(){
+            task.cancel()
+        }
+    }
+}
+let firstObservable = downloadJSON(urlStr)
+let secondObservable = downloadDustJSON(urlStr)
+
+Observable.zip(firstObservable,secondObservable)
 
 var summary = CWeather?.self
 
 downloadJSON(urlStr)
     .debug()
+    .retry()
     .subscribe{ event in
         switch event{
         case let .next(json):
             if let data = json{
                 //summary = data.weather
+                print(data.main.temp)
             }
         case .completed:
             break

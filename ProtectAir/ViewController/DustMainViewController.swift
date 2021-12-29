@@ -18,34 +18,6 @@ class DustMainViewController: UIViewController {
         dustTableView.backgroundColor = .clear
         dustTableView.separatorStyle = .none
         dustTableView.rowHeight = 200
-        
-        DispatchQueue.global().async {
-            while self.isSensorTrigger == true{
-                print("viewdidload")
-                RaspiDataPasing.shared.fetchRaspiDataFirst(){ [weak self] (result) in
-                    switch result {
-                    case .success(let data):
-                        self?.raspiF = data
-                    default:
-                        self?.raspiF = nil
-                        print("pasing failed")
-                    }
-                }
-                RaspiDataPasing.shared.fetchRaspiDataSecond(){ [weak self] (result) in
-                    switch result {
-                    case .success(let data):
-                        self?.raspiS = data
-                    default:
-                        self?.raspiS = nil
-                        print("second raspi data pasing failed")
-                    }
-                }
-                DispatchQueue.main.async {
-                    self.dustTableView.reloadData()
-                }
-                sleep(2)
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

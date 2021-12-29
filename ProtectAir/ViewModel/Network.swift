@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-class RaspiDataPasing{
-    static let shared = RaspiDataPasing()
+class Network{
+    static let shared = Network()
 
     private func fetch<PasingType: Codable>(urlStr: String, completion: @escaping(Result<PasingType,Error>) -> ()){
         guard let url = URL(string: urlStr) else {

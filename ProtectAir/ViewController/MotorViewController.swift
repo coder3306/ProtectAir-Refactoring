@@ -16,22 +16,22 @@ class MotorViewController: UIViewController {
     override func viewDidLoad() {
         motorTableView.rowHeight = 700
         super.viewDidLoad()
-        DispatchQueue.global().async {
-            while self.isMotorTrigger == true{
-                RaspiDataPasing.shared.fetchMotorForce(){ [weak self] (result) in
-                    switch result {
-                    case .success(let motorData):
-                        self?.raspiMotorData = motorData
-                    default:
-                        print("motor pasing failed")
-                    }
-                }
-                DispatchQueue.main.async {
-                    self.motorTableView.reloadData()
-                }
-                sleep(2)
-            }
-        }
+//        DispatchQueue.global().async {
+//            while self.isMotorTrigger == true{
+//                RaspiDataPasing.shared.fetchMotorForce(){ [weak self] (result) in
+//                    switch result {
+//                    case .success(let motorData):
+//                        self?.raspiMotorData = motorData
+//                    default:
+//                        print("motor pasing failed")
+//                    }
+//                }
+//                DispatchQueue.main.async {
+//                    self.motorTableView.reloadData()
+//                }
+//                sleep(2)
+//            }
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
