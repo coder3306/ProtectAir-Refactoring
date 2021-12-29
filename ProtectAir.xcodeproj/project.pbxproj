@@ -27,7 +27,7 @@
 		1975341326E4F91B00513BB1 /* RaspiDustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975341226E4F91B00513BB1 /* RaspiDustTableViewCell.swift */; };
 		1975341526E4F94300513BB1 /* DustMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975341426E4F94300513BB1 /* DustMainViewController.swift */; };
 		19839C6826EDF073005A131A /* DustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19839C6726EDF073005A131A /* DustTableViewCell.swift */; };
-		19A4B38D277AAF0B0050258A /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A4B38C277AAF0B0050258A /* Protocol.swift */; };
+		19A4B38D277AAF0B0050258A /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A4B38C277AAF0B0050258A /* NotificationName.swift */; };
 		19B869A726E0FD93004BFBC5 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A626E0FD93004BFBC5 /* ApiError.swift */; };
 		19B869A926E0FDA8004BFBC5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A826E0FDA8004BFBC5 /* Weather.swift */; };
 		19B869AB26E0FDB4004BFBC5 /* RaspData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869AA26E0FDB4004BFBC5 /* RaspData.swift */; };
@@ -59,7 +59,7 @@
 		1975341426E4F94300513BB1 /* DustMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustMainViewController.swift; sourceTree = "<group>"; };
 		19839C6726EDF073005A131A /* DustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustTableViewCell.swift; sourceTree = "<group>"; };
 		19A4B38B277AA1810050258A /* Location.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Location.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		19A4B38C277AAF0B0050258A /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		19A4B38C277AAF0B0050258A /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		19B869A626E0FD93004BFBC5 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		19B869A826E0FDA8004BFBC5 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		19B869AA26E0FDB4004BFBC5 /* RaspData.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = RaspData.swift; sourceTree = "<group>"; };
@@ -117,23 +117,23 @@
 				1961A1262702B2CE009D4557 /* Format */,
 				1956637E26E0F2E20018E62E /* Location */,
 				1956638026E0F2E80018E62E /* Api */,
-				1956637F26E0F2E30018E62E /* Data */,
-				1956637D26E0F2E00018E62E /* Model */,
+				1956637F26E0F2E30018E62E /* ViewModel */,
+				1956637D26E0F2E00018E62E /* Setting */,
 				1956637526E0E2CC0018E62E /* Info.plist */,
 			);
 			path = ProtectAir;
 			sourceTree = "<group>";
 		};
-		1956637D26E0F2E00018E62E /* Model */ = {
+		1956637D26E0F2E00018E62E /* Setting */ = {
 			isa = PBXGroup;
 			children = (
 				19B869A626E0FD93004BFBC5 /* ApiError.swift */,
 				19B869A826E0FDA8004BFBC5 /* Weather.swift */,
 				19B869AA26E0FDB4004BFBC5 /* RaspData.swift */,
-				19A4B38C277AAF0B0050258A /* Protocol.swift */,
+				19A4B38C277AAF0B0050258A /* NotificationName.swift */,
 				191A7A93277BF01D00360826 /* KeyList.plist */,
 			);
-			path = Model;
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		1956637E26E0F2E20018E62E /* Location */ = {
@@ -144,14 +144,14 @@
 			path = Location;
 			sourceTree = "<group>";
 		};
-		1956637F26E0F2E30018E62E /* Data */ = {
+		1956637F26E0F2E30018E62E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				192AA85726E396830087E27C /* FetchData.swift */,
 				197087CB26EEE11F00AFC458 /* RaspiDataPasing.swift */,
 			);
-			name = Data;
-			path = "New Group1/Data";
+			name = ViewModel;
+			path = "New Group1/ViewModel";
 			sourceTree = "<group>";
 		};
 		1956638026E0F2E80018E62E /* Api */ = {
@@ -354,7 +354,7 @@
 				193AD940272D961A00EEB8FB /* MotorTableViewCell.swift in Sources */,
 				1961A1282702B2F3009D4557 /* Formatter.swift in Sources */,
 				1956636A26E0E2CB0018E62E /* SceneDelegate.swift in Sources */,
-				19A4B38D277AAF0B0050258A /* Protocol.swift in Sources */,
+				19A4B38D277AAF0B0050258A /* NotificationName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
