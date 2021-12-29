@@ -15,8 +15,6 @@ class DustMainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        dustTableView.alpha = 1.0
         dustTableView.backgroundColor = .clear
         dustTableView.separatorStyle = .none
         dustTableView.rowHeight = 200
@@ -141,7 +139,4 @@ extension DustMainViewController: UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-}
-
-extension DustMainViewController: UITableViewDelegate{
 }

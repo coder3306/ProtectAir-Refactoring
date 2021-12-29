@@ -702,7 +702,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="03n" width="64" height="64"/>
+        <image name="03n" width="126.5" height="63"/>
         <image name="background" width="185" height="329"/>
         <image name="cloud.fill" catalog="system" width="128" height="88"/>
         <image name="icons8-전기-센서-30" width="30" height="30"/>

@@ -44,9 +44,9 @@ class MainViewController: UIViewController, UITableViewDelegate{
         
         Location.shared.manager.rx
             .placemark
-            .subscribe(onNext: { placemark in
+            .subscribe(onNext: { [weak self] placemark in
                 guard let name = placemark.name else { return }
-                self.locationLabel.text = name
+                self?.locationLabel.text = name
             }).disposed(by: bag)
         
         NotificationCenter.default.rx.notification(.fetchWeather)

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1902BB6426E23AD000147F77 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1902BB6326E23AD000147F77 /* Location.swift */; };
 		191A7A94277BF01D00360826 /* KeyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 191A7A93277BF01D00360826 /* KeyList.plist */; };
-		192AA85826E396830087E27C /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AA85726E396830087E27C /* FetchData.swift */; };
 		192AA85C26E3B2420087E27C /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AA85B26E3B2420087E27C /* WeatherTableViewCell.swift */; };
 		19345C1C26E490030073E60D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19345C1B26E490030073E60D /* Assets.xcassets */; };
 		193AD93E272D739100EEB8FB /* MotorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193AD93D272D739100EEB8FB /* MotorViewController.swift */; };
@@ -22,22 +21,22 @@
 		1961A1282702B2F3009D4557 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1961A1272702B2F3009D4557 /* Formatter.swift */; };
 		1965377B26EE16BB0018BA7D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1965377A26EE16BB0018BA7D /* TabBarController.swift */; };
 		196D5E2427257534009D4074 /* SecondDustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D5E2327257534009D4074 /* SecondDustTableViewCell.swift */; };
-		197087CC26EEE11F00AFC458 /* RaspiDataPasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197087CB26EEE11F00AFC458 /* RaspiDataPasing.swift */; };
 		197161E1277B3A8A00AB0EE6 /* Pods_ProtectAir.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 197161E0277B3A8A00AB0EE6 /* Pods_ProtectAir.framework */; };
-		1975341326E4F91B00513BB1 /* RaspiDustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975341226E4F91B00513BB1 /* RaspiDustTableViewCell.swift */; };
+		1975341326E4F91B00513BB1 /* FirstDustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975341226E4F91B00513BB1 /* FirstDustTableViewCell.swift */; };
 		1975341526E4F94300513BB1 /* DustMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1975341426E4F94300513BB1 /* DustMainViewController.swift */; };
-		19839C6826EDF073005A131A /* DustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19839C6726EDF073005A131A /* DustTableViewCell.swift */; };
+		19839C6826EDF073005A131A /* ApiDustTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19839C6726EDF073005A131A /* ApiDustTableViewCell.swift */; };
 		19A4B38D277AAF0B0050258A /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A4B38C277AAF0B0050258A /* NotificationName.swift */; };
 		19B869A726E0FD93004BFBC5 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A626E0FD93004BFBC5 /* ApiError.swift */; };
 		19B869A926E0FDA8004BFBC5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A826E0FDA8004BFBC5 /* Weather.swift */; };
 		19B869AB26E0FDB4004BFBC5 /* RaspData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869AA26E0FDB4004BFBC5 /* RaspData.swift */; };
+		19D83A48277BFE63007790D9 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D83A46277BFE63007790D9 /* FetchData.swift */; };
+		19D83A49277BFE63007790D9 /* RaspiDataPasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D83A47277BFE63007790D9 /* RaspiDataPasing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		008EEC67911769374B7B880A /* Pods_ProtectAir.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProtectAir.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1902BB6326E23AD000147F77 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		191A7A93277BF01D00360826 /* KeyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyList.plist; sourceTree = "<group>"; };
-		192AA85726E396830087E27C /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
 		192AA85B26E3B2420087E27C /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		19345C1B26E490030073E60D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		193AD93D272D739100EEB8FB /* MotorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorViewController.swift; sourceTree = "<group>"; };
@@ -53,16 +52,17 @@
 		1961A1272702B2F3009D4557 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		1965377A26EE16BB0018BA7D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		196D5E2327257534009D4074 /* SecondDustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondDustTableViewCell.swift; sourceTree = "<group>"; };
-		197087CB26EEE11F00AFC458 /* RaspiDataPasing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspiDataPasing.swift; sourceTree = "<group>"; };
 		197161E0277B3A8A00AB0EE6 /* Pods_ProtectAir.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ProtectAir.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1975341226E4F91B00513BB1 /* RaspiDustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspiDustTableViewCell.swift; sourceTree = "<group>"; };
+		1975341226E4F91B00513BB1 /* FirstDustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstDustTableViewCell.swift; sourceTree = "<group>"; };
 		1975341426E4F94300513BB1 /* DustMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustMainViewController.swift; sourceTree = "<group>"; };
-		19839C6726EDF073005A131A /* DustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustTableViewCell.swift; sourceTree = "<group>"; };
+		19839C6726EDF073005A131A /* ApiDustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiDustTableViewCell.swift; sourceTree = "<group>"; };
 		19A4B38B277AA1810050258A /* Location.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Location.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		19A4B38C277AAF0B0050258A /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		19B869A626E0FD93004BFBC5 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		19B869A826E0FDA8004BFBC5 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		19B869AA26E0FDB4004BFBC5 /* RaspData.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = RaspData.swift; sourceTree = "<group>"; };
+		19D83A46277BFE63007790D9 /* FetchData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
+		19D83A47277BFE63007790D9 /* RaspiDataPasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaspiDataPasing.swift; sourceTree = "<group>"; };
 		6CEED6AA31D7234FCB426322 /* Pods-ProtectAir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtectAir.release.xcconfig"; path = "Target Support Files/Pods-ProtectAir/Pods-ProtectAir.release.xcconfig"; sourceTree = "<group>"; };
 		9DDCF01D318F6E4F260F7682 /* Pods-ProtectAir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtectAir.debug.xcconfig"; path = "Target Support Files/Pods-ProtectAir/Pods-ProtectAir.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,7 +117,7 @@
 				1961A1262702B2CE009D4557 /* Format */,
 				1956637E26E0F2E20018E62E /* Location */,
 				1956638026E0F2E80018E62E /* Api */,
-				1956637F26E0F2E30018E62E /* ViewModel */,
+				19D83A45277BFE63007790D9 /* ViewModel */,
 				1956637D26E0F2E00018E62E /* Setting */,
 				1956637526E0E2CC0018E62E /* Info.plist */,
 			);
@@ -144,16 +144,6 @@
 			path = Location;
 			sourceTree = "<group>";
 		};
-		1956637F26E0F2E30018E62E /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				192AA85726E396830087E27C /* FetchData.swift */,
-				197087CB26EEE11F00AFC458 /* RaspiDataPasing.swift */,
-			);
-			name = ViewModel;
-			path = "New Group1/ViewModel";
-			sourceTree = "<group>";
-		};
 		1956638026E0F2E80018E62E /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,9 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				192AA85B26E3B2420087E27C /* WeatherTableViewCell.swift */,
-				1975341226E4F91B00513BB1 /* RaspiDustTableViewCell.swift */,
+				1975341226E4F91B00513BB1 /* FirstDustTableViewCell.swift */,
 				196D5E2327257534009D4074 /* SecondDustTableViewCell.swift */,
-				19839C6726EDF073005A131A /* DustTableViewCell.swift */,
+				19839C6726EDF073005A131A /* ApiDustTableViewCell.swift */,
 				193AD93F272D961A00EEB8FB /* MotorTableViewCell.swift */,
 			);
 			path = Cell;
@@ -201,6 +191,15 @@
 				1956636926E0E2CB0018E62E /* SceneDelegate.swift */,
 			);
 			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		19D83A45277BFE63007790D9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				19D83A46277BFE63007790D9 /* FetchData.swift */,
+				19D83A47277BFE63007790D9 /* RaspiDataPasing.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4BFD91479B6D0AC717427418 /* Frameworks */ = {
@@ -336,25 +335,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				192AA85826E396830087E27C /* FetchData.swift in Sources */,
 				192AA85C26E3B2420087E27C /* WeatherTableViewCell.swift in Sources */,
 				1956637C26E0E7ED0018E62E /* MainViewController.swift in Sources */,
 				196D5E2427257534009D4074 /* SecondDustTableViewCell.swift in Sources */,
-				19839C6826EDF073005A131A /* DustTableViewCell.swift in Sources */,
+				19839C6826EDF073005A131A /* ApiDustTableViewCell.swift in Sources */,
 				1965377B26EE16BB0018BA7D /* TabBarController.swift in Sources */,
 				19B869AB26E0FDB4004BFBC5 /* RaspData.swift in Sources */,
 				19B869A926E0FDA8004BFBC5 /* Weather.swift in Sources */,
 				193AD93E272D739100EEB8FB /* MotorViewController.swift in Sources */,
 				1975341526E4F94300513BB1 /* DustMainViewController.swift in Sources */,
-				1975341326E4F91B00513BB1 /* RaspiDustTableViewCell.swift in Sources */,
+				1975341326E4F91B00513BB1 /* FirstDustTableViewCell.swift in Sources */,
 				1902BB6426E23AD000147F77 /* Location.swift in Sources */,
-				197087CC26EEE11F00AFC458 /* RaspiDataPasing.swift in Sources */,
 				19B869A726E0FD93004BFBC5 /* ApiError.swift in Sources */,
 				1956636826E0E2CB0018E62E /* AppDelegate.swift in Sources */,
 				193AD940272D961A00EEB8FB /* MotorTableViewCell.swift in Sources */,
 				1961A1282702B2F3009D4557 /* Formatter.swift in Sources */,
 				1956636A26E0E2CB0018E62E /* SceneDelegate.swift in Sources */,
+				19D83A48277BFE63007790D9 /* FetchData.swift in Sources */,
 				19A4B38D277AAF0B0050258A /* NotificationName.swift in Sources */,
+				19D83A49277BFE63007790D9 /* RaspiDataPasing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
