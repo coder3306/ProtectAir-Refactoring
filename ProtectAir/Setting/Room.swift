@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-struct RaspData: Codable{
+struct Room: Codable{
     struct Result: Codable {
         let sensor: String
         let collect_time: String
@@ -12,7 +12,7 @@ struct RaspData: Codable{
     let result: [Result]
 }
 
-struct SecondRaspData: Codable{
+struct SRoom: Codable{
     struct Result: Codable {
         let sensor: String
         let collect_time: String

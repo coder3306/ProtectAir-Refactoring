@@ -6,6 +6,17 @@
 //
 
 import Foundation
+import RxSwift
+import RxAlamofire
 
 class SensorViewModel {
+    static let shared = SensorViewModel()
+    private let bag = DisposeBag()
+    
+    func requestData(_ url:String) {
+        requestJSON(.get, url)
+            .subscribe(onNext: { res, json in
+                print(json)
+            }).disposed(by: bag)
+    }
 }

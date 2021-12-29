@@ -8,9 +8,10 @@
 import UIKit
 
 class DustMainViewController: UIViewController {
-    var raspiF: RaspData?
-    var raspiS: SecondRaspData?
+    var raspiF: Room?
+    var raspiS: SRoom?
     var isSensorTrigger: Bool = true
+    let urlStr = "http://192.168.0.15/insert4.php"
     @IBOutlet weak var dustTableView: UITableView!
 
     override func viewDidLoad() {
@@ -18,6 +19,8 @@ class DustMainViewController: UIViewController {
         dustTableView.backgroundColor = .clear
         dustTableView.separatorStyle = .none
         dustTableView.rowHeight = 200
+        
+        SensorViewModel.shared.requestData(urlStr)
     }
     
     override func viewWillAppear(_ animated: Bool) {

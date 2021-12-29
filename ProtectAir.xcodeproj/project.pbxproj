@@ -29,7 +29,7 @@
 		19A4B38D277AAF0B0050258A /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A4B38C277AAF0B0050258A /* NotificationName.swift */; };
 		19B869A726E0FD93004BFBC5 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A626E0FD93004BFBC5 /* ApiError.swift */; };
 		19B869A926E0FDA8004BFBC5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A826E0FDA8004BFBC5 /* Weather.swift */; };
-		19B869AB26E0FDB4004BFBC5 /* RaspData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869AA26E0FDB4004BFBC5 /* RaspData.swift */; };
+		19B869AB26E0FDB4004BFBC5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869AA26E0FDB4004BFBC5 /* Room.swift */; };
 		19D83A48277BFE63007790D9 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D83A46277BFE63007790D9 /* FetchData.swift */; };
 		19D83A49277BFE63007790D9 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D83A47277BFE63007790D9 /* Network.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +55,7 @@
 		196D5E2327257534009D4074 /* SecondDustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondDustTableViewCell.swift; sourceTree = "<group>"; };
 		197161E0277B3A8A00AB0EE6 /* Pods_ProtectAir.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ProtectAir.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1971CD7C277C6F6E003BF48A /* SensorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorViewModel.swift; sourceTree = "<group>"; };
+		1971CD7E277C74EF003BF48A /* Network.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Network.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1975341226E4F91B00513BB1 /* FirstDustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstDustTableViewCell.swift; sourceTree = "<group>"; };
 		1975341426E4F94300513BB1 /* DustMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustMainViewController.swift; sourceTree = "<group>"; };
 		19839C6726EDF073005A131A /* ApiDustTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiDustTableViewCell.swift; sourceTree = "<group>"; };
@@ -62,7 +63,7 @@
 		19A4B38C277AAF0B0050258A /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		19B869A626E0FD93004BFBC5 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		19B869A826E0FDA8004BFBC5 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		19B869AA26E0FDB4004BFBC5 /* RaspData.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = RaspData.swift; sourceTree = "<group>"; };
+		19B869AA26E0FDB4004BFBC5 /* Room.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		19D83A46277BFE63007790D9 /* FetchData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
 		19D83A47277BFE63007790D9 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		6CEED6AA31D7234FCB426322 /* Pods-ProtectAir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtectAir.release.xcconfig"; path = "Target Support Files/Pods-ProtectAir/Pods-ProtectAir.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,7 +132,7 @@
 			children = (
 				19B869A626E0FD93004BFBC5 /* ApiError.swift */,
 				19B869A826E0FDA8004BFBC5 /* Weather.swift */,
-				19B869AA26E0FDB4004BFBC5 /* RaspData.swift */,
+				19B869AA26E0FDB4004BFBC5 /* Room.swift */,
 				19A4B38C277AAF0B0050258A /* NotificationName.swift */,
 				191A7A93277BF01D00360826 /* KeyList.plist */,
 			);
@@ -151,6 +152,7 @@
 			children = (
 				194ABE2726E4A22C009A7651 /* test.playground */,
 				19A4B38B277AA1810050258A /* Location.playground */,
+				1971CD7E277C74EF003BF48A /* Network.playground */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -344,7 +346,7 @@
 				196D5E2427257534009D4074 /* SecondDustTableViewCell.swift in Sources */,
 				19839C6826EDF073005A131A /* ApiDustTableViewCell.swift in Sources */,
 				1965377B26EE16BB0018BA7D /* TabBarController.swift in Sources */,
-				19B869AB26E0FDB4004BFBC5 /* RaspData.swift in Sources */,
+				19B869AB26E0FDB4004BFBC5 /* Room.swift in Sources */,
 				19B869A926E0FDA8004BFBC5 /* Weather.swift in Sources */,
 				193AD93E272D739100EEB8FB /* MotorViewController.swift in Sources */,
 				1975341526E4F94300513BB1 /* DustMainViewController.swift in Sources */,
