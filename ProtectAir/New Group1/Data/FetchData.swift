@@ -111,7 +111,7 @@ extension FetchData{
     }
     
     private func fetchWeather(location: CLLocation){
-        let urlStr = "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=a3d53c4b7a0f558bcce4af29031a28e4&units=metric&lang=en"
+        let urlStr = "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=\(apiWeatherKey)&units=metric&lang=en"
         //2. Observable로 오는 데이터를 받아서 처리하는 방법
         downloadJSON(urlStr)
             //.debug()
@@ -129,9 +129,9 @@ extension FetchData{
         }.disposed(by: bag)
     }
     private func fetchDust(location: CLLocation){
-        let urlStr = "https://api.openweathermap.org/data/2.5/air_pollution?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=ebb2a9c22933e32d59f761c0c9fc6096"
+        let urlStr = "https://api.openweathermap.org/data/2.5/air_pollution?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&appid=\(apiDustKey)"
         downloadDustJSON(urlStr)
-            //.debug()
+            .debug()
             .subscribe{ [weak self] event in
                 switch event{
                 case let .next(json):
@@ -147,5 +147,35 @@ extension FetchData{
             }
         }.disposed(by: bag)
         
+    }
+    
+    private var apiWeatherKey: String{
+        get {
+            guard let filePath = Bundle.main.path(forResource: "KeyList", ofType: "plist") else {
+                fatalError()
+            }
+            
+            let plist = NSDictionary(contentsOfFile: filePath)
+            
+            guard let value = plist?.object(forKey: "OPENWEATHERMAP_KEY") as? String else {
+                fatalError()
+            }
+            return value
+        }
+    }
+    
+    private var apiDustKey: String{
+        get {
+            guard let filePath = Bundle.main.path(forResource: "KeyList", ofType: "plist") else {
+                fatalError()
+            }
+            
+            let plist = NSDictionary(contentsOfFile: filePath)
+            
+            guard let value = plist?.object(forKey: "OPENWEATHERDUSTMAP_KEY") as? String else {
+                fatalError()
+            }
+            return value
+        }
     }
 }
