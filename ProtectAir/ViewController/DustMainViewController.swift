@@ -6,21 +6,47 @@
 //
 
 import UIKit
+import RxSwift
+import RxAlamofire
 
 class DustMainViewController: UIViewController {
     var raspiF: Room?
     var raspiS: SRoom?
     var isSensorTrigger: Bool = true
+    private let bag = DisposeBag()
+    
+    var sensorObservable = BehaviorSubject<[raspiF]>(value: [])
     let urlStr = "http://192.168.0.15/insert4.php"
     @IBOutlet weak var dustTableView: UITableView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         dustTableView.backgroundColor = .clear
         dustTableView.separatorStyle = .none
         dustTableView.rowHeight = 200
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        SensorViewModel.shared.requestData(urlStr)
+        requestJSON(.get, urlStr)
+            .debug()
+            .subscribe(onNext: { res, json in
+                if let json = json as? [String: AnyObject]{
+                    if let jsonf = json["result"]{
+                        for item in jsonf as! [AnyObject]{
+                            let time = item["collect_time"]!
+                            let name = item["sensor"]!
+                            let value1 = item["value1"]!
+                            let value2 = item["value2"]!
+                            
+                        }
+                    }
+                }
+            }, onError: { error in
+                print(error)
+            }).disposed(by: bag)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -10,13 +10,20 @@ import RxSwift
 import RxAlamofire
 
 class SensorViewModel {
-    static let shared = SensorViewModel()
-    private let bag = DisposeBag()
-    
-    func requestData(_ url:String) {
-        requestJSON(.get, url)
-            .subscribe(onNext: { res, json in
-                print(json)
-            }).disposed(by: bag)
-    }
+//    static let shared = SensorViewModel()
+//    private let bag = DisposeBag()
+//    func requestData(_ url:String) -> Observable<String?> {
+//        return Observable.create() { f in
+//            requestJSON(.get, url)
+//                .subscribe(onNext: { res, json in
+//                    let jsonFetch = String(data: json as! Data, encoding: .utf8)
+//
+//                    f.onNext(json as? String)
+//                })
+//        }
+//        return Disposables.create()
+//        requestJSON(.get, url)
+//            .subscribe(onNext: { res, json in
+//                let jsonFetch = String(data: json, encoding: .utf8)
+//        })
 }

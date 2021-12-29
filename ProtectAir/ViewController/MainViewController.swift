@@ -10,13 +10,12 @@ import CoreLocation
 import RxCoreLocation
 import RxSwift
 
-class MainViewController: UIViewController, UITableViewDelegate{
-    
+private let bag = DisposeBag()
+
+class MainViewController: UIViewController{
     //MARK: - InterfaceBuilder Links
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var weatherTableView: UITableView!
-    
-    private let bag = DisposeBag()
     
     //MARK: - UI Logic
     override func viewDidLayoutSubviews() {
@@ -41,9 +40,7 @@ class MainViewController: UIViewController, UITableViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         initRefresh()
-        
-        weatherTableView.delegate = self
-        weatherTableView.dataSource = self
+
         Location.shared.updateLocation()
         updateLocationLabel()
         downloadJSONWeather()
