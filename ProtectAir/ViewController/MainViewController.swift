@@ -3,7 +3,7 @@
 //  ProtectAir
 //
 //  Created by 정성규 on 2021/09/02.
-//
+//  ViewController
 
 import UIKit
 import CoreLocation
@@ -11,44 +11,72 @@ import RxCoreLocation
 import RxSwift
 
 class MainViewController: UIViewController, UITableViewDelegate{
+    
+    //MARK: - InterfaceBuilder Links
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var weatherTableView: UITableView!
     
     private let bag = DisposeBag()
-    var topInset = CGFloat(0.0)
     
+    //MARK: - UI Logic
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+        var topInset = CGFloat(0.0)
         topInset = 50.0
+        
         var inset = weatherTableView.contentInset
         inset.top = topInset
+        
         weatherTableView.contentInset = inset
+        weatherTableView.alpha = 0.0
+        weatherTableView.backgroundColor = .clear
+        weatherTableView.separatorStyle = .none
+        weatherTableView.showsVerticalScrollIndicator = false
+        weatherTableView.rowHeight = 350
+        
+        locationLabel.textColor = .white
     }
     
+    //MARK: - ViewController Life-Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initRefresh()
         
         weatherTableView.delegate = self
         weatherTableView.dataSource = self
-        
-        weatherTableView.alpha = 0.0
-        weatherTableView.backgroundColor = .clear
-        weatherTableView.separatorStyle = .none
-        weatherTableView.showsVerticalScrollIndicator = false
-        locationLabel.textColor = .white
-        weatherTableView.rowHeight = 350
-        
         Location.shared.updateLocation()
+        updateLocationLabel()
+        downloadJSONWeather()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        removeNotification()
+    }
+    
+    //MARK: - Bisness Logic
+    private func initRefresh() {
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(updateUI(refresh:)), for: .valueChanged)
+        refresh.attributedTitle = NSAttributedString(string: "새로고침")
         
+        if #available(iOS 10.0, *){
+            weatherTableView.refreshControl = refresh
+        } else {
+            weatherTableView.addSubview(refresh)
+        }
+    }
+    
+    private func updateLocationLabel(){
         Location.shared.manager.rx
             .placemark
             .subscribe(onNext: { [weak self] placemark in
                 guard let name = placemark.name else { return }
                 self?.locationLabel.text = name
             }).disposed(by: bag)
-        
+    }
+    
+    private func downloadJSONWeather(){
         NotificationCenter.default.rx.notification(.fetchWeather)
             .asDriver(onErrorRecover: {_ in .never()})
             .drive(onNext:{ [weak self] _ in
@@ -57,9 +85,13 @@ class MainViewController: UIViewController, UITableViewDelegate{
             }).disposed(by: bag)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        removeNotification()
+    @objc private func updateUI(refresh: UIRefreshControl){
+        refresh.endRefreshing()
+        weatherTableView.reloadData()
+    }
+    
+    private func removeNotification() {
+        NotificationCenter.default.removeObserver(self, name: .fetchWeather, object: nil)
     }
 }
 
@@ -177,29 +209,5 @@ extension MainViewController: UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
-    }
-}
-
-extension MainViewController{
-    
-    private func initRefresh() {
-        let refresh = UIRefreshControl()
-        refresh.addTarget(self, action: #selector(updateUI(refresh:)), for: .valueChanged)
-        refresh.attributedTitle = NSAttributedString(string: "새로고침")
-        
-        if #available(iOS 10.0, *){
-            weatherTableView.refreshControl = refresh
-        } else {
-            weatherTableView.addSubview(refresh)
-        }
-    }
-    
-    @objc private func updateUI(refresh: UIRefreshControl){
-        refresh.endRefreshing()
-        weatherTableView.reloadData()
-    }
-    
-    private func removeNotification() {
-        NotificationCenter.default.removeObserver(self, name: .fetchWeather, object: nil)
     }
 }
