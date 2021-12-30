@@ -31,7 +31,6 @@
 		19B869A926E0FDA8004BFBC5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A826E0FDA8004BFBC5 /* Weather.swift */; };
 		19B869AB26E0FDB4004BFBC5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869AA26E0FDB4004BFBC5 /* Room.swift */; };
 		19D83A48277BFE63007790D9 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D83A46277BFE63007790D9 /* FetchData.swift */; };
-		19D83A49277BFE63007790D9 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D83A47277BFE63007790D9 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +64,6 @@
 		19B869A826E0FDA8004BFBC5 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		19B869AA26E0FDB4004BFBC5 /* Room.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		19D83A46277BFE63007790D9 /* FetchData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
-		19D83A47277BFE63007790D9 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		6CEED6AA31D7234FCB426322 /* Pods-ProtectAir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtectAir.release.xcconfig"; path = "Target Support Files/Pods-ProtectAir/Pods-ProtectAir.release.xcconfig"; sourceTree = "<group>"; };
 		9DDCF01D318F6E4F260F7682 /* Pods-ProtectAir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtectAir.debug.xcconfig"; path = "Target Support Files/Pods-ProtectAir/Pods-ProtectAir.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				19D83A46277BFE63007790D9 /* FetchData.swift */,
-				19D83A47277BFE63007790D9 /* Network.swift */,
 				1971CD7C277C6F6E003BF48A /* SensorViewModel.swift */,
 			);
 			path = ViewModel;
@@ -359,7 +356,6 @@
 				1956636A26E0E2CB0018E62E /* SceneDelegate.swift in Sources */,
 				19D83A48277BFE63007790D9 /* FetchData.swift in Sources */,
 				19A4B38D277AAF0B0050258A /* NotificationName.swift in Sources */,
-				19D83A49277BFE63007790D9 /* Network.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

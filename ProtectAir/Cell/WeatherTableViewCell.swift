@@ -9,8 +9,6 @@ import UIKit
 
 class WeatherTableViewCell: UITableViewCell {
     
-    static let identifier = "WeatherTableViewCell"
-    
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var tempMiniMaxiLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!

@@ -20,6 +20,7 @@ class MotorViewController: UIViewController {
 //            while self.isMotorTrigger == true{
 //                RaspiDataPasing.shared.fetchMotorForce(){ [weak self] (result) in
 //                    switch result {
+        
 //                    case .success(let motorData):
 //                        self?.raspiMotorData = motorData
 //                    default:

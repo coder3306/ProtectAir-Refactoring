@@ -8,12 +8,7 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setTabbarBackgroundColor()
-    }
-    
+    static let shared = TabBarController()
     func setTabbarBackgroundColor() {
         tabBar.barTintColor = .black
         tabBar.tintColor = .white

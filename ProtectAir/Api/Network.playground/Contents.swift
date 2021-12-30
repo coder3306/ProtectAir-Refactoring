@@ -26,7 +26,9 @@ requestJSON(.get, urlStr)
                     let name = item["sensor"]!
                     let value1 = item["value1"]!
                     let value2 = item["value2"]!
-                    
+                    if let value = value1{
+                        print(value)
+                    }
                 }
             }
         }
