@@ -2,14 +2,10 @@ import Foundation
 import UIKit
 
 struct Room: Codable{
-    struct Result: Codable {
-        let sensor: String
-        let collect_time: String
-        let value1: String
-        let value2: String
-    }
-    
-    let result: [Result]
+   let sensor: String
+   let collect_time: String
+   let value1: String
+   let value2: String
 }
 
 struct SRoom: Codable{

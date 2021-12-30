@@ -548,10 +548,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="1P5-zH-loH" id="C1f-Hx-ghY"/>
-                                    <outlet property="delegate" destination="1P5-zH-loH" id="uy2-12-GGc"/>
-                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PMS7003 Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XzK-9c-g3K">
                                 <rect key="frame" x="138" y="44" width="138.5" height="26.5"/>
@@ -561,6 +557,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2e-ex-Kv9">
+                                <rect key="frame" x="347" y="42" width="67" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="refresh:" destination="1P5-zH-loH" eventType="touchUpInside" id="iHE-Vn-ENI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="p1q-h1-gug"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -575,11 +579,14 @@
                             <constraint firstItem="p1q-h1-gug" firstAttribute="trailing" secondItem="iRK-X7-haS" secondAttribute="trailing" id="Yqm-ZU-5nC"/>
                             <constraint firstItem="XzK-9c-g3K" firstAttribute="centerX" secondItem="p1q-h1-gug" secondAttribute="centerX" id="by0-HX-oNK"/>
                             <constraint firstItem="Okv-r8-ude" firstAttribute="bottom" secondItem="p1q-h1-gug" secondAttribute="bottom" id="hFE-sQ-6gc"/>
+                            <constraint firstItem="p1q-h1-gug" firstAttribute="top" secondItem="u2e-ex-Kv9" secondAttribute="top" constant="2" id="hc3-E9-gxO"/>
+                            <constraint firstItem="p1q-h1-gug" firstAttribute="trailing" secondItem="u2e-ex-Kv9" secondAttribute="trailing" id="oJ1-p0-24m"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Sensor" image="icons8-전기-센서-30" id="Qkw-ib-bJK"/>
                     <connections>
                         <outlet property="dustTableView" destination="iRK-X7-haS" id="Uvr-vo-bq5"/>
+                        <outlet property="tableView" destination="iRK-X7-haS" id="XAl-oh-dp0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moI-sg-Asw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
