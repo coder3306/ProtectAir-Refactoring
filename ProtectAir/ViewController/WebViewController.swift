@@ -20,8 +20,18 @@ class WebViewController: UIViewController {
     
     private let bag = DisposeBag()
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        view.backgroundColor = .clear
+        dustButton.tintColor = .white
+        weatherButton.tintColor = .white
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let normalSetting = URL(string: "https://m.airkorea.or.kr/info/behaviorInfo1")
+        let normalURL = URLRequest(url: normalSetting!)
+        webView.load(normalURL)
         setupWeb()
     }
     
@@ -68,7 +78,7 @@ class WebViewController: UIViewController {
     }
     
     private func dustWebView() {
-        let dustUrl = URL(string: "https://www.airkorea.or.kr/index")
+        let dustUrl = URL(string: "https://m.airkorea.or.kr/info/envSatelliteImage")
         let dustUrlRequest = URLRequest(url: dustUrl!)
         webView.load(dustUrlRequest)
     }
