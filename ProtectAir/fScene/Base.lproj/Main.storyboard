@@ -678,7 +678,7 @@
             </objects>
             <point key="canvasLocation" x="676.81159420289862" y="1436.3839285714284"/>
         </scene>
-        <!--WeatherRader-->
+        <!--WeatherRadar-->
         <scene sceneID="w8I-mz-lx8">
             <objects>
                 <viewController id="fSF-zU-toK" customClass="WebViewController" customModule="ProtectAir" customModuleProvider="target" sceneMemberID="viewController">
@@ -731,7 +731,7 @@
                             <constraint firstItem="J52-MC-Kct" firstAttribute="leading" secondItem="6iQ-Pt-CEa" secondAttribute="leading" id="mHL-1u-ace"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="WeatherRader" image="antenna.radiowaves.left.and.right" catalog="system" id="Xhr-15-asA"/>
+                    <tabBarItem key="tabBarItem" title="WeatherRadar" image="antenna.radiowaves.left.and.right" catalog="system" id="Xhr-15-asA"/>
                     <connections>
                         <outlet property="dustButton" destination="hJ0-r2-lRS" id="tDJ-Z1-kCl"/>
                         <outlet property="progressBar" destination="J52-MC-Kct" id="yWL-Jc-Av5"/>
