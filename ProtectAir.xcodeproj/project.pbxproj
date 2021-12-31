@@ -31,6 +31,7 @@
 		19B869A926E0FDA8004BFBC5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869A826E0FDA8004BFBC5 /* Weather.swift */; };
 		19B869AB26E0FDB4004BFBC5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B869AA26E0FDB4004BFBC5 /* Room.swift */; };
 		19D83A48277BFE63007790D9 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D83A46277BFE63007790D9 /* FetchData.swift */; };
+		19E21DDA277E966800DCC3CF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E21DD9277E966800DCC3CF /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		19B869A826E0FDA8004BFBC5 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		19B869AA26E0FDB4004BFBC5 /* Room.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		19D83A46277BFE63007790D9 /* FetchData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
+		19E21DD9277E966800DCC3CF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		6CEED6AA31D7234FCB426322 /* Pods-ProtectAir.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtectAir.release.xcconfig"; path = "Target Support Files/Pods-ProtectAir/Pods-ProtectAir.release.xcconfig"; sourceTree = "<group>"; };
 		9DDCF01D318F6E4F260F7682 /* Pods-ProtectAir.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtectAir.debug.xcconfig"; path = "Target Support Files/Pods-ProtectAir/Pods-ProtectAir.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +184,7 @@
 				1975341426E4F94300513BB1 /* DustMainViewController.swift */,
 				1965377A26EE16BB0018BA7D /* TabBarController.swift */,
 				193AD93D272D739100EEB8FB /* MotorViewController.swift */,
+				19E21DD9277E966800DCC3CF /* WebViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				192AA85C26E3B2420087E27C /* WeatherTableViewCell.swift in Sources */,
 				1956637C26E0E7ED0018E62E /* MainViewController.swift in Sources */,
 				1971CD7D277C6F6E003BF48A /* SensorViewModel.swift in Sources */,
+				19E21DDA277E966800DCC3CF /* WebViewController.swift in Sources */,
 				196D5E2427257534009D4074 /* SecondDustTableViewCell.swift in Sources */,
 				19839C6826EDF073005A131A /* ApiDustTableViewCell.swift in Sources */,
 				1965377B26EE16BB0018BA7D /* TabBarController.swift in Sources */,

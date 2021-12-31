@@ -557,14 +557,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2e-ex-Kv9">
-                                <rect key="frame" x="347" y="42" width="67" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="refresh:" destination="1P5-zH-loH" eventType="touchUpInside" id="iHE-Vn-ENI"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="p1q-h1-gug"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -579,8 +571,6 @@
                             <constraint firstItem="p1q-h1-gug" firstAttribute="trailing" secondItem="iRK-X7-haS" secondAttribute="trailing" id="Yqm-ZU-5nC"/>
                             <constraint firstItem="XzK-9c-g3K" firstAttribute="centerX" secondItem="p1q-h1-gug" secondAttribute="centerX" id="by0-HX-oNK"/>
                             <constraint firstItem="Okv-r8-ude" firstAttribute="bottom" secondItem="p1q-h1-gug" secondAttribute="bottom" id="hFE-sQ-6gc"/>
-                            <constraint firstItem="p1q-h1-gug" firstAttribute="top" secondItem="u2e-ex-Kv9" secondAttribute="top" constant="2" id="hc3-E9-gxO"/>
-                            <constraint firstItem="p1q-h1-gug" firstAttribute="trailing" secondItem="u2e-ex-Kv9" secondAttribute="trailing" id="oJ1-p0-24m"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Sensor" image="icons8-전기-센서-30" id="Qkw-ib-bJK"/>
@@ -688,7 +678,7 @@
             </objects>
             <point key="canvasLocation" x="676.81159420289862" y="1436.3839285714284"/>
         </scene>
-        <!--Item-->
+        <!--WeatherRader-->
         <scene sceneID="w8I-mz-lx8">
             <objects>
                 <viewController id="fSF-zU-toK" sceneMemberID="viewController">
@@ -741,11 +731,11 @@
                             <constraint firstItem="J52-MC-Kct" firstAttribute="leading" secondItem="6iQ-Pt-CEa" secondAttribute="leading" id="mHL-1u-ace"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Xhr-15-asA"/>
+                    <tabBarItem key="tabBarItem" title="WeatherRader" image="antenna.radiowaves.left.and.right" catalog="system" id="Xhr-15-asA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOw-yE-bfX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1807" y="957"/>
+            <point key="canvasLocation" x="-1183" y="940"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="G9c-Le-CgZ">
@@ -758,9 +748,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="1Zv-eT-hb9"/>
+                        <segue destination="fSF-zU-toK" kind="relationship" relationship="viewControllers" id="t7y-Vd-unS"/>
                         <segue destination="1P5-zH-loH" kind="relationship" relationship="viewControllers" id="ovQ-Qf-dSS"/>
                         <segue destination="rcQ-Fe-ib0" kind="relationship" relationship="viewControllers" id="thk-nQ-RT3"/>
-                        <segue destination="fSF-zU-toK" kind="relationship" relationship="viewControllers" id="t7y-Vd-unS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ie-SO-qdQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -770,6 +760,7 @@
     </scenes>
     <resources>
         <image name="03n" width="126.5" height="63"/>
+        <image name="antenna.radiowaves.left.and.right" catalog="system" width="128" height="109"/>
         <image name="background" width="185" height="329"/>
         <image name="cloud.fill" catalog="system" width="128" height="88"/>
         <image name="icons8-전기-센서-30" width="30" height="30"/>

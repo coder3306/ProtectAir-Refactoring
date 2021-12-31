@@ -57,8 +57,4 @@ class DustMainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dustTableView: UITableView!
-    
-    @IBAction func refresh(_ sender: Any) {
-        SensorViewModel.shared.request()
-    }
 }

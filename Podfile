@@ -10,4 +10,5 @@ target 'ProtectAir' do
   pod 'RxCocoa', '6.2.0'
   pod 'RxCoreLocation', '~> 1.5.1'
   pod 'RxAlamofire'
+  pod 'RxWebKit'
 end

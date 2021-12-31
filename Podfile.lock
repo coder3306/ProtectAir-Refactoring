@@ -16,12 +16,16 @@ PODS:
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
+  - RxWebKit (2.0.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
 
 DEPENDENCIES:
   - RxAlamofire
   - RxCocoa (= 6.2.0)
   - RxCoreLocation (~> 1.5.1)
   - RxSwift (= 6.2.0)
+  - RxWebKit
 
 SPEC REPOS:
   trunk:
@@ -31,6 +35,7 @@ SPEC REPOS:
     - RxCoreLocation
     - RxRelay
     - RxSwift
+    - RxWebKit
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
@@ -39,7 +44,8 @@ SPEC CHECKSUMS:
   RxCoreLocation: a78f4cbf32a4c6c47ecccbe22d41ff93b7e8c099
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  RxWebKit: f1d621d914e230f8aff65a7f03c969dced8915eb
 
-PODFILE CHECKSUM: b2a7fe295c4ab32cc87497ac36704ae4b3ccd2c6
+PODFILE CHECKSUM: b370c95c4c20d0e17285c46615615d46a33c6af9
 
 COCOAPODS: 1.10.1

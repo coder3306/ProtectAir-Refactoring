@@ -24,11 +24,9 @@ class SecondDustTableViewCell: UITableViewCell {
         sPm25Label.textColor = .white
         sPm100Label.textColor = .white
         sNameLabel.textColor = .white
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
 }

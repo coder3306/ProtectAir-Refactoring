@@ -19,6 +19,5 @@ extension Double { //더블에 확장해서 .으로 쉽게 사용하게 만듬
     var temperatureString: String {
         let temp = Measurement<UnitTemperature>(value: self, unit: .celsius) //위의 MesurementFormatter()이기 때문에 Mesurement형식으로 만들어줘야 하는것 같다.
         return temperatureFormatter.string(from: temp)
-        
     }
 }
