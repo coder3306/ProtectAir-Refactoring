@@ -695,14 +695,57 @@
                     <view key="view" contentMode="scaleToFill" id="WwF-vj-oAU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWU-Tu-Aib">
+                                <rect key="frame" x="0.0" y="44" width="414" height="725"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yT4-ah-QhG">
+                                <rect key="frame" x="0.0" y="773" width="414" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fo6-3T-fi2">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJ0-r2-lRS">
+                                        <rect key="frame" x="207" y="0.0" width="207" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="l1e-qS-2L2"/>
+                                </constraints>
+                            </stackView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="J52-MC-Kct">
+                                <rect key="frame" x="0.0" y="769" width="414" height="4"/>
+                            </progressView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6iQ-Pt-CEa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VWU-Tu-Aib" firstAttribute="top" secondItem="6iQ-Pt-CEa" secondAttribute="top" id="2EZ-OZ-hX3"/>
+                            <constraint firstItem="J52-MC-Kct" firstAttribute="top" secondItem="VWU-Tu-Aib" secondAttribute="bottom" id="30X-oH-GK4"/>
+                            <constraint firstItem="yT4-ah-QhG" firstAttribute="leading" secondItem="6iQ-Pt-CEa" secondAttribute="leading" id="5lm-Xy-fbg"/>
+                            <constraint firstItem="yT4-ah-QhG" firstAttribute="top" secondItem="J52-MC-Kct" secondAttribute="bottom" id="ESa-4Q-RmH"/>
+                            <constraint firstItem="6iQ-Pt-CEa" firstAttribute="trailing" secondItem="yT4-ah-QhG" secondAttribute="trailing" id="L2E-6b-TFc"/>
+                            <constraint firstItem="6iQ-Pt-CEa" firstAttribute="trailing" secondItem="VWU-Tu-Aib" secondAttribute="trailing" id="TBX-Gm-2JA"/>
+                            <constraint firstItem="6iQ-Pt-CEa" firstAttribute="bottom" secondItem="yT4-ah-QhG" secondAttribute="bottom" id="Yce-Hu-LYf"/>
+                            <constraint firstItem="6iQ-Pt-CEa" firstAttribute="trailing" secondItem="J52-MC-Kct" secondAttribute="trailing" id="cou-yw-dGc"/>
+                            <constraint firstItem="VWU-Tu-Aib" firstAttribute="leading" secondItem="6iQ-Pt-CEa" secondAttribute="leading" id="lKb-Hj-RpR"/>
+                            <constraint firstItem="J52-MC-Kct" firstAttribute="leading" secondItem="6iQ-Pt-CEa" secondAttribute="leading" id="mHL-1u-ace"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Xhr-15-asA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOw-yE-bfX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1071" y="776"/>
+            <point key="canvasLocation" x="-1807" y="957"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="G9c-Le-CgZ">
