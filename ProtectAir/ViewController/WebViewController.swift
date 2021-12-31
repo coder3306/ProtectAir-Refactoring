@@ -22,7 +22,7 @@ class WebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupWeb()
     }
     
     private func setupWeb(){
@@ -51,14 +51,25 @@ class WebViewController: UIViewController {
             .disposed(by: bag)
         
         weatherButton.rx.tap
-            .bind{
-                print("asdf")
+            .bind{[weak self] _ in
+                self?.weatherWebView()
             }.disposed(by: bag)
         
         dustButton.rx.tap
-            .bind{
-                print("asdf")
+            .bind{[weak self] _ in
+                self?.dustWebView()
             }.disposed(by: bag)
-        
+    }
+    
+    private func weatherWebView() {
+        let weatherUrl = URL(string: "https://www.weather.go.kr/w/image/radar.do")
+        let weatherUrlRequest = URLRequest(url: weatherUrl!)
+        webView.load(weatherUrlRequest)
+    }
+    
+    private func dustWebView() {
+        let dustUrl = URL(string: "https://www.airkorea.or.kr/index")
+        let dustUrlRequest = URLRequest(url: dustUrl!)
+        webView.load(dustUrlRequest)
     }
 }
