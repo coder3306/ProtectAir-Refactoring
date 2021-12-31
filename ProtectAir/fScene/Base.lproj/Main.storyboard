@@ -681,7 +681,7 @@
         <!--WeatherRader-->
         <scene sceneID="w8I-mz-lx8">
             <objects>
-                <viewController id="fSF-zU-toK" sceneMemberID="viewController">
+                <viewController id="fSF-zU-toK" customClass="WebViewController" customModule="ProtectAir" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WwF-vj-oAU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -732,6 +732,12 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="WeatherRader" image="antenna.radiowaves.left.and.right" catalog="system" id="Xhr-15-asA"/>
+                    <connections>
+                        <outlet property="dustButton" destination="hJ0-r2-lRS" id="tDJ-Z1-kCl"/>
+                        <outlet property="progressBar" destination="J52-MC-Kct" id="yWL-Jc-Av5"/>
+                        <outlet property="weatherButton" destination="Fo6-3T-fi2" id="JbZ-tT-ntL"/>
+                        <outlet property="webView" destination="VWU-Tu-Aib" id="ttr-o2-DJ8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOw-yE-bfX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
